@@ -15,9 +15,13 @@ from specter.graph_loader import ActionGraphLoader
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Run bounded Specter courtroom feedback over a Dullahan-compatible action graph."
+        description="Run bounded Specter courtroom feedback over an action graph trace."
     )
-    parser.add_argument("action_graph", type=Path, help="Path to action_graph.json.")
+    parser.add_argument(
+        "action_graph",
+        type=Path,
+        help="Path to a Specter-compatible action_graph.json trace.",
+    )
     parser.add_argument(
         "--repo-root",
         default=Path.cwd(),

@@ -1,112 +1,257 @@
 # Specter
 
-Specter is a validation layer for expert SLMs. It conducts debate rounds with
-prosecutor, defense, judge, and court-reporter agents to validate responses and
-query delegations inside an agentic action graph trace, then produces validation
+Specter is a validation and steering layer for expert small language models
+(SLMs). It takes a structured trace from an agent, router, workflow, evaluation
+run, or plain batch inference job; turns each answered step into a validation
+target; conducts bounded debate rounds between prosecutor, defense, judge, and
+court-reporter roles; then converts the resulting feedback into activation-level
+steering artifacts.
+
+The core idea is simple: a critique should not only be appended to the next
+prompt and hoped for. Specter uses the critique to build contrastive feedback,
+localizes where that feedback activates in the expert model with TransformerLens,
+and emits reversible hook specs that can steer a repeated inference at a chosen
+residual-stream layer and token position. This gives researchers and builders a
+more precise control surface than contextual feedback that can get diluted inside
+a long prompt.
+
+Specter is most useful when you already have specialist models or specialist
+agents producing answers, and you need a post-hoc validation pass that is
+structured, repeatable, inspectable, and capable of becoming model-internal
 feedback.
 
-Specter is decoupled from Dullahan. Dullahan can produce the `action_graph.json`
-trace, but Specter owns the validation, localization, feedback-plan, and hooked
-inference workflow as a standalone tool.
+## How It Works
 
-The distinctive idea is to avoid relying only on more prompt text. Specter uses
-TransformerLens to identify the layer and token position where debate-summary
-feedback activates inside the expert SLM, then reruns inference with feedback
-injected at that residual-stream location. The goal is sharper control over the
-model's inference step than contextual feedback that can dilute inside the
-model's existing context.
-
-```text
-Dullahan action graph or compatible trace
-  -> courtroom validation
-  -> TransformerLens localization
-  -> feedback plan
-  -> activation hooks
-  -> steered expert inference
+```mermaid
+flowchart TD
+    A["Your system emits a JSON action graph trace"] --> B["Specter loads answered nodes as validation targets"]
+    B --> C["Prosecutor drafts contentions for each target"]
+    C --> D["Defense responds to each contention"]
+    D --> E["Prosecutor rebuts the defense"]
+    E --> F["Judge scores prosecution strength"]
+    F --> G["Court reporter compresses a running debate summary"]
+    G --> H{"More rounds?"}
+    H -- "yes" --> D
+    H -- "no" --> I["Final feedback items"]
+    I --> J["Contrast pairs from target answer vs debate feedback"]
+    J --> K["TransformerLens or deterministic localization"]
+    K --> L["Feedback plan: layer, token policy, vector ref, scale"]
+    L --> M["Activation hook specs"]
+    M --> N["Repeat expert inference with reversible steering hooks"]
 ```
+
+Specter currently exposes the pipeline as four explicit commands:
+
+1. `specter-courtroom`: validate trace targets with debate roles.
+2. `specter-localize-feedback`: convert debate feedback into activation
+   localization artifacts.
+3. `specter-apply-feedback`: materialize feedback-plan items as hook specs.
+4. `specter-run-feedback-hooks`: rerun a compatible TransformerLens model with
+   those hooks.
+
+The deterministic backend lets you test the full artifact flow without a model.
+The TransformerLens backend is for real activation localization and hooked
+inference.
 
 ## Install
 
-From the Specter repository root:
+From the repository root:
 
 ```bash
 python -m pip install -e ".[dev]"
 ```
 
-For real TransformerLens localization and hooked inference:
+For TransformerLens localization and hooked generation:
 
 ```bash
 python -m pip install -e ".[dev,transformerlens]"
 ```
 
-This installs:
+Installed CLIs:
 
 ```bash
-specter-courtroom
-specter-localize-feedback
-specter-apply-feedback
-specter-run-feedback-hooks
+specter-courtroom --help
+specter-localize-feedback --help
+specter-apply-feedback --help
+specter-run-feedback-hooks --help
 ```
 
-## Input Contract
+## What Input Does Specter Take?
 
-Specter consumes Dullahan-compatible action graphs:
-
-```text
-memory/executions/<trace_id>/action_graph.json
-```
-
-The expected schema is:
+Specter consumes a JSON action graph trace. The trace can come from any project
+as long as it can be distilled into this shape:
 
 ```json
 {
-  "schema": "dullahan.action_graph.v1",
-  "trace_id": "trace:...",
-  "root_query_id": "query:...",
-  "nodes": [],
-  "edges": []
+  "schema": "specter.action_graph.v1",
+  "trace_id": "trace:example-001",
+  "root_query_id": "query:root",
+  "nodes": [
+    {
+      "id": "query:root",
+      "depth": 0,
+      "sender_id": "user",
+      "query": {
+        "query": "Review this deployment plan for production readiness."
+      },
+      "context": null,
+      "response": null,
+      "responses": []
+    },
+    {
+      "id": "query:risk",
+      "depth": 1,
+      "sender_id": "query:root",
+      "query": {
+        "query": "Assess rollout risk for the GPU inference service."
+      },
+      "context": {
+        "documents": [
+          {
+            "id": "doc:1",
+            "text": "The service uses dynamic GPU node provisioning and a shared Redis cache."
+          }
+        ]
+      },
+      "response": {
+        "expert_id": "expert:infra-slm",
+        "response": "The rollout risk is moderate if autoscaling and cache failover are tested.",
+        "confidence": 0.74,
+        "routing_metadata": {
+          "model": "infra-specialist-small"
+        }
+      },
+      "responses": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:root-risk",
+      "source": "query:root",
+      "target": "query:risk",
+      "query": "Assess rollout risk for the GPU inference service.",
+      "label": "risk assessment"
+    }
+  ]
 }
 ```
 
-Each answered node becomes a validation target. Specter also reads parent and
-child edge metadata so it can validate both responses and query delegations.
+Required top-level fields:
 
-## Run The Full Pipeline
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `schema` | string | Use `specter.action_graph.v1`. |
+| `trace_id` | string | Stable ID for this run, request, eval case, or workflow execution. |
+| `root_query_id` | string | ID of the root task or root question. |
+| `nodes` | array | Tasks, subtasks, agent steps, tool decisions, routed queries, or eval cases. |
+| `edges` | array | Parent-child relationships between nodes. |
 
-### 1. Generate Courtroom Feedback
+Required node fields:
+
+| Field | Type | Meaning |
+| --- | --- | --- |
+| `id` | string | Stable node ID. |
+| `query.query` | string | The instruction/question/task being answered. |
+| `response.expert_id` | string | Expert, model, agent, policy, tool, or route that produced the answer. |
+| `response.response` | string | The answer Specter should validate. |
+
+Useful optional node fields:
+
+| Field | Why It Helps |
+| --- | --- |
+| `context.documents[].text` | Lets the courtroom test grounding and missing evidence. |
+| `responses[]` | Allows traces that store multiple candidate responses. |
+| `response.routing_metadata.model` | Names the underlying model separately from the expert ID. |
+| `depth` | Helps inspect where the target sits in a larger reasoning graph. |
+| `sender_id` | Captures who delegated the task. |
+
+Useful edge fields:
+
+| Field | Why It Helps |
+| --- | --- |
+| `source` / `target` | Connects parent tasks to child tasks. |
+| `query` | Lets Specter validate whether the delegated query preserved the parent intent. |
+| `label` | Makes artifacts easier to inspect. |
+
+If your project does not have graph traces, create one node per answer and omit
+edges. If your project has an agent trace, tool trace, workflow DAG, map-reduce
+task tree, router log, or evaluation dataset, map each answered unit into a node
+and each delegation/dependency into an edge.
+
+## Quick Start
+
+Create `example_action_graph.json`:
+
+```json
+{
+  "schema": "specter.action_graph.v1",
+  "trace_id": "trace:quickstart",
+  "root_query_id": "query:root",
+  "nodes": [
+    {
+      "id": "query:root",
+      "depth": 0,
+      "sender_id": "user",
+      "query": {"query": "Decide whether this answer is safe to ship."},
+      "context": null,
+      "response": null,
+      "responses": []
+    },
+    {
+      "id": "query:answer",
+      "depth": 1,
+      "sender_id": "query:root",
+      "query": {"query": "Assess whether the migration plan handles rollback."},
+      "context": {
+        "documents": [
+          {"id": "doc:plan", "text": "The plan mentions staged deploys but does not define rollback ownership."}
+        ]
+      },
+      "response": {
+        "expert_id": "expert:release-slm",
+        "response": "The migration plan is ready because it uses staged deploys.",
+        "confidence": 0.82
+      },
+      "responses": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:root-answer",
+      "source": "query:root",
+      "target": "query:answer",
+      "query": "Assess whether the migration plan handles rollback."
+    }
+  ]
+}
+```
+
+Run debate validation:
 
 ```bash
-specter-courtroom /path/to/Dullahan/memory/executions/<trace_id>/action_graph.json \
-  --repo-root /Users/mhamzah/Documents/Specter \
+specter-courtroom ./example_action_graph.json \
+  --repo-root . \
   --rounds 3 \
-  --contentions 8 \
+  --contentions 4 \
   --persist
 ```
 
-By default, courtroom roles are deterministic so the pipeline can run locally.
-To use an OpenAI-compatible endpoint for defender, prosecutor, judge, and court
-reporter roles:
-
-```bash
-specter-courtroom /path/to/action_graph.json \
-  --repo-root /Users/mhamzah/Documents/Specter \
-  --courtroom-model-provider http \
-  --courtroom-model-base-url http://127.0.0.1:30000/v1 \
-  --persist
-```
-
-Output:
+This writes:
 
 ```text
 memory/feedback/<feedback_id>/
   manifest.yaml
   final_feedback.yaml
   targets/<query_id>/
+    target.yaml
+    contentions.yaml
+    rounds.yaml
+    debate_summaries.yaml
+    judge_scores.yaml
+    final_feedback.yaml
 ```
 
-### 2. Localize Feedback
-
-Fast deterministic local path:
+Localize feedback with the deterministic backend:
 
 ```bash
 specter-localize-feedback memory/feedback/<feedback_id> \
@@ -114,38 +259,208 @@ specter-localize-feedback memory/feedback/<feedback_id> \
   --contrast-pairs 8
 ```
 
-Real TransformerLens path:
+For real TransformerLens localization:
 
 ```bash
 specter-localize-feedback memory/feedback/<feedback_id> \
   --backend transformerlens \
-  --model-path <expert-model> \
+  --model-path ./models/expert-slm \
   --contrast-pairs 32
 ```
 
-Output:
-
-```text
-memory/feedback/<feedback_id>/activation_localizations.yaml
-memory/feedback/<feedback_id>/activation_heatmaps/
-memory/feedback/<feedback_id>/feedback_plan.json
-memory/feedback/<feedback_id>/steering_vectors/
-```
-
-### 3. Materialize Activation Hooks
+Materialize activation hooks:
 
 ```bash
 specter-apply-feedback memory/feedback/<feedback_id>/feedback_plan.json \
   --mode activation-hook
 ```
 
-For each item:
+Rerun a compatible expert model with hooks:
 
-```text
-scaled_vector = direction_vector * prosecution_strength * feedback_scale
+```bash
+specter-run-feedback-hooks \
+  memory/feedback/<feedback_id>/applied/<application_id>/activation_hooks.json \
+  --model-path ./models/expert-slm \
+  --expert-id expert:release-slm \
+  --prompt "Assess whether the migration plan handles rollback."
 ```
 
-Output:
+## Model-Backed Courtroom Roles
+
+By default, courtroom roles are deterministic so local tests and artifact
+generation work without a running model server. To use a model server for the
+defender, prosecutor, judge, and court reporter, point Specter at an
+OpenAI-compatible HTTP endpoint:
+
+```bash
+specter-courtroom ./example_action_graph.json \
+  --repo-root . \
+  --courtroom-model-provider http \
+  --courtroom-model-base-url http://127.0.0.1:30000/v1 \
+  --persist
+```
+
+Use deterministic mode when validating integration plumbing. Use model-backed
+roles when you want higher-quality debate content, better judge rationales, and
+feedback summaries worth localizing into steering vectors.
+
+## Exact Use Cases
+
+Specter is built for cases where the answer itself is not enough. You need to
+know whether the answer survived structured opposition, whether it respected the
+delegated task, and whether the critique can be carried into the model's next
+inference step.
+
+| Use case | What you feed Specter | What Specter gives back |
+| --- | --- | --- |
+| Specialist SLM validation | Query, context, expert ID, model answer | Contentions, debate transcripts, judge scores, feedback items. |
+| Agent trace auditing | A graph of delegated tasks and responses | Per-node validation plus checks on whether child tasks preserved parent intent. |
+| Router or expert selection review | Route decisions encoded as nodes/edges | Evidence that the selected expert answered the right task with enough context. |
+| High-risk answer review | Generated answer plus retrieved/source context | Grounding, omission, overclaiming, and confidence critiques. |
+| Steering research | Debate feedback and a TransformerLens-compatible model | Layer/token localization, heatmaps, steering vectors, and hook specs. |
+| Regression/eval generation | Repeated traces from the same workflow | Structured artifacts for benchmarks, distillation, and failure taxonomies. |
+
+Specter is a poor fit for low-stakes chat UX, simple deterministic business
+rules, or systems where you only need aggregate benchmark scores. It is designed
+for answer-level and trace-level inspection where the cost of a validation pass
+is justified.
+
+## Why Use This Paradigm?
+
+Most validation systems stop at one of three surfaces:
+
+1. A scalar score.
+2. A natural-language critique.
+3. A revised prompt.
+
+Those are useful, but they leave a gap. A score does not explain how to change
+the model's next inference. A critique can be ignored or diluted by context. A
+revised prompt is still indirect control.
+
+Specter keeps the natural-language audit trail, then attempts to translate the
+strongest validated critique into a model-internal intervention. The intended
+benefit is not that debate is magically correct. The benefit is that each step is
+bounded and inspectable:
+
+| Step | Why it matters |
+| --- | --- |
+| Prosecutor contentions | Forces concrete failure hypotheses instead of vague critique. |
+| Defense responses | Prevents one-sided criticism from becoming the whole signal. |
+| Judge scores | Converts each dispute into a signed strength value. |
+| Running summaries | Compresses multi-round debate into a localization target. |
+| Contrast pairs | Turns feedback into positive/negative activation examples. |
+| Layer localization | Looks for where the expert model represents the feedback concept. |
+| Hook specs | Makes steering reversible, inspectable, and reproducible. |
+
+Use Specter when you want a bridge between symbolic/agentic validation and
+representation-level model steering.
+
+## Comparison With Adjacent Tools And Patterns
+
+Specter is not a replacement for agent frameworks, evaluation harnesses, or
+observability products. It sits after generation and before repeated inference,
+where validation feedback can be turned into activation-level controls.
+
+| Tool or pattern | Primary job | Where Specter differs |
+| --- | --- | --- |
+| LangGraph | Build stateful graph-shaped agent workflows. | Specter validates completed traces from any workflow and emits steering artifacts. |
+| AutoGen / CrewAI style multi-agent collaboration | Coordinate role-based agents to solve tasks. | Specter uses roles as an adversarial validation protocol over existing answers, not as the main task solver. |
+| LlamaIndex / RAG evaluators | Evaluate retrieval, faithfulness, and answer quality. | Specter can consume retrieved context, but also validates delegation structure and produces hookable feedback plans. |
+| DeepEval / Ragas / promptfoo | Run metric-driven LLM evaluations and regression tests. | Specter is per-trace and feedback-producing; it keeps debate artifacts and can localize feedback into model activations. |
+| Guardrails / NeMo Guardrails | Enforce policy and output constraints at the application boundary. | Specter is a post-hoc validation and steering layer, not a rule/policy gate. |
+| Constitutional AI / critique-and-revise loops | Generate critiques and revised answers through prompting. | Specter preserves debate structure, judge scores, and activation-localized steering rather than relying only on added prompt text. |
+| Representation engineering / CAA | Build activation directions from contrast sets. | Specter derives contrastive steering targets from validated debate feedback tied to concrete trace nodes. |
+| TransformerLens | Inspect and intervene in transformer activations. | Specter wraps TransformerLens in an end-to-end feedback workflow from trace to courtroom to hook specs. |
+
+## Scalability
+
+Specter is intentionally artifact-first. That makes early usage simple and makes
+larger deployments easier to reason about.
+
+| Axis | Current mechanism | Scaling path |
+| --- | --- | --- |
+| Trace ingestion | JSON files passed to `specter-courtroom`. | Batch loaders, queue consumers, or direct integration from your workflow runtime. |
+| Validation parallelism | One process validates targets from a trace. | Split nodes across workers; persist feedback under shared object storage. |
+| Courtroom role inference | Deterministic mode or OpenAI-compatible HTTP. | Serve role models behind dedicated inference endpoints. |
+| Activation localization | Deterministic backend or TransformerLens. | GPU localization workers, cached activations, and offline heatmap stores. |
+| Hooked inference | Local TransformerLens generation. | Wrap expert serving endpoints with hook-aware inference runtimes. |
+| Artifact storage | YAML/JSON under `memory/feedback`. | S3-compatible object storage plus metadata indexing. |
+| Governance | Human-readable feedback artifacts. | Dashboards over judge scores, contention classes, and repeated failure modes. |
+
+The natural large-scale architecture is asynchronous: emit traces from production
+or evaluation jobs, validate them in batches, localize high-value feedback on GPU
+workers, then promote only trusted hook specs or distilled policies into the
+serving path.
+
+## Domain Adaptation
+
+Specter can adapt to specialized domains in two complementary ways:
+
+1. Specialize the trace: include domain-specific context, evidence, route
+   metadata, confidence fields, citations, tool outputs, and task hierarchy.
+2. Specialize the courtroom and steering loop: use domain-tuned role models,
+   domain-specific contention templates, and repeated feedback artifacts for
+   distillation.
+
+Domain-specific learning loop:
+
+```mermaid
+flowchart LR
+    A["Domain traces"] --> B["Specter debate validation"]
+    B --> C["Feedback artifacts"]
+    C --> D["Activation localizations"]
+    C --> E["Failure taxonomy"]
+    D --> F["Hook experiments"]
+    E --> G["Distillation data"]
+    F --> H["Steered expert inference"]
+    G --> I["Specialized evaluator or expert SLM"]
+    H --> A
+    I --> A
+```
+
+Examples:
+
+| Domain | Specialized validation focus |
+| --- | --- |
+| Code intelligence | Repository ownership errors, missing call paths, shallow dependency analysis. |
+| Cloud operations | IAM risk, rollback gaps, unreliable scaling assumptions, incident blast radius. |
+| Security review | Threat-model omissions, weak exploit reasoning, missing mitigations. |
+| Legal or policy review | Unsupported claims, missing exceptions, bad citation grounding. |
+| Biomedical research | Dataset mismatch, overstated conclusions, missing methods caveats. |
+| Financial research | Hidden assumptions, ignored downside scenarios, weak evidence. |
+| Customer support | Wrong escalation path, missing account constraints, overconfident resolution. |
+
+Over time, the artifacts can become training data for specialized judges,
+prosecutors, route validators, adapters, or expert SLMs.
+
+## Artifact Reference
+
+After courtroom validation:
+
+```text
+memory/feedback/<feedback_id>/
+  manifest.yaml
+  final_feedback.yaml
+  targets/<query_id>/
+    target.yaml
+    contentions.yaml
+    rounds.yaml
+    debate_summaries.yaml
+    judge_scores.yaml
+    final_feedback.yaml
+```
+
+After localization:
+
+```text
+memory/feedback/<feedback_id>/
+  activation_localizations.yaml
+  activation_heatmaps/*.json
+  steering_vectors/*.json
+  feedback_plan.json
+```
+
+After applying feedback:
 
 ```text
 memory/feedback/<feedback_id>/applied/<application_id>/
@@ -153,99 +468,29 @@ memory/feedback/<feedback_id>/applied/<application_id>/
   manifest.yaml
 ```
 
-### 4. Rerun Expert Inference With Hooks
+The hook scale for each plan item is:
 
-```bash
-specter-run-feedback-hooks \
-  memory/feedback/<feedback_id>/applied/<application_id>/activation_hooks.json \
-  --model-path <expert-model> \
-  --expert-id expert:cluster-1 \
-  --prompt "Assess the deployment risk"
+```text
+scaled_vector = direction_vector * prosecution_strength * feedback_scale
 ```
 
-Specter loads the hook specs, filters by expert when requested, and injects each
-scaled vector into the configured residual-stream hook point during generation.
-
-## Why Specter Is Separate From Dullahan
-
-| Responsibility | Dullahan | Specter |
-| --- | --- | --- |
-| Build graph memory | Yes | No |
-| Route subqueries to experts | Yes | No |
-| Persist action graph traces | Yes | Consumes them |
-| Debate expert responses | No | Yes |
-| Validate query delegations | No | Yes |
-| Produce feedback plans | No | Yes |
-| Localize feedback with TransformerLens | No | Yes |
-| Rerun hooked expert inference | No | Yes |
-
-This split lets any system that can emit a Dullahan-style action graph use
-Specter as a validation and steering layer.
-
-## Ideal Use Cases
-
-| Use case | Why Specter fits |
-| --- | --- |
-| Expert SLM validation | Tests whether specialist responses are grounded, complete, and properly delegated. |
-| Agent trace auditing | Turns query/subquery graph nodes into inspectable validation targets. |
-| Query delegation review | Checks whether child subqueries preserve parent intent and constraints. |
-| Model-steering research | Produces layer/token localizations, heatmaps, vectors, and hook specs. |
-| Training/eval data generation | Emits structured YAML/JSON artifacts for distillation, evals, and regressions. |
-| Domain expert governance | Lets teams validate specialized agents in code, infrastructure, legal, research, support, or finance workflows. |
-
-## Comparison
-
-| Framework / Pattern | Primary focus | Specter difference |
-| --- | --- | --- |
-| LangGraph | Building graph-shaped agent workflows. | Specter validates completed graph traces and steers expert inference from feedback. |
-| AutoGen-style multi-agent chat | Agent conversation for task solving. | Specter uses debate as a validation protocol over persisted trace nodes. |
-| CrewAI-style role teams | Declarative role collaboration. | Specter applies prosecutor/defender/judge roles to audit expert outputs. |
-| Basic critique loops | Textual critique and revision. | Specter turns critique into activation localizations and hook specs. |
-| Representation engineering / CAA | Steering vectors from contrast sets. | Specter derives contrast targets from actual debate summaries tied to trace nodes. |
-| Workflow orchestrators | Reliable predefined execution. | Specter evaluates whether the executed graph and delegations were good. |
-
-## Scalability
-
-| Axis | Current mechanism | Scaling path |
-| --- | --- | --- |
-| Validation volume | Filesystem artifacts under `memory/feedback`. | Batch jobs, queues, and parallel courtroom workers. |
-| Model-backed courtroom roles | OpenAI-compatible HTTP provider. | Dedicated role-model serving pools. |
-| Activation localization | TransformerLens over compatible models. | GPU workers, cached activations, offline heatmap/vector stores. |
-| Hooked inference | Runtime activation hooks. | Expert-specific inference wrappers or model-serving integrations. |
-| Artifact storage | YAML/JSON files. | S3/object storage and metadata DBs. |
-| Observability | Persisted artifacts. | OpenTelemetry, Prometheus, Grafana, and trace stores. |
-
-## Domain Adaptation
-
-Specter can become domain-specific by learning from repeated validation traces:
-
-1. Collect action graphs from a domain agent system.
-2. Run courtroom validation over responses and delegations.
-3. Localize debate-summary feedback with TransformerLens.
-4. Apply reversible hooks for controlled inference experiments.
-5. Distill high-quality debates, feedback plans, and steering outcomes into
-   adapters, specialist SLMs, or expert policies.
-
-| Domain | What Specter Validates |
-| --- | --- |
-| Code intelligence | Incorrect ownership assumptions, missing dependencies, shallow code context. |
-| Cloud operations | Unsafe IAM boundaries, brittle rollout plans, unhandled failure modes. |
-| Legal/policy review | Unsupported claims, missing exceptions, weak citation grounding. |
-| Biomedical research | Dataset mismatch, overstated conclusions, missing methods caveats. |
-| Financial research | Hidden assumptions, ignored downside scenarios, weak evidence. |
-| Customer support | Incorrect escalation, missing account constraints, overconfident resolutions. |
+Positive prosecution strength pushes toward the localized critique direction.
+Negative strength weakens or reverses that item because the judge found the
+defense stronger.
 
 ## Development
 
 Run tests:
 
 ```bash
-pytest
+pytest -q
 ```
 
-Run only Specter tests:
+Run CLI smoke checks:
 
 ```bash
-pytest tests -q
+specter-courtroom --help
+specter-localize-feedback --help
+specter-apply-feedback --help
+specter-run-feedback-hooks --help
 ```
-

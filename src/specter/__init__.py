@@ -1,1 +1,1 @@
-"""Validation and activation steering for Dullahan-compatible action graphs."""
+"""Validation and activation steering for expert-model action graph traces."""
