@@ -11,9 +11,7 @@ class ActionGraphLoadError(ValueError):
 
 
 class ActionGraphLoader:
-    expected_schema = "specter.action_graph.v1"
-    legacy_schema = "".join(["dul", "lahan", ".", "action_graph.v1"])
-    compatible_schemas = {expected_schema, legacy_schema}
+    expected_schema = "dullahan.action_graph.v1"
 
     def load_targets(
         self,
@@ -22,7 +20,7 @@ class ActionGraphLoader:
         include_unanswered_nodes: bool = False,
     ) -> tuple[dict, list[FeedbackTargetNode]]:
         graph = json.loads(path.read_text(encoding="utf-8"))
-        if graph.get("schema") not in self.compatible_schemas:
+        if graph.get("schema") != self.expected_schema:
             raise ActionGraphLoadError(
                 f"unsupported action graph schema: {graph.get('schema')!r}"
             )

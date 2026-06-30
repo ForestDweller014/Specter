@@ -61,15 +61,6 @@ def test_action_graph_loader_returns_answered_targets(tmp_path: Path) -> None:
     assert targets[0].response_text == "The deployment risk is moderate."
 
 
-def test_action_graph_loader_accepts_specter_schema(tmp_path: Path) -> None:
-    graph_path = _write_action_graph(tmp_path, schema="specter.action_graph.v1")
-
-    graph, targets = ActionGraphLoader().load_targets(graph_path)
-
-    assert graph["schema"] == "specter.action_graph.v1"
-    assert targets[0].query_text == "Assess the deployment risk"
-
-
 def test_courtroom_cli_persists_feedback_artifacts(tmp_path: Path) -> None:
     graph_path = _write_action_graph(tmp_path)
     repo_root = tmp_path / "repo"
@@ -666,13 +657,9 @@ def _build_courtroom_feedback(tmp_path: Path, *, contentions: int) -> Path:
     return Path(courtroom_result.artifact_dir)
 
 
-def _write_action_graph(
-    tmp_path: Path,
-    *,
-    schema: str = "specter.action_graph.v1",
-) -> Path:
+def _write_action_graph(tmp_path: Path) -> Path:
     graph = {
-        "schema": schema,
+        "schema": "dullahan.action_graph.v1",
         "trace_id": "trace:test",
         "root_query_id": "query:root",
         "nodes": [
