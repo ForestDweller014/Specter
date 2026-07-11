@@ -9,3 +9,16 @@ build/
 .env
 memory/feedback/*
 !memory/feedback/.gitkeep
+
+# Graphify machine-local and transient state
+graphify-out/.graphify_python
+graphify-out/.graphify_root
+graphify-out/.vocab.txt
+graphify-out/.graphify_learning.json
+graphify-out/.rebuild.lock
+graphify-out/.pending_changes
+graphify-out/memory/
+graphify-out/reflections/
+graphify-out/backups/
+graphify-out/????-??-??/
+graphify-out/cache/stat-index.json

@@ -48,6 +48,38 @@ specter-apply-feedback
 specter-run-feedback-hooks
 ```
 
+## Automatic Graphify Snapshot Publishing
+
+Specter can extend Graphify's asynchronous post-commit rebuild so successful
+source commits are followed by a separate generated snapshot commit and a
+normal push to the current branch's configured upstream.
+
+Install Graphify's hook first, then patch it with the repository-owned
+extension:
+
+```bash
+graphify hook install
+python scripts/install_graphify_auto_publish.py
+```
+
+The extension waits for `_rebuild_code(...)` to succeed, then runs
+`scripts/publish_graphify_snapshot.py` with Graphify's Python interpreter. The
+publisher commits only durable `graphify-out/` changes as
+`chore: Refresh Graphify snapshot`. It refuses detached HEAD, branches without
+an upstream, concurrent publisher runs, and manually staged Graphify files.
+Unrelated staged work is left staged.
+
+Machine-local query state, reflections, dated backups, rebuild locks, and the
+mtime-based `cache/stat-index.json` are excluded. A rejected push leaves the
+snapshot commit locally for manual resolution and retry.
+
+Graphify owns the base hook and may replace it during installation or upgrade.
+Rerun the repository installer after either operation:
+
+```bash
+python scripts/install_graphify_auto_publish.py
+```
+
 ## Input Contract
 
 Specter consumes Dullahan-compatible action graphs:
@@ -248,4 +280,3 @@ Run only Specter tests:
 ```bash
 pytest tests -q
 ```
-
