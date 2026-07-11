@@ -1,0 +1,415 @@
+{
+  "communities": {
+    "0": [
+      "src_specter_config_courtroomconfig",
+      "src_specter_config_courtroomconfig_feedback_root",
+      "src_specter_config_py_basemodel",
+      "src_specter_config_py_path",
+      "src_specter_courtroom_contention_generator_deterministiccontentiongenerator",
+      "src_specter_courtroom_contention_generator_deterministiccontentiongenerator_generate",
+      "src_specter_courtroom_contention_generator_deterministiccontentiongenerator_specialize",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_complete",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_defend",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_init",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_judge",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_latest_score",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_parse_score",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_prosecute",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_revise_contention",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_run",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_run_target",
+      "src_specter_courtroom_debate_runner_deterministiccourtroomrunner_summarize",
+      "src_specter_courtroom_models",
+      "src_specter_courtroom_models_contention",
+      "src_specter_courtroom_models_debateround",
+      "src_specter_courtroom_models_debaterounditem",
+      "src_specter_courtroom_models_feedbacktargetnode",
+      "src_specter_courtroom_models_feedbacktargetnode_context_text",
+      "src_specter_courtroom_models_feedbacktargetnode_model_name",
+      "src_specter_courtroom_models_feedbacktargetnode_query_text",
+      "src_specter_courtroom_models_feedbacktargetnode_response_text",
+      "src_specter_courtroom_models_judgescore",
+      "src_specter_courtroom_models_py_basemodel",
+      "src_specter_courtroom_models_targetcourtroomresult",
+      "src_specter_courtroom_role_prompts",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter",
+      "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention",
+      "src_specter_text_clamp_words",
+      "tests_test_specter_test_courtroom_model_provider_can_revise_contentions",
+      "tests_test_specter_test_courtroom_runner_can_use_model_backed_roles",
+      "tests_test_specter_test_courtroom_runner_evolves_contentions_after_first_round"
+    ],
+    "1": [
+      "src_specter_activation_hook_runner",
+      "src_specter_activation_hook_runner_appliedfeedbackloader",
+      "src_specter_activation_hook_runner_appliedfeedbackloader_load",
+      "src_specter_activation_hook_runner_hookedgenerationresult",
+      "src_specter_activation_hook_runner_import_torch",
+      "src_specter_activation_hook_runner_py_basemodel",
+      "src_specter_activation_hook_runner_py_path",
+      "src_specter_activation_hook_runner_transformerlenshookrunner",
+      "src_specter_activation_hook_runner_transformerlenshookrunner_build_hook_fn",
+      "src_specter_activation_hook_runner_transformerlenshookrunner_filter_hook_specs",
+      "src_specter_activation_hook_runner_transformerlenshookrunner_generate",
+      "src_specter_activation_hook_runner_transformerlenshookrunner_init",
+      "src_specter_activation_hook_runner_transformerlenshookrunner_resolve_token_position",
+      "src_specter_feedback_apply_models",
+      "src_specter_feedback_apply_models_activationhookspec",
+      "src_specter_feedback_apply_models_appliedfeedbackbundle",
+      "src_specter_feedback_apply_models_py_basemodel",
+      "src_specter_feedback_apply_runtime",
+      "src_specter_feedback_apply_runtime_activationhookapplicationruntime",
+      "src_specter_feedback_apply_runtime_activationhookapplicationruntime_apply",
+      "src_specter_feedback_apply_runtime_activationhookapplicationruntime_build_hook_spec",
+      "src_specter_feedback_apply_runtime_activationhookapplicationruntime_load_vector",
+      "src_specter_feedback_apply_runtime_feedbackapplicationerror",
+      "src_specter_feedback_apply_runtime_feedbackplanloader",
+      "src_specter_feedback_apply_runtime_feedbackplanloader_load",
+      "src_specter_feedback_apply_runtime_py_path",
+      "src_specter_feedback_apply_runtime_py_valueerror",
+      "src_specter_feedback_models",
+      "src_specter_feedback_models_feedbackplan",
+      "src_specter_feedback_models_feedbackplanitem",
+      "src_specter_feedback_models_py_basemodel",
+      "src_specter_feedback_plan_builder_feedbackplanbuilder_build"
+    ],
+    "2": [
+      "src_specter_activation_contrast_set_builder",
+      "src_specter_config",
+      "src_specter_courtroom_contention_generator",
+      "src_specter_courtroom_debate_runner",
+      "src_specter_feedback_feedback_loader",
+      "src_specter_feedback_feedback_loader_feedbackartifactloader",
+      "src_specter_feedback_feedback_loader_feedbackartifactloader_load",
+      "src_specter_feedback_feedback_loader_feedbackloaderror",
+      "src_specter_feedback_feedback_loader_py_path",
+      "src_specter_feedback_feedback_loader_py_valueerror",
+      "src_specter_feedback_localize_cli",
+      "src_specter_feedback_localize_cli_build_parser",
+      "src_specter_feedback_localize_cli_deterministic_heatmap",
+      "src_specter_feedback_localize_cli_format_text",
+      "src_specter_feedback_localize_cli_main",
+      "src_specter_feedback_localize_cli_py_argumentparser",
+      "src_specter_feedback_localize_cli_py_namespace",
+      "src_specter_feedback_localize_cli_py_path",
+      "src_specter_feedback_localize_cli_run_from_args",
+      "src_specter_feedback_localize_cli_safe_path_id",
+      "src_specter_feedback_localize_cli_write_heatmap",
+      "src_specter_feedback_localize_cli_write_vector",
+      "src_specter_feedback_localize_cli_write_yaml",
+      "src_specter_ids",
+      "src_specter_ids_new_id",
+      "src_specter_text",
+      "src_specter_text_safe_path_id",
+      "src_specter_text_stable_vector"
+    ],
+    "3": [
+      "src_specter_artifacts",
+      "src_specter_artifacts_feedbackartifactstore",
+      "src_specter_artifacts_feedbackartifactstore_init",
+      "src_specter_artifacts_feedbackartifactstore_write_run",
+      "src_specter_artifacts_feedbackartifactstore_write_target",
+      "src_specter_artifacts_feedbackartifactstore_write_yaml",
+      "src_specter_artifacts_py_path",
+      "src_specter_artifacts_safe_path_id",
+      "src_specter_cli",
+      "src_specter_cli_build_model_provider",
+      "src_specter_cli_build_parser",
+      "src_specter_cli_format_text",
+      "src_specter_cli_main",
+      "src_specter_cli_py_argumentparser",
+      "src_specter_cli_py_namespace",
+      "src_specter_cli_run_from_args",
+      "src_specter_courtroom_models_courtroomrunresult",
+      "src_specter_graph_loader",
+      "src_specter_graph_loader_actiongraphloader",
+      "src_specter_graph_loader_actiongraphloader_expert_id",
+      "src_specter_graph_loader_actiongraphloader_load_targets",
+      "src_specter_graph_loader_actiongraphloader_node_query_text",
+      "src_specter_graph_loader_actiongraphloaderror",
+      "src_specter_graph_loader_py_path",
+      "src_specter_graph_loader_py_valueerror"
+    ],
+    "4": [
+      "src_specter_activation_activation_locator",
+      "src_specter_activation_activation_locator_deterministicactivationlocator",
+      "src_specter_activation_activation_locator_deterministicactivationlocator_init",
+      "src_specter_activation_activation_locator_deterministicactivationlocator_locate",
+      "src_specter_activation_activation_locator_localizationrequest",
+      "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
+      "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
+      "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence",
+      "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize",
+      "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant",
+      "src_specter_activation_models",
+      "src_specter_activation_models_activationlocalization",
+      "src_specter_activation_models_contrastpair",
+      "src_specter_activation_models_py_basemodel",
+      "src_specter_activation_transformerlens_locator",
+      "src_specter_activation_transformerlens_locator_import_torch",
+      "src_specter_activation_transformerlens_locator_transformerlensactivationlocator",
+      "src_specter_activation_transformerlens_locator_transformerlensactivationlocator_confidence",
+      "src_specter_activation_transformerlens_locator_transformerlensactivationlocator_locate",
+      "src_specter_activation_transformerlens_locator_transformerlenslocalizationresult",
+      "src_specter_courtroom_models_feedbackitem",
+      "src_specter_feedback_plan_builder",
+      "src_specter_feedback_plan_builder_feedbackplanbuilder",
+      "tests_test_specter_test_contrast_builder_removes_feedback_concept_from_negative"
+    ],
+    "5": [
+      "src_specter_activation_transformerlens_adapter",
+      "src_specter_activation_transformerlens_adapter_py_runtimeerror",
+      "src_specter_activation_transformerlens_adapter_rationale_9",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_generate_with_hooks",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_init",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_n_layers",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_resid_post",
+      "src_specter_activation_transformerlens_adapter_transformerlensadapter_run_with_cache",
+      "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror",
+      "src_specter_activation_transformerlens_locator_transformerlensactivationlocator_init",
+      "src_specter_feedback_run_hooks_cli",
+      "src_specter_feedback_run_hooks_cli_build_parser",
+      "src_specter_feedback_run_hooks_cli_format_text",
+      "src_specter_feedback_run_hooks_cli_main",
+      "src_specter_feedback_run_hooks_cli_py_argumentparser",
+      "src_specter_feedback_run_hooks_cli_py_namespace",
+      "src_specter_feedback_run_hooks_cli_run_from_args"
+    ],
+    "6": [
+      "tests_test_specter",
+      "tests_test_specter_build_courtroom_feedback",
+      "tests_test_specter_build_feedback_plan",
+      "tests_test_specter_py_path",
+      "tests_test_specter_test_action_graph_loader_returns_answered_targets",
+      "tests_test_specter_test_apply_feedback_cli_text_output",
+      "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks",
+      "tests_test_specter_test_courtroom_cli_json_output",
+      "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts",
+      "tests_test_specter_test_courtroom_cli_text_output",
+      "tests_test_specter_test_localize_feedback_cli_text_output",
+      "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
+      "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps",
+      "tests_test_specter_test_run_feedback_hooks_cli_text_output",
+      "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks",
+      "tests_test_specter_test_transformerlens_hook_runner_adds_scaled_vector_to_tensor",
+      "tests_test_specter_write_action_graph"
+    ],
+    "7": [
+      "src_specter_model_provider",
+      "src_specter_model_provider_modelprovider",
+      "src_specter_model_provider_modelprovider_complete",
+      "src_specter_model_provider_modelprovidererror",
+      "src_specter_model_provider_modelrequest",
+      "src_specter_model_provider_modelresult",
+      "src_specter_model_provider_openaicompatiblehttpprovider",
+      "src_specter_model_provider_openaicompatiblehttpprovider_complete",
+      "src_specter_model_provider_openaicompatiblehttpprovider_extract_text",
+      "src_specter_model_provider_openaicompatiblehttpprovider_init",
+      "src_specter_model_provider_py_runtimeerror",
+      "src_specter_model_provider_rationale_34"
+    ],
+    "8": [
+      "src_specter_feedback_apply_cli",
+      "src_specter_feedback_apply_cli_build_parser",
+      "src_specter_feedback_apply_cli_format_text",
+      "src_specter_feedback_apply_cli_main",
+      "src_specter_feedback_apply_cli_py_argumentparser",
+      "src_specter_feedback_apply_cli_py_namespace",
+      "src_specter_feedback_apply_cli_py_path",
+      "src_specter_feedback_apply_cli_run_from_args",
+      "src_specter_feedback_apply_cli_safe_path_id",
+      "src_specter_feedback_apply_cli_write_bundle",
+      "src_specter_feedback_apply_cli_write_yaml"
+    ],
+    "9": [
+      "src_specter_activation_init",
+      "src_specter_activation_init_rationale_1"
+    ],
+    "10": [
+      "src_specter_courtroom_init",
+      "src_specter_courtroom_init_rationale_1"
+    ],
+    "11": [
+      "src_specter_feedback_init",
+      "src_specter_feedback_init_rationale_1"
+    ],
+    "12": [
+      "src_specter_init",
+      "src_specter_init_rationale_1"
+    ],
+    "13": [
+      "pkg_specter"
+    ]
+  },
+  "cohesion": {
+    "0": 0.12292358803986711,
+    "1": 0.12701612903225806,
+    "2": 0.10582010582010581,
+    "3": 0.14333333333333334,
+    "4": 0.16666666666666666,
+    "5": 0.12631578947368421,
+    "6": 0.3161764705882353,
+    "7": 0.2878787878787879,
+    "8": 0.32727272727272727,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_specter_courtroom_models_feedbacktargetnode",
+      "label": "FeedbackTargetNode",
+      "degree": 26
+    },
+    {
+      "id": "src_specter_courtroom_debate_runner_deterministiccourtroomrunner",
+      "label": "DeterministicCourtroomRunner",
+      "degree": 21
+    },
+    {
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "label": "TransformerLensAdapter",
+      "degree": 18
+    },
+    {
+      "id": "src_specter_config_courtroomconfig",
+      "label": "CourtroomConfig",
+      "degree": 16
+    },
+    {
+      "id": "src_specter_feedback_localize_cli_run_from_args",
+      "label": "run_from_args()",
+      "degree": 15
+    },
+    {
+      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
+      "label": "MinimalPairContrastSetBuilder",
+      "degree": 13
+    },
+    {
+      "id": "src_specter_activation_hook_runner_transformerlenshookrunner",
+      "label": "TransformerLensHookRunner",
+      "degree": 11
+    },
+    {
+      "id": "src_specter_feedback_apply_models_activationhookspec",
+      "label": "ActivationHookSpec",
+      "degree": 11
+    },
+    {
+      "id": "src_specter_feedback_apply_models_appliedfeedbackbundle",
+      "label": "AppliedFeedbackBundle",
+      "degree": 11
+    },
+    {
+      "id": "src_specter_text_clamp_words",
+      "label": "clamp_words()",
+      "degree": 11
+    }
+  ],
+  "surprises": [
+    {
+      "source": "test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()",
+      "target": "TransformerLensHookRunner",
+      "source_files": [
+        "tests/test_specter.py",
+        "src/specter/activation/hook_runner.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "test_action_graph_loader_returns_answered_targets()",
+      "target": "ActionGraphLoader",
+      "source_files": [
+        "tests/test_specter.py",
+        "src/specter/graph_loader.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "test_contrast_builder_removes_feedback_concept_from_negative()",
+      "target": "MinimalPairContrastSetBuilder",
+      "source_files": [
+        "tests/test_specter.py",
+        "src/specter/activation/contrast_set_builder.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "test_courtroom_model_provider_can_revise_contentions()",
+      "target": "CourtroomConfig",
+      "source_files": [
+        "tests/test_specter.py",
+        "src/specter/config.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "test_courtroom_runner_can_use_model_backed_roles()",
+      "target": "CourtroomConfig",
+      "source_files": [
+        "tests/test_specter.py",
+        "src/specter/config.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `TransformerLensHookRunner` connect `Community 1` to `Community 5`, `Community 6`?",
+      "why": "High betweenness centrality (0.166) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `TransformerLensAdapter` connect `Community 5` to `Community 1`, `Community 2`, `Community 4`?",
+      "why": "High betweenness centrality (0.161) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()` connect `Community 6` to `Community 1`?",
+      "why": "High betweenness centrality (0.134) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 3 inferred relationships involving `FeedbackTargetNode` (e.g. with `test_courtroom_model_provider_can_revise_contentions()` and `test_courtroom_runner_can_use_model_backed_roles()`) actually correct?",
+      "why": "`FeedbackTargetNode` has 3 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 9 inferred relationships involving `DeterministicCourtroomRunner` (e.g. with `run_from_args()` and `CourtroomConfig`) actually correct?",
+      "why": "`DeterministicCourtroomRunner` has 9 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 7 inferred relationships involving `TransformerLensAdapter` (e.g. with `AppliedFeedbackLoader` and `HookedGenerationResult`) actually correct?",
+      "why": "`TransformerLensAdapter` has 7 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 6 inferred relationships involving `CourtroomConfig` (e.g. with `run_from_args()` and `DeterministicContentionGenerator`) actually correct?",
+      "why": "`CourtroomConfig` has 6 INFERRED edges - model-reasoned connections that need verification."
+    }
+  ]
+}
