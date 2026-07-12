@@ -280,3 +280,7 @@ Run only Specter tests:
 ```bash
 pytest tests -q
 ```
+
+## License
+
+Specter is licensed under the [Apache License 2.0](LICENSE).
