@@ -4,314 +4,184 @@
   "graph": {},
   "nodes": [
     {
-      "label": "SKILL.md",
+      "label": "README.md",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_file": "README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill",
-      "community": 7,
-      "norm_label": "skill.md"
+      "id": "readme",
+      "community": 15,
+      "norm_label": "readme.md"
     },
     {
-      "label": "Continuous Integration Engineering",
+      "label": "Specter",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L6",
+      "source_file": "README.md",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "community": 7,
-      "norm_label": "continuous integration engineering"
+      "id": "readme_specter",
+      "community": 15,
+      "norm_label": "specter"
     },
     {
-      "label": "Operating boundaries",
+      "label": "Tech Stack",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L22",
+      "source_file": "README.md",
+      "source_location": "L19",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_operating_boundaries",
-      "community": 7,
-      "norm_label": "operating boundaries"
+      "id": "readme_tech_stack",
+      "community": 15,
+      "norm_label": "tech stack"
     },
     {
-      "label": "Phase 1: Orient to the repository",
+      "label": "Install",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L34",
+      "source_file": "README.md",
+      "source_location": "L40",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_phase_1_orient_to_the_repository",
-      "community": 7,
-      "norm_label": "phase 1: orient to the repository"
+      "id": "readme_install",
+      "community": 15,
+      "norm_label": "install"
     },
     {
-      "label": "Phase 2: Define the integration contract",
+      "label": "Automatic Graphify Snapshot Publishing",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L56",
+      "source_file": "README.md",
+      "source_location": "L63",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_phase_2_define_the_integration_contract",
-      "community": 7,
-      "norm_label": "phase 2: define the integration contract"
+      "id": "readme_automatic_graphify_snapshot_publishing",
+      "community": 15,
+      "norm_label": "automatic graphify snapshot publishing"
     },
     {
-      "label": "Phase 3: Design the pipeline",
+      "label": "Input Contract",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L85",
+      "source_file": "README.md",
+      "source_location": "L95",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_phase_3_design_the_pipeline",
-      "community": 7,
-      "norm_label": "phase 3: design the pipeline"
+      "id": "readme_input_contract",
+      "community": 15,
+      "norm_label": "input contract"
     },
     {
-      "label": "Fail fast",
+      "label": "Run The Full Pipeline",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L87",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_fail_fast",
-      "community": 7,
-      "norm_label": "fail fast"
-    },
-    {
-      "label": "Keep jobs cohesive",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_keep_jobs_cohesive",
-      "community": 7,
-      "norm_label": "keep jobs cohesive"
-    },
-    {
-      "label": "Reproducibility",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_file": "README.md",
       "source_location": "L118",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_reproducibility",
-      "community": 7,
-      "norm_label": "reproducibility"
+      "id": "readme_run_the_full_pipeline",
+      "community": 15,
+      "norm_label": "run the full pipeline"
     },
     {
-      "label": "Change-aware execution",
+      "label": "1. Generate Courtroom Feedback",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L130",
+      "source_file": "README.md",
+      "source_location": "L120",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_change_aware_execution",
-      "community": 7,
-      "norm_label": "change-aware execution"
+      "id": "readme_1_generate_courtroom_feedback",
+      "community": 15,
+      "norm_label": "1. generate courtroom feedback"
     },
     {
-      "label": "Caching",
+      "label": "2. Localize Feedback",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L142",
+      "source_file": "README.md",
+      "source_location": "L151",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_caching",
-      "community": 7,
-      "norm_label": "caching"
+      "id": "readme_2_localize_feedback",
+      "community": 15,
+      "norm_label": "2. localize feedback"
     },
     {
-      "label": "Test strategy",
+      "label": "3. Materialize Activation Hooks",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L156",
+      "source_file": "README.md",
+      "source_location": "L179",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_test_strategy",
-      "community": 7,
-      "norm_label": "test strategy"
+      "id": "readme_3_materialize_activation_hooks",
+      "community": 15,
+      "norm_label": "3. materialize activation hooks"
     },
     {
-      "label": "Unit tests",
+      "label": "4. Rerun Expert Inference With Hooks",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L158",
+      "source_file": "README.md",
+      "source_location": "L200",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_unit_tests",
-      "community": 7,
-      "norm_label": "unit tests"
+      "id": "readme_4_rerun_expert_inference_with_hooks",
+      "community": 15,
+      "norm_label": "4. rerun expert inference with hooks"
     },
     {
-      "label": "Integration tests",
+      "label": "Why Specter Is Separate From Dullahan",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L164",
+      "source_file": "README.md",
+      "source_location": "L213",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_integration_tests",
-      "community": 7,
-      "norm_label": "integration tests"
+      "id": "readme_why_specter_is_separate_from_dullahan",
+      "community": 15,
+      "norm_label": "why specter is separate from dullahan"
     },
     {
-      "label": "End-to-end tests",
+      "label": "Ideal Use Cases",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L172",
+      "source_file": "README.md",
+      "source_location": "L229",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_end_to_end_tests",
-      "community": 7,
-      "norm_label": "end-to-end tests"
+      "id": "readme_ideal_use_cases",
+      "community": 15,
+      "norm_label": "ideal use cases"
     },
     {
-      "label": "Flaky tests",
+      "label": "Comparison",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L178",
+      "source_file": "README.md",
+      "source_location": "L240",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_flaky_tests",
-      "community": 7,
-      "norm_label": "flaky tests"
+      "id": "readme_comparison",
+      "community": 15,
+      "norm_label": "comparison"
     },
     {
-      "label": "Coverage",
+      "label": "Scalability",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L185",
+      "source_file": "README.md",
+      "source_location": "L251",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_coverage",
-      "community": 7,
-      "norm_label": "coverage"
+      "id": "readme_scalability",
+      "community": 15,
+      "norm_label": "scalability"
     },
     {
-      "label": "Static quality checks",
+      "label": "Domain Adaptation",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L192",
+      "source_file": "README.md",
+      "source_location": "L262",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_static_quality_checks",
-      "community": 7,
-      "norm_label": "static quality checks"
+      "id": "readme_domain_adaptation",
+      "community": 15,
+      "norm_label": "domain adaptation"
     },
     {
-      "label": "Security",
+      "label": "Development",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L211",
+      "source_file": "README.md",
+      "source_location": "L282",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_security",
-      "community": 7,
-      "norm_label": "security"
+      "id": "readme_development",
+      "community": 15,
+      "norm_label": "development"
     },
     {
-      "label": "Build and artifact handling",
+      "label": "License",
       "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L232",
+      "source_file": "README.md",
+      "source_location": "L296",
       "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_build_and_artifact_handling",
-      "community": 7,
-      "norm_label": "build and artifact handling"
-    },
-    {
-      "label": "Matrices and platform coverage",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L246",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_matrices_and_platform_coverage",
-      "community": 7,
-      "norm_label": "matrices and platform coverage"
-    },
-    {
-      "label": "Concurrency and cancellation",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L260",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_concurrency_and_cancellation",
-      "community": 7,
-      "norm_label": "concurrency and cancellation"
-    },
-    {
-      "label": "Diagnostics and developer experience",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L269",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_diagnostics_and_developer_experience",
-      "community": 7,
-      "norm_label": "diagnostics and developer experience"
-    },
-    {
-      "label": "Database and contract safety",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L289",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_database_and_contract_safety",
-      "community": 7,
-      "norm_label": "database and contract safety"
-    },
-    {
-      "label": "Performance checks",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L304",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_performance_checks",
-      "community": 7,
-      "norm_label": "performance checks"
-    },
-    {
-      "label": "Workflow implementation standards",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L315",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_workflow_implementation_standards",
-      "community": 7,
-      "norm_label": "workflow implementation standards"
-    },
-    {
-      "label": "Modifying an existing pipeline",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L339",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_modifying_an_existing_pipeline",
-      "community": 7,
-      "norm_label": "modifying an existing pipeline"
-    },
-    {
-      "label": "Debugging CI failures",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L353",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_debugging_ci_failures",
-      "community": 7,
-      "norm_label": "debugging ci failures"
-    },
-    {
-      "label": "Validation before completion",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L378",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_validation_before_completion",
-      "community": 7,
-      "norm_label": "validation before completion"
-    },
-    {
-      "label": "Completion report",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L393",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_completion_report",
-      "community": 7,
-      "norm_label": "completion report"
-    },
-    {
-      "label": "Definition of done",
-      "file_type": "document",
-      "source_file": ".agents/skills/continuous-integration/SKILL.md",
-      "source_location": "L410",
-      "_origin": "ast",
-      "id": "agents_skills_continuous_integration_skill_definition_of_done",
-      "community": 7,
-      "norm_label": "definition of done"
+      "id": "readme_license",
+      "community": 15,
+      "norm_label": "license"
     },
     {
       "label": "specter",
@@ -322,9 +192,319 @@
       "source_location": "L1",
       "version": "0.1.0",
       "_origin": "ast",
+      "id": "pkg_specter",
       "community": 13,
-      "norm_label": "specter",
-      "id": "pkg_specter"
+      "norm_label": "specter"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "skill.md",
+      "id": "agents_skills_continuous_integration_skill"
+    },
+    {
+      "label": "Continuous Integration Engineering",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "continuous integration engineering",
+      "id": "agents_skills_continuous_integration_skill_continuous_integration_engineering"
+    },
+    {
+      "label": "Operating boundaries",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "operating boundaries",
+      "id": "agents_skills_continuous_integration_skill_operating_boundaries"
+    },
+    {
+      "label": "Phase 1: Orient to the repository",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "phase 1: orient to the repository",
+      "id": "agents_skills_continuous_integration_skill_phase_1_orient_to_the_repository"
+    },
+    {
+      "label": "Phase 2: Define the integration contract",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "phase 2: define the integration contract",
+      "id": "agents_skills_continuous_integration_skill_phase_2_define_the_integration_contract"
+    },
+    {
+      "label": "Phase 3: Design the pipeline",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L85",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "phase 3: design the pipeline",
+      "id": "agents_skills_continuous_integration_skill_phase_3_design_the_pipeline"
+    },
+    {
+      "label": "Fail fast",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L87",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "fail fast",
+      "id": "agents_skills_continuous_integration_skill_fail_fast"
+    },
+    {
+      "label": "Keep jobs cohesive",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L103",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "keep jobs cohesive",
+      "id": "agents_skills_continuous_integration_skill_keep_jobs_cohesive"
+    },
+    {
+      "label": "Reproducibility",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L118",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "reproducibility",
+      "id": "agents_skills_continuous_integration_skill_reproducibility"
+    },
+    {
+      "label": "Change-aware execution",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "change-aware execution",
+      "id": "agents_skills_continuous_integration_skill_change_aware_execution"
+    },
+    {
+      "label": "Caching",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L142",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "caching",
+      "id": "agents_skills_continuous_integration_skill_caching"
+    },
+    {
+      "label": "Test strategy",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L156",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "test strategy",
+      "id": "agents_skills_continuous_integration_skill_test_strategy"
+    },
+    {
+      "label": "Unit tests",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L158",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "unit tests",
+      "id": "agents_skills_continuous_integration_skill_unit_tests"
+    },
+    {
+      "label": "Integration tests",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L164",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "integration tests",
+      "id": "agents_skills_continuous_integration_skill_integration_tests"
+    },
+    {
+      "label": "End-to-end tests",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L172",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "end-to-end tests",
+      "id": "agents_skills_continuous_integration_skill_end_to_end_tests"
+    },
+    {
+      "label": "Flaky tests",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L178",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "flaky tests",
+      "id": "agents_skills_continuous_integration_skill_flaky_tests"
+    },
+    {
+      "label": "Coverage",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L185",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "coverage",
+      "id": "agents_skills_continuous_integration_skill_coverage"
+    },
+    {
+      "label": "Static quality checks",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L192",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "static quality checks",
+      "id": "agents_skills_continuous_integration_skill_static_quality_checks"
+    },
+    {
+      "label": "Security",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L211",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "security",
+      "id": "agents_skills_continuous_integration_skill_security"
+    },
+    {
+      "label": "Build and artifact handling",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L232",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "build and artifact handling",
+      "id": "agents_skills_continuous_integration_skill_build_and_artifact_handling"
+    },
+    {
+      "label": "Matrices and platform coverage",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L246",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "matrices and platform coverage",
+      "id": "agents_skills_continuous_integration_skill_matrices_and_platform_coverage"
+    },
+    {
+      "label": "Concurrency and cancellation",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L260",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "concurrency and cancellation",
+      "id": "agents_skills_continuous_integration_skill_concurrency_and_cancellation"
+    },
+    {
+      "label": "Diagnostics and developer experience",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L269",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "diagnostics and developer experience",
+      "id": "agents_skills_continuous_integration_skill_diagnostics_and_developer_experience"
+    },
+    {
+      "label": "Database and contract safety",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L289",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "database and contract safety",
+      "id": "agents_skills_continuous_integration_skill_database_and_contract_safety"
+    },
+    {
+      "label": "Performance checks",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L304",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "performance checks",
+      "id": "agents_skills_continuous_integration_skill_performance_checks"
+    },
+    {
+      "label": "Workflow implementation standards",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L315",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "workflow implementation standards",
+      "id": "agents_skills_continuous_integration_skill_workflow_implementation_standards"
+    },
+    {
+      "label": "Modifying an existing pipeline",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L339",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "modifying an existing pipeline",
+      "id": "agents_skills_continuous_integration_skill_modifying_an_existing_pipeline"
+    },
+    {
+      "label": "Debugging CI failures",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L353",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "debugging ci failures",
+      "id": "agents_skills_continuous_integration_skill_debugging_ci_failures"
+    },
+    {
+      "label": "Validation before completion",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L378",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "validation before completion",
+      "id": "agents_skills_continuous_integration_skill_validation_before_completion"
+    },
+    {
+      "label": "Completion report",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L393",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "completion report",
+      "id": "agents_skills_continuous_integration_skill_completion_report"
+    },
+    {
+      "label": "Definition of done",
+      "file_type": "document",
+      "source_file": ".agents/skills/continuous-integration/SKILL.md",
+      "source_location": "L410",
+      "_origin": "ast",
+      "community": 7,
+      "norm_label": "definition of done",
+      "id": "agents_skills_continuous_integration_skill_definition_of_done"
     },
     {
       "label": "install_graphify_auto_publish.py",
@@ -712,7 +892,7 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 4,
       "norm_label": "contrast_set_builder.py",
       "id": "src_specter_activation_contrast_set_builder"
     },
@@ -1292,7 +1472,7 @@
       "source_file": "src/specter/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "config.py",
       "id": "src_specter_config"
     },
@@ -1362,7 +1542,7 @@
       "source_file": "src/specter/courtroom/contention_generator.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "contention_generator.py",
       "id": "src_specter_courtroom_contention_generator"
     },
@@ -1402,7 +1582,7 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "debate_runner.py",
       "id": "src_specter_courtroom_debate_runner"
     },
@@ -1662,7 +1842,7 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 0,
+      "community": 3,
       "norm_label": "courtroomrunresult",
       "id": "src_specter_courtroom_models_courtroomrunresult"
     },
@@ -2022,7 +2202,7 @@
       "source_file": "src/specter/feedback/feedback_loader.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "feedback_loader.py",
       "id": "src_specter_feedback_feedback_loader"
     },
@@ -2032,7 +2212,7 @@
       "source_file": "src/specter/feedback/feedback_loader.py",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "feedbackloaderror",
       "id": "src_specter_feedback_feedback_loader_feedbackloaderror"
     },
@@ -2042,7 +2222,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "valueerror",
       "id": "src_specter_feedback_feedback_loader_py_valueerror"
     },
@@ -2052,7 +2232,7 @@
       "source_file": "src/specter/feedback/feedback_loader.py",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "feedbackartifactloader",
       "id": "src_specter_feedback_feedback_loader_feedbackartifactloader"
     },
@@ -2062,7 +2242,7 @@
       "source_file": "src/specter/feedback/feedback_loader.py",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": ".load()",
       "id": "src_specter_feedback_feedback_loader_feedbackartifactloader_load"
     },
@@ -2072,7 +2252,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "path",
       "id": "src_specter_feedback_feedback_loader_py_path"
     },
@@ -2082,7 +2262,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "localize_cli.py",
       "id": "src_specter_feedback_localize_cli"
     },
@@ -2092,7 +2272,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "build_parser()",
       "id": "src_specter_feedback_localize_cli_build_parser"
     },
@@ -2102,7 +2282,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "argumentparser",
       "id": "src_specter_feedback_localize_cli_py_argumentparser"
     },
@@ -2112,7 +2292,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "run_from_args()",
       "id": "src_specter_feedback_localize_cli_run_from_args"
     },
@@ -2122,7 +2302,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "namespace",
       "id": "src_specter_feedback_localize_cli_py_namespace"
     },
@@ -2132,7 +2312,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L132",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "format_text()",
       "id": "src_specter_feedback_localize_cli_format_text"
     },
@@ -2142,7 +2322,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L143",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "main()",
       "id": "src_specter_feedback_localize_cli_main"
     },
@@ -2152,7 +2332,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L153",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "_write_yaml()",
       "id": "src_specter_feedback_localize_cli_write_yaml"
     },
@@ -2162,7 +2342,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "path",
       "id": "src_specter_feedback_localize_cli_py_path"
     },
@@ -2172,7 +2352,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L158",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "_write_vector()",
       "id": "src_specter_feedback_localize_cli_write_vector"
     },
@@ -2182,7 +2362,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L181",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "_write_heatmap()",
       "id": "src_specter_feedback_localize_cli_write_heatmap"
     },
@@ -2192,7 +2372,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L204",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "_deterministic_heatmap()",
       "id": "src_specter_feedback_localize_cli_deterministic_heatmap"
     },
@@ -2202,7 +2382,7 @@
       "source_file": "src/specter/feedback/localize_cli.py",
       "source_location": "L215",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "_safe_path_id()",
       "id": "src_specter_feedback_localize_cli_safe_path_id"
     },
@@ -2252,7 +2432,7 @@
       "source_file": "src/specter/feedback/plan_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "plan_builder.py",
       "id": "src_specter_feedback_plan_builder"
     },
@@ -2262,7 +2442,7 @@
       "source_file": "src/specter/feedback/plan_builder.py",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 33,
+      "community": 4,
       "norm_label": "feedbackplanbuilder",
       "id": "src_specter_feedback_plan_builder_feedbackplanbuilder"
     },
@@ -2452,7 +2632,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "model_provider.py",
       "id": "src_specter_model_provider"
     },
@@ -2472,7 +2652,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "modelresult",
       "id": "src_specter_model_provider_modelresult"
     },
@@ -2482,7 +2662,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "modelprovider",
       "id": "src_specter_model_provider_modelprovider"
     },
@@ -2492,7 +2672,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": ".complete()",
       "id": "src_specter_model_provider_modelprovider_complete"
     },
@@ -2502,7 +2682,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "modelprovidererror",
       "id": "src_specter_model_provider_modelprovidererror"
     },
@@ -2512,7 +2692,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "runtimeerror",
       "id": "src_specter_model_provider_py_runtimeerror"
     },
@@ -2522,7 +2702,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "openaicompatiblehttpprovider",
       "id": "src_specter_model_provider_openaicompatiblehttpprovider"
     },
@@ -2532,7 +2712,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L36",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": ".__init__()",
       "id": "src_specter_model_provider_openaicompatiblehttpprovider_init"
     },
@@ -2542,7 +2722,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": ".complete()",
       "id": "src_specter_model_provider_openaicompatiblehttpprovider_complete"
     },
@@ -2552,7 +2732,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L74",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "._extract_text()",
       "id": "src_specter_model_provider_openaicompatiblehttpprovider_extract_text"
     },
@@ -2562,7 +2742,7 @@
       "source_file": "src/specter/model_provider.py",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "http provider for openai-compatible completion apis, including sglang.",
       "id": "src_specter_model_provider_rationale_34"
     },
@@ -2572,7 +2752,7 @@
       "source_file": "src/specter/text.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 4,
       "norm_label": "text.py",
       "id": "src_specter_text"
     },
@@ -2592,7 +2772,7 @@
       "source_file": "src/specter/text.py",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 1,
+      "community": 4,
       "norm_label": "stable_vector()",
       "id": "src_specter_text_stable_vector"
     },
@@ -2602,7 +2782,7 @@
       "source_file": "src/specter/text.py",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 1,
+      "community": 4,
       "norm_label": "safe_path_id()",
       "id": "src_specter_text_safe_path_id"
     },
@@ -4127,166 +4307,6 @@
       "id": "agents_graphify"
     },
     {
-      "label": "README.md",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "readme.md",
-      "id": "readme"
-    },
-    {
-      "label": "Specter",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "specter",
-      "id": "readme_specter"
-    },
-    {
-      "label": "Install",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "install",
-      "id": "readme_install"
-    },
-    {
-      "label": "Automatic Graphify Snapshot Publishing",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L51",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "automatic graphify snapshot publishing",
-      "id": "readme_automatic_graphify_snapshot_publishing"
-    },
-    {
-      "label": "Input Contract",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L83",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "input contract",
-      "id": "readme_input_contract"
-    },
-    {
-      "label": "Run The Full Pipeline",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L106",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "run the full pipeline",
-      "id": "readme_run_the_full_pipeline"
-    },
-    {
-      "label": "1. Generate Courtroom Feedback",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L108",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "1. generate courtroom feedback",
-      "id": "readme_1_generate_courtroom_feedback"
-    },
-    {
-      "label": "2. Localize Feedback",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L139",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "2. localize feedback",
-      "id": "readme_2_localize_feedback"
-    },
-    {
-      "label": "3. Materialize Activation Hooks",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L167",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "3. materialize activation hooks",
-      "id": "readme_3_materialize_activation_hooks"
-    },
-    {
-      "label": "4. Rerun Expert Inference With Hooks",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L188",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "4. rerun expert inference with hooks",
-      "id": "readme_4_rerun_expert_inference_with_hooks"
-    },
-    {
-      "label": "Why Specter Is Separate From Dullahan",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L201",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "why specter is separate from dullahan",
-      "id": "readme_why_specter_is_separate_from_dullahan"
-    },
-    {
-      "label": "Ideal Use Cases",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L217",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "ideal use cases",
-      "id": "readme_ideal_use_cases"
-    },
-    {
-      "label": "Comparison",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L228",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "comparison",
-      "id": "readme_comparison"
-    },
-    {
-      "label": "Scalability",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L239",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "scalability",
-      "id": "readme_scalability"
-    },
-    {
-      "label": "Domain Adaptation",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L250",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "domain adaptation",
-      "id": "readme_domain_adaptation"
-    },
-    {
-      "label": "Development",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L270",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "development",
-      "id": "readme_development"
-    },
-    {
       "label": "validation_architecture.md",
       "file_type": "document",
       "source_file": "docs/validation_architecture.md",
@@ -4441,12 +4461,182 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_specter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_automatic_graphify_snapshot_publishing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L240",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_comparison",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_development",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L262",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_domain_adaptation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_ideal_use_cases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_input_contract",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_install",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L296",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_run_the_full_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_scalability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_tech_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "readme_specter",
+      "target": "readme_why_specter_is_separate_from_dullahan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "readme_run_the_full_pipeline",
+      "target": "readme_1_generate_courtroom_feedback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "readme_run_the_full_pipeline",
+      "target": "readme_2_localize_feedback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "readme_run_the_full_pipeline",
+      "target": "readme_3_materialize_activation_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "readme_run_the_full_pipeline",
+      "target": "readme_4_rerun_expert_inference_with_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill",
-      "target": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_continuous_integration_engineering"
     },
     {
       "relation": "contains",
@@ -4454,9 +4644,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_build_and_artifact_handling",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_build_and_artifact_handling"
     },
     {
       "relation": "contains",
@@ -4464,9 +4654,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_caching",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_caching"
     },
     {
       "relation": "contains",
@@ -4474,9 +4664,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_change_aware_execution",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_change_aware_execution"
     },
     {
       "relation": "contains",
@@ -4484,9 +4674,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L393",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_completion_report",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_completion_report"
     },
     {
       "relation": "contains",
@@ -4494,9 +4684,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L260",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_concurrency_and_cancellation",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_concurrency_and_cancellation"
     },
     {
       "relation": "contains",
@@ -4504,9 +4694,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L289",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_database_and_contract_safety",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_database_and_contract_safety"
     },
     {
       "relation": "contains",
@@ -4514,9 +4704,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L353",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_debugging_ci_failures",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_debugging_ci_failures"
     },
     {
       "relation": "contains",
@@ -4524,9 +4714,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L410",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_definition_of_done",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_definition_of_done"
     },
     {
       "relation": "contains",
@@ -4534,9 +4724,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L269",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_diagnostics_and_developer_experience",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_diagnostics_and_developer_experience"
     },
     {
       "relation": "contains",
@@ -4544,9 +4734,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L246",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_matrices_and_platform_coverage",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_matrices_and_platform_coverage"
     },
     {
       "relation": "contains",
@@ -4554,9 +4744,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L339",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_modifying_an_existing_pipeline",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_modifying_an_existing_pipeline"
     },
     {
       "relation": "contains",
@@ -4564,9 +4754,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_operating_boundaries",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_operating_boundaries"
     },
     {
       "relation": "contains",
@@ -4574,9 +4764,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L304",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_performance_checks",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_performance_checks"
     },
     {
       "relation": "contains",
@@ -4584,9 +4774,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_phase_1_orient_to_the_repository",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_phase_1_orient_to_the_repository"
     },
     {
       "relation": "contains",
@@ -4594,9 +4784,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_phase_2_define_the_integration_contract",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_phase_2_define_the_integration_contract"
     },
     {
       "relation": "contains",
@@ -4604,9 +4794,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_phase_3_design_the_pipeline",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_phase_3_design_the_pipeline"
     },
     {
       "relation": "contains",
@@ -4614,9 +4804,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_reproducibility",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_reproducibility"
     },
     {
       "relation": "contains",
@@ -4624,9 +4814,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L211",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_security",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_security"
     },
     {
       "relation": "contains",
@@ -4634,9 +4824,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_static_quality_checks",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_static_quality_checks"
     },
     {
       "relation": "contains",
@@ -4644,9 +4834,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_test_strategy",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_test_strategy"
     },
     {
       "relation": "contains",
@@ -4654,9 +4844,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L378",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_validation_before_completion",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_validation_before_completion"
     },
     {
       "relation": "contains",
@@ -4664,9 +4854,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L315",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_continuous_integration_engineering",
-      "target": "agents_skills_continuous_integration_skill_workflow_implementation_standards",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_workflow_implementation_standards"
     },
     {
       "relation": "contains",
@@ -4674,9 +4864,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_phase_3_design_the_pipeline",
-      "target": "agents_skills_continuous_integration_skill_fail_fast",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_fail_fast"
     },
     {
       "relation": "contains",
@@ -4684,9 +4874,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_phase_3_design_the_pipeline",
-      "target": "agents_skills_continuous_integration_skill_keep_jobs_cohesive",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_keep_jobs_cohesive"
     },
     {
       "relation": "contains",
@@ -4694,9 +4884,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_test_strategy",
-      "target": "agents_skills_continuous_integration_skill_coverage",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_coverage"
     },
     {
       "relation": "contains",
@@ -4704,9 +4894,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L172",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_test_strategy",
-      "target": "agents_skills_continuous_integration_skill_end_to_end_tests",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_end_to_end_tests"
     },
     {
       "relation": "contains",
@@ -4714,9 +4904,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_test_strategy",
-      "target": "agents_skills_continuous_integration_skill_flaky_tests",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_flaky_tests"
     },
     {
       "relation": "contains",
@@ -4724,9 +4914,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_test_strategy",
-      "target": "agents_skills_continuous_integration_skill_integration_tests",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_integration_tests"
     },
     {
       "relation": "contains",
@@ -4734,9 +4924,9 @@
       "source_file": ".agents/skills/continuous-integration/SKILL.md",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "agents_skills_continuous_integration_skill_test_strategy",
-      "target": "agents_skills_continuous_integration_skill_unit_tests",
-      "confidence_score": 1.0
+      "target": "agents_skills_continuous_integration_skill_unit_tests"
     },
     {
       "relation": "contains",
@@ -11965,156 +12155,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme",
-      "target": "readme_specter"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L51",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_automatic_graphify_snapshot_publishing"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L228",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_comparison"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L270",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_development"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L250",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_domain_adaptation"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L217",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_ideal_use_cases"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L83",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_input_contract"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_install"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_run_the_full_pipeline"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L239",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_scalability"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L201",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_specter",
-      "target": "readme_why_specter_is_separate_from_dullahan"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L108",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_run_the_full_pipeline",
-      "target": "readme_1_generate_courtroom_feedback"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L139",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_run_the_full_pipeline",
-      "target": "readme_2_localize_feedback"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L167",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_run_the_full_pipeline",
-      "target": "readme_3_materialize_activation_hooks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L188",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_run_the_full_pipeline",
-      "target": "readme_4_rerun_expert_inference_with_hooks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/validation_architecture.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -12254,5 +12294,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9fb2f72739e290ee73f7733389ea2c739e1ea09d"
+  "built_at_commit": "a365d78524e2c8117d8b42ab7973ae834fb16cd7"
 }

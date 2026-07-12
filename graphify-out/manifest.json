@@ -1,8 +1,8 @@
 {
   "pyproject.toml": {
-    "mtime": 1783732112.7423272,
-    "ast_hash": "d0227f469d32c4af68c2ef925cfce35d",
-    "semantic_hash": "d0227f469d32c4af68c2ef925cfce35d"
+    "mtime": 1783821436.9338021,
+    "ast_hash": "14556d31724ec511c25c8864f1b8267b",
+    "semantic_hash": ""
   },
   "src/specter/__init__.py": {
     "mtime": 1783732112.7425604,
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783739250.4720008,
-    "ast_hash": "3dcf80451a75947763816ff74141c992",
+    "mtime": 1783821436.934548,
+    "ast_hash": "091c9fd0c9c73b5e7be0245f627caee7",
     "semantic_hash": ""
   },
   "docs/validation_architecture.md": {
