@@ -33,7 +33,5 @@
   "31": "AGENTS.md",
   "32": "extraction-spec.md",
   "33": "ScriptedTransformerLensAdapter",
-  "34": ".load_targets",
-  "35": "BaseModel",
-  "36": "CompletedProcess"
+  "34": ".load_targets"
 }
