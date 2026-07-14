@@ -23,9 +23,15 @@ how the model answered afterward.
 ## Quickstart: From An Agent Trace To A Steered Answer
 
 The sequence below starts with a completed action graph and ends with a new model
-response generated under reversible feedback hooks. The recommended local route
-uses Dullahan's OpenAI-compatible inference service for the courtroom and a
-TransformerLens-compatible copy of the expert model for activation analysis.
+response generated under reversible feedback hooks. The courtroom needs a text
+generation endpoint. You can use the OpenAI API or another hosted
+OpenAI-compatible service. The
+[Dullahan](https://github.com/ForestDweller014/Dullahan) inference module is
+simply the local, self-hosted alternative for those same courtroom calls: it
+runs open-weight models through Ollama or vLLM and exposes an OpenAI-compatible
+completion interface. Dullahan inference is not a separate feedback mechanism
+and is not used for activation analysis, which still requires a
+TransformerLens-compatible copy of the expert model.
 
 ### 1. Install Specter
 
@@ -47,9 +53,9 @@ specter-run-feedback-hooks
 ### 2. Point Specter At A Completed Action Graph
 
 Specter expects a persisted graph whose nodes contain the query, supplied
-context, expert response, and routing metadata. Dullahan produces this file when
-an agent run uses `--persist-artifacts`, but any system can emit the same simple
-contract.
+context, expert response, and routing metadata. The broader Dullahan agent system
+produces this file when a run uses `--persist-artifacts`, but any system can emit
+the same simple contract.
 
 ```bash
 export ACTION_GRAPH="/absolute/path/to/memory/executions/<trace_id>/action_graph.json"
@@ -74,8 +80,9 @@ question preserved the original task.
 
 ### 3. Run The Courtroom
 
-For the recommended local route, install Dullahan in the same Python environment
-as Specter, then install Ollama and make the configured model available:
+For the recommended self-hosted route, clone Dullahan separately and install it
+in the same Python environment as Specter. Then install Ollama and make the
+configured model available:
 
 ```bash
 cd ~/Documents/Dullahan
@@ -115,9 +122,9 @@ path for the next stage:
 export FEEDBACK_DIR="/absolute/path/to/Specter/memory/feedback/<feedback_id>"
 ```
 
-If an inference service is already running, omit
-`--start-dullahan-inference`. To use another OpenAI-compatible completion
-endpoint instead:
+If Dullahan inference is already running, omit
+`--start-dullahan-inference`. To use the OpenAI API or another hosted
+OpenAI-compatible endpoint instead of self-hosted Dullahan:
 
 ```bash
 specter-courtroom "$ACTION_GRAPH" \
@@ -125,8 +132,8 @@ specter-courtroom "$ACTION_GRAPH" \
   --rounds 1 \
   --contentions 1 \
   --courtroom-model-provider openai-compatible \
-  --courtroom-model-base-url http://127.0.0.1:8000/v1 \
-  --courtroom-model my-model \
+  --courtroom-model-base-url https://api.openai.com/v1 \
+  --courtroom-model "your-completion-model" \
   --courtroom-api-key-env OPENAI_API_KEY \
   --persist
 ```
@@ -185,7 +192,7 @@ Specter does not currently make that quality judgment automatically.
 | Category | Tools |
 | --- | --- |
 | Runtime and commands | Python, CLI entrypoints |
-| Courtroom inference | Dullahan local inference or another OpenAI-compatible completion API |
+| Courtroom inference | OpenAI-compatible API; Dullahan inference is the self-hosted alternative |
 | Activation analysis | PyTorch, TransformerLens |
 | Contracts and artifacts | Pydantic, JSON, YAML |
 | Architecture documentation | Mermaid |
@@ -203,23 +210,23 @@ outputs.
 
 ```mermaid
 flowchart TD
-    Trace["Completed action graph<br/>queries, context, responses, delegations"] --> Loader["Trace loader<br/>one case per answered node"]
-    Loader --> Courtroom["Courtroom validation<br/>contentions, debate, judgment, summary"]
-    Courtroom --> Feedback["Feedback items<br/>summary + prosecution strength"]
-    Feedback --> Contrast["Contrast construction<br/>summary versus neutral trace"]
-    Contrast --> Localization["TransformerLens localization<br/>layer, token, heatmap, direction"]
-    Localization --> Plan["Feedback plan<br/>portable intervention recipe"]
-    Plan --> Hooks["Activation-hook materialization<br/>scaled steering vectors"]
-    Hooks --> Rerun["Steered expert inference"]
+    Trace["<b>Completed action graph</b><br/>Contents — queries • context • responses • delegations"] --> Loader["<b>Trace loader</b><br/>Purpose — creates one case per answered node"]
+    Loader --> Courtroom["<b>Courtroom validation</b><br/>Purpose — challenges and judges each case"]
+    Courtroom --> Feedback["<b>Feedback items</b><br/>Contents — final summary • prosecution strength"]
+    Feedback --> Contrast["<b>Contrast constructor</b><br/>Purpose — builds feedback and neutral examples"]
+    Contrast --> Localization["<b>TransformerLens localizer</b><br/>Output — layer • token • heatmap • direction"]
+    Localization --> Plan["<b>Feedback plan</b><br/>Purpose — records the intervention recipe"]
+    Plan --> Hooks["<b>Activation hooks</b><br/>Output — scaled steering vectors"]
+    Hooks --> Rerun["<b>Steered inference</b><br/>Operation — generates with temporary feedback"]
 
-    CourtroomModel["Local or OpenAI-compatible<br/>courtroom model"] --> Courtroom
-    ExpertModel["TransformerLens-compatible<br/>expert model"] --> Localization
+    CourtroomModel["<b>Courtroom model</b><br/>Hosting — OpenAI-compatible API • self-hosted Dullahan alternative"] --> Courtroom
+    ExpertModel["<b>Expert model</b><br/>Runtime — TransformerLens-compatible model"] --> Localization
     ExpertModel --> Rerun
 
-    Courtroom --> Evidence["Inspectable feedback artifacts"]
+    Courtroom --> Evidence["<b>Experiment artifacts</b><br/>Contents — feedback • localization • hook evidence"]
     Localization --> Evidence
     Hooks --> Evidence
-    Rerun --> Result["New response for comparison"]
+    Rerun --> Result["<b>Steered response</b><br/>Result — ready for baseline comparison"]
 
     class Trace,Result external
     class Loader,Courtroom,Feedback validation
@@ -252,18 +259,18 @@ to the exact target and argument that produced it.
 
 ```mermaid
 flowchart TB
-    Target["Validation target<br/>query + context + response + delegation"] --> Generate["Contention generator<br/>specific claims worth testing"]
-    Generate --> Contention["Bounded contention"]
-    Contention --> Defender["Defender<br/>protect supported reasoning"]
-    Defender --> Prosecutor["Prosecutor<br/>rebut and sharpen the criticism"]
-    Prosecutor --> Judge["Judge<br/>score prosecution strength"]
-    Judge --> Reporter["Court reporter<br/>compress the surviving arguments"]
-    Reporter --> More{"Another round?"}
-    More -->|"yes"| Revise["Revise the same contention"]
+    Target["<b>Validation target</b><br/>Contents — query • context • response • delegation"] --> Generate["<b>Contention generator</b><br/>Purpose — identifies testable failures"]
+    Generate --> Contention["<b>Contention</b><br/>Output — one bounded validation claim"]
+    Contention --> Defender["<b>Defender</b><br/>Purpose — protects supported reasoning"]
+    Defender --> Prosecutor["<b>Prosecutor</b><br/>Purpose — challenges and sharpens the claim"]
+    Prosecutor --> Judge["<b>Judge</b><br/>Purpose — scores the prosecution's case"]
+    Judge --> Reporter["<b>Court reporter</b><br/>Purpose — preserves the surviving argument"]
+    Reporter --> More{"<b>Continue debate?</b><br/>Decision — run another round"}
+    More -->|"yes"| Revise["<b>Contention revision</b><br/>Purpose — refines the same validation claim"]
     Revise --> Defender
-    More -->|"no"| Item["Feedback item<br/>final summary + judge score"]
+    More -->|"no"| Item["<b>Feedback item</b><br/>Contents — final summary • judge score"]
 
-    Provider["Dullahan or OpenAI-compatible<br/>completion provider"] --> Generate
+    Provider["<b>Completion provider</b><br/>Hosting — OpenAI-compatible API • self-hosted Dullahan alternative"] --> Generate
     Provider --> Defender
     Provider --> Prosecutor
     Provider --> Judge
@@ -295,21 +302,21 @@ the courtroom.
 
 ```mermaid
 flowchart TB
-    Summary["Final courtroom summary<br/>positive feedback text"] --> Pairs["Contrast-pair builder"]
-    Case["Original query, context, response"] --> Neutral["Deterministic neutral text<br/>same topic, no courtroom pressure"]
+    Summary["<b>Final courtroom summary</b><br/>Input — positive feedback text"] --> Pairs["<b>Contrast-pair builder</b><br/>Purpose — creates positive and neutral examples"]
+    Case["<b>Original case</b><br/>Contents — query • context • response"] --> Neutral["<b>Neutral example</b><br/>Method — deterministic topic matching"]
     Neutral --> Pairs
-    Pairs --> Cache["Expert model with TransformerLens<br/>cache residual activations"]
-    Cache --> Difference["Positive minus negative<br/>at each layer and token"]
-    Difference --> Heatmap["Activation heatmap"]
-    Difference --> Direction["Normalized steering direction"]
-    Heatmap --> Select["Strongest layer and token"]
-    Direction --> Plan["Feedback plan"]
+    Pairs --> Cache["<b>Activation cache</b><br/>Operation — records expert residual activations"]
+    Cache --> Difference["<b>Activation comparison</b><br/>Calculation — positive minus neutral by layer and token"]
+    Difference --> Heatmap["<b>Activation heatmap</b><br/>Output — separation score by layer and token"]
+    Difference --> Direction["<b>Steering direction</b><br/>Output — normalized activation vector"]
+    Heatmap --> Select["<b>Localization selector</b><br/>Output — strongest layer and token"]
+    Direction --> Plan["<b>Feedback plan</b><br/>Purpose — records the intervention recipe"]
     Select --> Plan
-    Strength["Judge prosecution strength"] --> Plan
-    Plan --> Scale["Scale direction<br/>strength × feedback scale"]
-    Scale --> Hook["Residual-stream hook spec"]
-    Hook --> Model["Expert generation with temporary hooks"]
-    Model --> Output["Steered response"]
+    Strength["<b>Judge score</b><br/>Signal — prosecution strength"] --> Plan
+    Plan --> Scale["<b>Vector scaling</b><br/>Calculation — judge strength × feedback scale"]
+    Scale --> Hook["<b>Activation hook</b><br/>Output — residual-stream intervention"]
+    Hook --> Model["<b>Expert generation</b><br/>Operation — runs with temporary hooks"]
+    Model --> Output["<b>Steered response</b><br/>Result — ready for baseline comparison"]
 
     class Summary,Case external
     class Pairs,Neutral,Cache,Difference,Heatmap,Direction,Select teal
