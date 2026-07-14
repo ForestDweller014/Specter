@@ -31,5 +31,9 @@
   "29": "graphify reference: GitHub clone and cross-repo merge",
   "30": "graphify reference: transcribe video and audio",
   "31": "AGENTS.md",
-  "32": "extraction-spec.md"
+  "32": "extraction-spec.md",
+  "33": "ScriptedTransformerLensAdapter",
+  "34": ".load_targets",
+  "35": "BaseModel",
+  "36": "CompletedProcess"
 }

@@ -1,16 +1,16 @@
-# Graph Report - Specter  (2026-07-11)
+# Graph Report - Specter  (2026-07-13)
 
 ## Corpus Check
-- 53 files · ~26,988 words
+- 56 files · ~28,160 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 445 nodes · 750 edges · 33 communities (24 shown, 9 thin omitted)
-- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 85 edges (avg confidence: 0.67)
+- 484 nodes · 804 edges · 37 communities (26 shown, 11 thin omitted)
+- Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 94 edges (avg confidence: 0.63)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a365d785`
+- Built from commit: `70210947`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -48,63 +48,67 @@
 - graphify reference: transcribe video and audio
 - AGENTS.md
 - extraction-spec.md
+- ScriptedTransformerLensAdapter
+- .load_targets
+- BaseModel
+- CompletedProcess
 
 ## God Nodes (most connected - your core abstractions)
-1. `FeedbackTargetNode` - 26 edges
+1. `CourtroomRunner` - 24 edges
 2. `Continuous Integration Engineering` - 23 edges
-3. `DeterministicCourtroomRunner` - 21 edges
-4. `TransformerLensAdapter` - 18 edges
-5. `CourtroomConfig` - 16 edges
-6. `run_from_args()` - 15 edges
-7. `Feedback Runtime Architecture` - 14 edges
-8. `Specter` - 13 edges
-9. `MinimalPairContrastSetBuilder` - 13 edges
-10. `Investigation and Debugging` - 13 edges
+3. `CourtroomConfig` - 20 edges
+4. `TransformerLensAdapter` - 19 edges
+5. `ScriptedInferenceProvider` - 17 edges
+6. `Feedback Runtime Architecture` - 14 edges
+7. `Specter` - 13 edges
+8. `MinimalPairContrastSetBuilder` - 13 edges
+9. `ScriptedTransformerLensLocator` - 13 edges
+10. `FeedbackTargetNode` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()` --calls--> `TransformerLensHookRunner`  [INFERRED]
-  tests/test_specter.py → src/specter/activation/hook_runner.py
-- `test_contrast_builder_removes_feedback_concept_from_negative()` --calls--> `MinimalPairContrastSetBuilder`  [INFERRED]
+- `test_real_transformerlens_localizes_feedback_activations()` --calls--> `LocalizationRequest`  [INFERRED]
+  tests/test_real_inference.py → src/specter/activation/activation_locator.py
+- `ScriptedInferenceProvider` --uses--> `MinimalPairContrastSetBuilder`  [INFERRED]
   tests/test_specter.py → src/specter/activation/contrast_set_builder.py
-- `test_courtroom_model_provider_can_revise_contentions()` --calls--> `CourtroomConfig`  [INFERRED]
-  tests/test_specter.py → src/specter/config.py
-- `test_courtroom_runner_can_use_model_backed_roles()` --calls--> `CourtroomConfig`  [INFERRED]
-  tests/test_specter.py → src/specter/config.py
-- `test_courtroom_runner_evolves_contentions_after_first_round()` --calls--> `CourtroomConfig`  [INFERRED]
-  tests/test_specter.py → src/specter/config.py
+- `ScriptedTransformerLensAdapter` --uses--> `MinimalPairContrastSetBuilder`  [INFERRED]
+  tests/test_specter.py → src/specter/activation/contrast_set_builder.py
+- `ScriptedTransformerLensLocator` --uses--> `MinimalPairContrastSetBuilder`  [INFERRED]
+  tests/test_specter.py → src/specter/activation/contrast_set_builder.py
+- `test_real_transformerlens_localizes_feedback_activations()` --calls--> `TransformerLensAdapter`  [INFERRED]
+  tests/test_real_inference.py → src/specter/activation/transformerlens_adapter.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 9 thin omitted)
+## Communities (37 total, 11 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (24): CourtroomConfig, BaseModel, Path, DeterministicContentionGenerator, DeterministicCourtroomRunner, Contention, DebateRound, DebateRoundItem (+16 more)
+Cohesion: 0.10
+Nodes (17): FeedbackArtifactStore, Path, _safe_path_id(), Contention, CourtroomRunResult, DebateRound, DebateRoundItem, FeedbackItem (+9 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.12
-Nodes (18): AppliedFeedbackLoader, HookedGenerationResult, _import_torch(), BaseModel, Path, TransformerLensHookRunner, ActivationHookSpec, AppliedFeedbackBundle (+10 more)
+Cohesion: 0.09
+Nodes (22): AppliedFeedbackLoader, HookedGenerationResult, _import_torch(), BaseModel, Path, TransformerLensHookRunner, ActivationHookSpec, AppliedFeedbackBundle (+14 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.08
 Nodes (24): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+16 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.23
-Nodes (11): FeedbackArtifactStore, Path, _safe_path_id(), _build_model_provider(), build_parser(), format_text(), main(), ArgumentParser (+3 more)
+Cohesion: 0.19
+Nodes (6): DullahanInferenceError, DullahanInferenceServer, Path, RuntimeError, Run Dullahan's local inference module for the lifetime of a Specter command., test_real_transformerlens_localizes_feedback_activations()
 
 ### Community 4 - "Community 4"
-Cohesion: 0.08
-Nodes (30): DeterministicActivationLocator, LocalizationRequest, MinimalPairContrastSetBuilder, ActivationLocalization, ContrastPair, BaseModel, _import_torch(), TransformerLensActivationLocator (+22 more)
+Cohesion: 0.12
+Nodes (15): RuntimeError, Thin optional boundary for real TransformerLens localization.      This adapter, TransformerLensAdapter, TransformerLensUnavailableError, build_parser(), format_text(), main(), ArgumentParser (+7 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.12
-Nodes (10): RuntimeError, Thin optional boundary for real TransformerLens localization.      The feedback, TransformerLensAdapter, TransformerLensUnavailableError, build_parser(), format_text(), main(), ArgumentParser (+2 more)
+Cohesion: 0.11
+Nodes (16): ContrastPair, FeedbackItem, LocalizationRequest, MinimalPairContrastSetBuilder, ActivationLocalization, ContrastPair, BaseModel, _import_torch() (+8 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.18
-Nodes (20): ActionGraphLoader, ActionGraphLoadError, Path, ValueError, _build_courtroom_feedback(), _build_feedback_plan(), Path, test_action_graph_loader_returns_answered_targets() (+12 more)
+Cohesion: 0.09
+Nodes (37): CourtroomRunResult, _build_model_provider(), build_parser(), format_text(), main(), ArgumentParser, Namespace, run_from_args() (+29 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.06
@@ -140,7 +144,7 @@ Nodes (12): 10. Completion report, 1. Establish the task boundary, 2. Orient bef
 
 ### Community 20 - "_run"
 Cohesion: 0.54
-Nodes (12): _git(), _init_hook_repo(), _init_publishing_repo(), CompletedProcess, Path, _run(), test_hook_installer_is_idempotent_and_preserves_mode(), test_hook_installer_rejects_unknown_layout() (+4 more)
+Nodes (12): CompletedProcess, _git(), _init_hook_repo(), _init_publishing_repo(), Path, _run(), test_hook_installer_is_idempotent_and_preserves_mode(), test_hook_installer_rejects_unknown_layout() (+4 more)
 
 ### Community 21 - "Architecture-First Changes"
 Cohesion: 0.18
@@ -174,25 +178,33 @@ Nodes (3): For git commit hook, For native CLAUDE.md integration, graphify refer
 Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
+### Community 33 - "ScriptedTransformerLensAdapter"
+Cohesion: 0.14
+Nodes (17): BaseModel, Contention, CourtroomPromptBuilder, DebateRound, JudgeScore, CourtroomConfig, Path, InferenceContentionGenerator (+9 more)
+
+### Community 34 - ".load_targets"
+Cohesion: 0.36
+Nodes (4): ActionGraphLoader, ActionGraphLoadError, Path, ValueError
+
 ## Knowledge Gaps
 - **144 isolated node(s):** `Tech Stack`, `Install`, `Automatic Graphify Snapshot Publishing`, `Input Contract`, `1. Generate Courtroom Feedback` (+139 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TransformerLensHookRunner` connect `Community 1` to `Community 5`, `Community 6`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `TransformerLensAdapter` connect `Community 5` to `Community 1`, `Community 4`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **Why does `test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()` connect `Community 6` to `Community 1`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Are the 3 inferred relationships involving `FeedbackTargetNode` (e.g. with `test_courtroom_model_provider_can_revise_contentions()` and `test_courtroom_runner_can_use_model_backed_roles()`) actually correct?**
-  _`FeedbackTargetNode` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 9 inferred relationships involving `DeterministicCourtroomRunner` (e.g. with `run_from_args()` and `CourtroomConfig`) actually correct?**
-  _`DeterministicCourtroomRunner` has 9 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 7 inferred relationships involving `TransformerLensAdapter` (e.g. with `AppliedFeedbackLoader` and `HookedGenerationResult`) actually correct?**
-  _`TransformerLensAdapter` has 7 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 6 inferred relationships involving `CourtroomConfig` (e.g. with `run_from_args()` and `DeterministicContentionGenerator`) actually correct?**
-  _`CourtroomConfig` has 6 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `TransformerLensAdapter` connect `Community 4` to `Community 1`, `Community 3`, `Community 5`?**
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+- **Why does `MinimalPairContrastSetBuilder` connect `Community 5` to `Community 1`, `Community 6`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+- **Why does `FeedbackTargetNode` connect `Community 0` to `.load_targets`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+- **Are the 12 inferred relationships involving `CourtroomRunner` (e.g. with `run_from_args()` and `CourtroomConfig`) actually correct?**
+  _`CourtroomRunner` has 12 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 10 inferred relationships involving `CourtroomConfig` (e.g. with `run_from_args()` and `InferenceContentionGenerator`) actually correct?**
+  _`CourtroomConfig` has 10 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 8 inferred relationships involving `TransformerLensAdapter` (e.g. with `AppliedFeedbackLoader` and `HookedGenerationResult`) actually correct?**
+  _`TransformerLensAdapter` has 8 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 6 inferred relationships involving `ScriptedInferenceProvider` (e.g. with `MinimalPairContrastSetBuilder` and `CourtroomConfig`) actually correct?**
+  _`ScriptedInferenceProvider` has 6 INFERRED edges - model-reasoned connections that need verification._

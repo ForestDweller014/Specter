@@ -1,7 +1,7 @@
 {
   "pyproject.toml": {
-    "mtime": 1783821436.9338021,
-    "ast_hash": "14556d31724ec511c25c8864f1b8267b",
+    "mtime": 1783998698.3471122,
+    "ast_hash": "9deca01a6b903c0d8f91307971450d8e",
     "semantic_hash": ""
   },
   "src/specter/__init__.py": {
@@ -15,14 +15,14 @@
     "semantic_hash": "09efeb5acc07dc17b727c9f576012cf8"
   },
   "src/specter/activation/activation_locator.py": {
-    "mtime": 1783732112.743057,
-    "ast_hash": "36ac026af4bfe2fb6e2e83ba24b1793a",
-    "semantic_hash": "36ac026af4bfe2fb6e2e83ba24b1793a"
+    "mtime": 1783998533.7965314,
+    "ast_hash": "e0a10cb13279d79987b5fefab5a5d918",
+    "semantic_hash": ""
   },
   "src/specter/activation/contrast_set_builder.py": {
-    "mtime": 1783732112.7432747,
-    "ast_hash": "8a0331bd25d0249eb36ac38ce9d63575",
-    "semantic_hash": "8a0331bd25d0249eb36ac38ce9d63575"
+    "mtime": 1783999021.6777155,
+    "ast_hash": "1f88a095e0fcb6eef075836a1b2c1b7f",
+    "semantic_hash": ""
   },
   "src/specter/activation/hook_runner.py": {
     "mtime": 1783732112.7436821,
@@ -35,9 +35,9 @@
     "semantic_hash": "2cab25431caddfc84b581ed113dbb8d2"
   },
   "src/specter/activation/transformerlens_adapter.py": {
-    "mtime": 1783732112.7441387,
-    "ast_hash": "bccf850519a14f6b3f911ca0314f9faa",
-    "semantic_hash": "bccf850519a14f6b3f911ca0314f9faa"
+    "mtime": 1783998777.1027555,
+    "ast_hash": "40ce1a8c8935e34e375079c014ccfa52",
+    "semantic_hash": ""
   },
   "src/specter/activation/transformerlens_locator.py": {
     "mtime": 1783732112.7443554,
@@ -50,14 +50,14 @@
     "semantic_hash": "b5a5c0f3a4b300303173dbe933523b46"
   },
   "src/specter/cli.py": {
-    "mtime": 1783732112.7447803,
-    "ast_hash": "ba7caef0c145e80ead3acdde70a8fe4c",
-    "semantic_hash": "ba7caef0c145e80ead3acdde70a8fe4c"
+    "mtime": 1783999239.524891,
+    "ast_hash": "b26e7c21ae292c26697eedbece89d06d",
+    "semantic_hash": ""
   },
   "src/specter/config.py": {
-    "mtime": 1783732112.7449265,
-    "ast_hash": "959d33935965a006085c34c3ead771f9",
-    "semantic_hash": "959d33935965a006085c34c3ead771f9"
+    "mtime": 1783998432.1681652,
+    "ast_hash": "5c45130d6c6a0395ff05ed647f3efc06",
+    "semantic_hash": ""
   },
   "src/specter/courtroom/__init__.py": {
     "mtime": 1783732112.7450604,
@@ -65,14 +65,14 @@
     "semantic_hash": "616ff10fd9fe0c66f685af9d876ff047"
   },
   "src/specter/courtroom/contention_generator.py": {
-    "mtime": 1783732112.7452147,
-    "ast_hash": "0e676efe67142bdaaaa353c770e46cfc",
-    "semantic_hash": "0e676efe67142bdaaaa353c770e46cfc"
+    "mtime": 1783998891.9349544,
+    "ast_hash": "dd8331629290e9573f6a583cb51b4786",
+    "semantic_hash": ""
   },
   "src/specter/courtroom/debate_runner.py": {
-    "mtime": 1783732112.7454066,
-    "ast_hash": "bf98119d6db3638749b650e4d6396dcf",
-    "semantic_hash": "bf98119d6db3638749b650e4d6396dcf"
+    "mtime": 1783998979.6309426,
+    "ast_hash": "b9f52cc356825176187eba7620b5fb13",
+    "semantic_hash": ""
   },
   "src/specter/courtroom/models.py": {
     "mtime": 1783732112.745553,
@@ -110,9 +110,9 @@
     "semantic_hash": "80c85aa4279f0f22fe12229d8762bf48"
   },
   "src/specter/feedback/localize_cli.py": {
-    "mtime": 1783732112.7468126,
-    "ast_hash": "868e1e717687d375ea42183cbabb37b2",
-    "semantic_hash": "868e1e717687d375ea42183cbabb37b2"
+    "mtime": 1783999021.6777537,
+    "ast_hash": "4552a944d36152a309af8fa965466fc8",
+    "semantic_hash": ""
   },
   "src/specter/feedback/models.py": {
     "mtime": 1783732112.7469542,
@@ -140,19 +140,19 @@
     "semantic_hash": "248d583767571c4c9f1f4df906501312"
   },
   "src/specter/model_provider.py": {
-    "mtime": 1783732112.7479706,
-    "ast_hash": "76cfe58eec81cc43ddd5939cb3d56b52",
-    "semantic_hash": "76cfe58eec81cc43ddd5939cb3d56b52"
+    "mtime": 1783999088.618576,
+    "ast_hash": "be9c9e02bccabc3e00b0642f8c48465c",
+    "semantic_hash": ""
   },
   "src/specter/text.py": {
-    "mtime": 1783732112.7481358,
-    "ast_hash": "616d45c21070eff80f317e50835d5415",
-    "semantic_hash": "616d45c21070eff80f317e50835d5415"
+    "mtime": 1783999021.6768491,
+    "ast_hash": "59102e2592992591f610c28c465c110e",
+    "semantic_hash": ""
   },
   "tests/test_specter.py": {
-    "mtime": 1783732112.7484498,
-    "ast_hash": "9e07c1217aae9664bd798ace617531e9",
-    "semantic_hash": "9e07c1217aae9664bd798ace617531e9"
+    "mtime": 1783999243.7038827,
+    "ast_hash": "2d84f08c8aefc8ac5b27c5fe85b4b011",
+    "semantic_hash": ""
   },
   ".codex/hooks.json": {
     "mtime": 1783732112.7269378,
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "tests/test_graphify_auto_publish.py": {
-    "mtime": 1783739127.4880514,
-    "ast_hash": "53980969cf199a110f26f57aaa159983",
+    "mtime": 1783999021.6776354,
+    "ast_hash": "f6e2b386aa5ea227790fa5cc4f71bfff",
     "semantic_hash": ""
   },
   ".agents/skills/architecture-first-changes/SKILL.md": {
@@ -250,18 +250,33 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783821436.934548,
-    "ast_hash": "091c9fd0c9c73b5e7be0245f627caee7",
+    "mtime": 1783998979.6313865,
+    "ast_hash": "17ebfcdc99119ba03012d314ccd9a8cf",
     "semantic_hash": ""
   },
   "docs/validation_architecture.md": {
-    "mtime": 1783732112.7308714,
-    "ast_hash": "74b267476cd7702642d11adfd7de497d",
+    "mtime": 1783998777.1017394,
+    "ast_hash": "207aab489a86759c15ac06fbcf916e46",
     "semantic_hash": ""
   },
   ".agents/skills/continuous-integration/SKILL.md": {
     "mtime": 1783739631.060933,
     "ast_hash": "cfc76f0f7047564dac5e4416067585da",
+    "semantic_hash": ""
+  },
+  "src/specter/dullahan_inference.py": {
+    "mtime": 1783999021.677542,
+    "ast_hash": "78499d798b266f9fc6563e864037e7d8",
+    "semantic_hash": ""
+  },
+  "tests/test_model_provider.py": {
+    "mtime": 1783998958.8967824,
+    "ast_hash": "53bee0eed4e6f90cfc8ee5bfd02016ae",
+    "semantic_hash": ""
+  },
+  "tests/test_real_inference.py": {
+    "mtime": 1783999088.6193092,
+    "ast_hash": "2ef1fca3bb4370c9ba66f38031551f62",
     "semantic_hash": ""
   }
 }
