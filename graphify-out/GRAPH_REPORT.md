@@ -1,7 +1,7 @@
 # Graph Report - Specter  (2026-07-14)
 
 ## Corpus Check
-- 56 files · ~29,230 words
+- 56 files · ~29,406 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4518397e`
+- Built from commit: `7cee55bc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
