@@ -53,7 +53,7 @@ specter-courtroom memory/executions/<trace_id>/action_graph.json \
 
 ```bash
 specter-courtroom memory/executions/<trace_id>/action_graph.json \
-  --courtroom-model-provider http \
+  --courtroom-model-provider dullahan \
   --courtroom-model-base-url http://127.0.0.1:30000/v1 \
   --persist
 ```
@@ -357,7 +357,7 @@ Recommended implementation order:
 1. Add Pydantic schemas for feedback targets, contentions, debate rounds, judge
    scores, activation localizations, and feedback plans.
 2. Add an action-graph loader that maps existing nodes into feedback targets.
-3. Add the courtroom CLI with deterministic providers for tests.
+3. Add the courtroom CLI with Dullahan local inference and explicit test doubles.
 4. Persist courtroom artifacts under `memory/feedback/`.
 5. Add TransformerLens localization behind an optional dependency.
 6. Add activation-hook feedback application for local expert models.

@@ -6,7 +6,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PUBLISHER = PROJECT_ROOT / "scripts" / "publish_graphify_snapshot.py"
 INSTALLER = PROJECT_ROOT / "scripts" / "install_graphify_auto_publish.py"
@@ -21,8 +20,7 @@ def _run(
         list(args),
         cwd=cwd,
         text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        capture_output=True,
     )
     if check and result.returncode != 0:
         raise AssertionError(
@@ -78,6 +76,7 @@ def _init_publishing_repo(tmp_path: Path) -> tuple[Path, Path]:
 
 
 def test_publisher_commits_and_pushes_only_durable_outputs(tmp_path: Path) -> None:
+    # Tests real Git publication, durable path selection, deletion, and staged-work isolation.
     repo, remote = _init_publishing_repo(tmp_path)
     _write(repo / "graphify-out/graph.json", '{"version": 2}\n')
     (repo / "graphify-out/graph.html").unlink()
@@ -117,6 +116,7 @@ def test_publisher_commits_and_pushes_only_durable_outputs(tmp_path: Path) -> No
 
 
 def test_publisher_refuses_manually_staged_graphify_files(tmp_path: Path) -> None:
+    # Tests that the publisher aborts without committing when a Graphify output is manually staged.
     repo, _ = _init_publishing_repo(tmp_path)
     _write(repo / "graphify-out/graph.json", '{"version": 2}\n')
     _git(repo, "add", "graphify-out/graph.json")
@@ -130,9 +130,7 @@ def test_publisher_refuses_manually_staged_graphify_files(tmp_path: Path) -> Non
 
     assert result.returncode == 1
     assert "manually staged Graphify files" in result.stderr
-    assert _git(repo, "log", "-1", "--format=%s").stdout.strip() == (
-        "chore: Initialize fixture"
-    )
+    assert _git(repo, "log", "-1", "--format=%s").stdout.strip() == ("chore: Initialize fixture")
 
 
 def _init_hook_repo(tmp_path: Path) -> tuple[Path, Path]:
@@ -159,6 +157,7 @@ except Exception:
 
 
 def test_hook_installer_is_idempotent_and_preserves_mode(tmp_path: Path) -> None:
+    # Tests repeat-safe patching and executable-mode preservation against a synthetic Graphify hook.
     repo, hook = _init_hook_repo(tmp_path)
     original_mode = stat.S_IMODE(hook.stat().st_mode)
 
@@ -175,14 +174,13 @@ def test_hook_installer_is_idempotent_and_preserves_mode(tmp_path: Path) -> None
 
 
 def test_hook_patch_runs_publisher_after_rebuild(tmp_path: Path) -> None:
+    # Tests that the synthetic hook is patched to call the publisher after the rebuild anchor.
     repo, hook = _init_hook_repo(tmp_path)
 
     _run(sys.executable, str(INSTALLER), cwd=repo)
     text = hook.read_text(encoding="utf-8")
 
-    rebuild_index = text.index(
-        "_rebuild_code(_root, changed_paths=changed, force=_force)"
-    )
+    rebuild_index = text.index("_rebuild_code(_root, changed_paths=changed, force=_force)")
     publish_index = text.index("specter-graphify-auto-publish-start")
     exception_index = text.index("except Exception:")
     assert rebuild_index < publish_index < exception_index
@@ -190,6 +188,7 @@ def test_hook_patch_runs_publisher_after_rebuild(tmp_path: Path) -> None:
 
 
 def test_hook_installer_rejects_unknown_layout(tmp_path: Path) -> None:
+    # Tests that the installer refuses an unrecognized hook instead of modifying arbitrary content.
     repo = tmp_path / "unknown-hook"
     _run("git", "init", "-b", "main", str(repo), cwd=tmp_path)
     hook = repo / ".git/hooks/post-commit"

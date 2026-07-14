@@ -1,18 +1,17 @@
 import json
-from types import SimpleNamespace
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 import yaml
 
+from specter.activation.contrast_set_builder import MinimalPairContrastSetBuilder
 from specter.activation.hook_runner import TransformerLensHookRunner
 from specter.activation.models import ActivationLocalization
-from specter.activation.contrast_set_builder import MinimalPairContrastSetBuilder
 from specter.cli import build_parser, main, run_from_args
 from specter.config import CourtroomConfig
-from specter.courtroom.debate_runner import DeterministicCourtroomRunner
+from specter.courtroom.debate_runner import CourtroomRunner
 from specter.courtroom.models import FeedbackItem, FeedbackTargetNode
-from specter.model_provider import ModelResult
 from specter.feedback.apply_cli import (
     build_parser as build_apply_parser,
 )
@@ -21,15 +20,6 @@ from specter.feedback.apply_cli import (
 )
 from specter.feedback.apply_cli import (
     run_from_args as run_apply_from_args,
-)
-from specter.feedback.run_hooks_cli import (
-    build_parser as build_run_hooks_parser,
-)
-from specter.feedback.run_hooks_cli import (
-    main as run_hooks_main,
-)
-from specter.feedback.run_hooks_cli import (
-    run_from_args as run_hooks_from_args,
 )
 from specter.feedback.localize_cli import (
     build_parser as build_localize_parser,
@@ -40,10 +30,95 @@ from specter.feedback.localize_cli import (
 from specter.feedback.localize_cli import (
     run_from_args as run_localize_from_args,
 )
+from specter.feedback.run_hooks_cli import (
+    build_parser as build_run_hooks_parser,
+)
+from specter.feedback.run_hooks_cli import (
+    main as run_hooks_main,
+)
+from specter.feedback.run_hooks_cli import (
+    run_from_args as run_hooks_from_args,
+)
 from specter.graph_loader import ActionGraphLoader
+from specter.model_provider import ModelProvider, ModelRequest, ModelResult
+
+
+class ScriptedInferenceProvider(ModelProvider):
+    """Deterministic test double for inference that is not under direct test."""
+
+    def __init__(self) -> None:
+        self.prompts: list[str] = []
+
+    def complete(self, request: ModelRequest) -> ModelResult:
+        self.prompts.append(request.prompt)
+        if "JSON array" in request.prompt:
+            text = json.dumps(
+                [
+                    (
+                        "The delegated query may not faithfully preserve the parent query intent. "
+                        "Parent query: Review the infrastructure plan. "
+                        "Delegated query: Assess the deployment risk."
+                    ),
+                    "The response may not be sufficiently grounded in the supplied context.",
+                ]
+            )
+        elif "Previous contention:" in request.prompt:
+            text = "model revised contention"
+        elif "You are the defender" in request.prompt:
+            text = "model defense"
+        elif "You are the prosecutor" in request.prompt:
+            text = "model prosecution rebuttal"
+        elif "You are the judge" in request.prompt:
+            text = "0.42 prosecution is moderately strong"
+        elif "You are the court reporter" in request.prompt:
+            text = "compressed model summary"
+        else:
+            raise AssertionError(f"unexpected inference prompt: {request.prompt}")
+        return ModelResult(text=text, provider="scripted", token_count=len(text.split()))
+
+
+class ScriptedTransformerLensLocator:
+    """Test double for activation analysis when localization itself is not under test."""
+
+    def __init__(self, **kwargs) -> None:
+        self.dependencies = kwargs
+
+    def locate(self, request, *, heatmap_ref=None):
+        item = request.feedback_item
+        return SimpleNamespace(
+            localization=ActivationLocalization(
+                feedback_id=item.feedback_id,
+                query_id=item.query_id,
+                expert_id=item.expert_id,
+                contention_id=item.contention_id,
+                prosecution_strength=item.prosecution_strength,
+                layer=3,
+                token_position=1,
+                token_position_policy="token-index:1",
+                direction_vector_ref=request.direction_vector_ref,
+                heatmap_ref=heatmap_ref,
+                projection_strength=0.9,
+                confidence=0.7,
+                backend="transformerlens",
+                contrast_pairs=MinimalPairContrastSetBuilder().build(
+                    item, pair_count=request.contrast_pair_count
+                ),
+            ),
+            direction_vector=[0.1, -0.2, 0.3],
+            heatmap=[[0.1, 0.2], [0.3, 0.9]],
+        )
+
+
+class ScriptedTransformerLensAdapter:
+    def __init__(self, *, model_path: str) -> None:
+        self.model_path = model_path
+
+    def load_model(self):
+        return object()
 
 
 def test_action_graph_loader_returns_answered_targets(tmp_path: Path) -> None:
+    # Tests answered-node selection and preservation of graph, delegation, and response fields.
     graph_path = _write_action_graph(tmp_path)
 
     graph, targets = ActionGraphLoader().load_targets(graph_path)
@@ -62,6 +137,7 @@ def test_action_graph_loader_returns_answered_targets(tmp_path: Path) -> None:
 
 
 def test_courtroom_cli_persists_feedback_artifacts(tmp_path: Path) -> None:
+    # Tests inference-backed courtroom orchestration and its persisted per-target artifacts.
     graph_path = _write_action_graph(tmp_path)
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
@@ -83,7 +159,7 @@ def test_courtroom_cli_persists_feedback_artifacts(tmp_path: Path) -> None:
         ]
     )
 
-    result = run_from_args(args)
+    result = run_from_args(args, model_provider=ScriptedInferenceProvider())
 
     assert result.feedback_id.startswith("feedback:")
     assert result.source_trace_id == "trace:test"
@@ -113,8 +189,23 @@ def test_courtroom_cli_persists_feedback_artifacts(tmp_path: Path) -> None:
     assert (target_dir / "final_feedback.yaml").exists()
 
 
-def test_courtroom_cli_text_output(tmp_path: Path, capsys) -> None:
+def test_inference_clis_reject_removed_deterministic_backends() -> None:
+    # Tests that production CLI choices cannot select the removed model stand-ins.
+    with pytest.raises(SystemExit):
+        build_parser().parse_args(
+            ["action_graph.json", "--courtroom-model-provider", "deterministic"]
+        )
+    with pytest.raises(SystemExit):
+        build_localize_parser().parse_args(["feedback-dir", "--backend", "deterministic"])
+
+
+def test_courtroom_cli_text_output(tmp_path: Path, monkeypatch, capsys) -> None:
+    # Tests CLI summary formatting while a scripted provider substitutes external inference.
     graph_path = _write_action_graph(tmp_path)
+    monkeypatch.setattr(
+        "specter.cli._build_model_provider",
+        lambda args: ScriptedInferenceProvider(),
+    )
 
     exit_code = main(
         [
@@ -137,8 +228,13 @@ def test_courtroom_cli_text_output(tmp_path: Path, capsys) -> None:
     assert "Contentions: 1" in captured.out
 
 
-def test_courtroom_cli_json_output(tmp_path: Path, capsys) -> None:
+def test_courtroom_cli_json_output(tmp_path: Path, monkeypatch, capsys) -> None:
+    # Tests CLI JSON serialization while a scripted provider substitutes external inference.
     graph_path = _write_action_graph(tmp_path)
+    monkeypatch.setattr(
+        "specter.cli._build_model_provider",
+        lambda args: ScriptedInferenceProvider(),
+    )
 
     exit_code = main(
         [
@@ -161,13 +257,18 @@ def test_courtroom_cli_json_output(tmp_path: Path, capsys) -> None:
 
 
 def test_courtroom_runner_can_use_model_backed_roles() -> None:
+    # Tests role prompt dispatch and parsing while a fake provider mocks model completions.
     class FakeModelProvider:
         def __init__(self) -> None:
             self.prompts = []
+            self.requests = []
 
         def complete(self, request):
             self.prompts.append(request.prompt)
-            if "You are the defender" in request.prompt:
+            self.requests.append(request)
+            if "JSON array" in request.prompt:
+                text = '["model contention"]'
+            elif "You are the defender" in request.prompt:
                 text = "model defense"
             elif "You are the prosecutor" in request.prompt:
                 text = "model prosecution rebuttal"
@@ -192,10 +293,14 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
         sender_id="query:root",
     )
 
-    result = DeterministicCourtroomRunner(model_provider=provider).run_target(
+    result = CourtroomRunner(model_provider=provider).run_target(
         feedback_id="feedback:test",
         target=target,
-        config=CourtroomConfig(rounds=1, max_contentions=1),
+        config=CourtroomConfig(
+            rounds=1,
+            max_contentions=1,
+            inference_temperature=0.35,
+        ),
     )
 
     item = result.rounds[0].items[0]
@@ -204,12 +309,14 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
     assert item.prosecution_rebuttal == "model prosecution rebuttal"
     assert item.judge_score.prosecution_strength == 0.42
     assert item.running_summary_after == "compressed model summary"
-    assert len(provider.prompts) == 4
-    assert "Expert model: expert-model-1" in provider.prompts[0]
+    assert len(provider.prompts) == 5
+    assert all(request.temperature == 0.35 for request in provider.requests)
+    assert "Expert model: expert-model-1" in provider.prompts[1]
     assert result.feedback_items[0].running_debate_summary == "compressed model summary"
 
 
 def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
+    # Tests inference-backed contention revision, token limits, and stable contention identity.
     target = FeedbackTargetNode(
         query_id="query:child",
         expert_id="expert:cluster-1",
@@ -219,7 +326,7 @@ def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
         sender_id="query:root",
     )
 
-    result = DeterministicCourtroomRunner().run_target(
+    result = CourtroomRunner(model_provider=ScriptedInferenceProvider()).run_target(
         feedback_id="feedback:test",
         target=target,
         config=CourtroomConfig(
@@ -239,13 +346,16 @@ def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
 
 
 def test_courtroom_model_provider_can_revise_contentions() -> None:
+    # Tests model-driven revision while a fake provider mocks revision and role responses.
     class FakeModelProvider:
         def __init__(self) -> None:
             self.prompts = []
 
         def complete(self, request):
             self.prompts.append(request.prompt)
-            if "Previous contention:" in request.prompt:
+            if "JSON array" in request.prompt:
+                text = '["initial model contention"]'
+            elif "Previous contention:" in request.prompt:
                 text = "model revised contention"
             elif "You are the defender" in request.prompt:
                 text = "model defense"
@@ -268,7 +378,7 @@ def test_courtroom_model_provider_can_revise_contentions() -> None:
         sender_id="query:root",
     )
 
-    result = DeterministicCourtroomRunner(model_provider=FakeModelProvider()).run_target(
+    result = CourtroomRunner(model_provider=FakeModelProvider()).run_target(
         feedback_id="feedback:test",
         target=target,
         config=CourtroomConfig(rounds=2, max_contentions=1),
@@ -279,6 +389,7 @@ def test_courtroom_model_provider_can_revise_contentions() -> None:
 
 
 def test_localize_feedback_cli_writes_feedback_plan(tmp_path: Path) -> None:
+    # Tests real-backend artifact wiring while scripted activation analysis supplies model outputs.
     graph_path = _write_action_graph(tmp_path)
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
@@ -295,7 +406,8 @@ def test_localize_feedback_cli_writes_feedback_plan(tmp_path: Path) -> None:
                 "2",
                 "--persist",
             ]
-        )
+        ),
+        model_provider=ScriptedInferenceProvider(),
     )
 
     args = build_localize_parser().parse_args(
@@ -307,9 +419,11 @@ def test_localize_feedback_cli_writes_feedback_plan(tmp_path: Path) -> None:
             "6",
             "--scale",
             "0.3",
+            "--model-path",
+            "fake-model",
         ]
     )
-    plan = run_localize_from_args(args)
+    plan = run_localize_from_args(args, locator=ScriptedTransformerLensLocator())
 
     feedback_dir = Path(courtroom_result.artifact_dir)
     feedback_plan = json.loads((feedback_dir / "feedback_plan.json").read_text(encoding="utf-8"))
@@ -322,7 +436,7 @@ def test_localize_feedback_cli_writes_feedback_plan(tmp_path: Path) -> None:
     assert plan.schema_ == "specter.feedback_plan.v1"
     assert plan.feedback_id == courtroom_result.feedback_id
     assert plan.source_trace_id == "trace:test"
-    assert plan.backend == "deterministic"
+    assert plan.backend == "transformerlens"
     assert len(plan.items) == 2
     assert feedback_plan["schema"] == "specter.feedback_plan.v1"
     assert len(localizations["localizations"]) == 2
@@ -332,7 +446,8 @@ def test_localize_feedback_cli_writes_feedback_plan(tmp_path: Path) -> None:
     assert len(heatmap_files) == 2
 
 
-def test_localize_feedback_cli_text_output(tmp_path: Path, capsys) -> None:
+def test_localize_feedback_cli_text_output(tmp_path: Path, monkeypatch, capsys) -> None:
+    # Tests localization CLI text output while model loading and activation analysis are scripted.
     graph_path = _write_action_graph(tmp_path)
     repo_root = tmp_path / "repo"
     repo_root.mkdir()
@@ -348,10 +463,19 @@ def test_localize_feedback_cli_text_output(tmp_path: Path, capsys) -> None:
                 "1",
                 "--persist",
             ]
-        )
+        ),
+        model_provider=ScriptedInferenceProvider(),
+    )
+    monkeypatch.setattr(
+        "specter.feedback.localize_cli.TransformerLensAdapter",
+        ScriptedTransformerLensAdapter,
+    )
+    monkeypatch.setattr(
+        "specter.feedback.localize_cli.TransformerLensActivationLocator",
+        ScriptedTransformerLensLocator,
     )
 
-    exit_code = localize_main([str(courtroom_result.artifact_dir)])
+    exit_code = localize_main([str(courtroom_result.artifact_dir), "--model-path", "fake-model"])
 
     captured = capsys.readouterr()
 
@@ -361,6 +485,7 @@ def test_localize_feedback_cli_text_output(tmp_path: Path, capsys) -> None:
 
 
 def test_contrast_builder_removes_feedback_concept_from_negative() -> None:
+    # Tests that minimal pairs retain target context but remove prosecution concepts from negatives.
     item = FeedbackItem(
         feedback_id="feedback:test",
         query_id="query:test",
@@ -390,6 +515,7 @@ def test_localize_feedback_transformerlens_backend_writes_heatmaps(
     tmp_path: Path,
     monkeypatch,
 ) -> None:
+    # Tests TransformerLens artifact wiring while fake adapter and locator mock model analysis.
     feedback_dir = _build_courtroom_feedback(tmp_path, contentions=1)
 
     class FakeAdapter:
@@ -467,6 +593,7 @@ def test_localize_feedback_transformerlens_backend_writes_heatmaps(
 
 
 def test_apply_feedback_cli_writes_activation_hooks(tmp_path: Path) -> None:
+    # Tests hook materialization: vector scaling, residual hook points, and manifest output.
     feedback_dir = _build_feedback_plan(tmp_path, contentions=2)
     plan = json.loads((feedback_dir / "feedback_plan.json").read_text(encoding="utf-8"))
     first_item = plan["items"][0]
@@ -501,6 +628,7 @@ def test_apply_feedback_cli_writes_activation_hooks(tmp_path: Path) -> None:
 
 
 def test_apply_feedback_cli_text_output(tmp_path: Path, capsys) -> None:
+    # Tests that the feedback application CLI reports its application ID and generated hook count.
     feedback_dir = _build_feedback_plan(tmp_path, contentions=1)
 
     exit_code = apply_main([str(feedback_dir / "feedback_plan.json")])
@@ -516,6 +644,7 @@ def test_run_feedback_hooks_cli_uses_filtered_hooks(
     tmp_path: Path,
     monkeypatch,
 ) -> None:
+    # Tests expert hook filtering and arguments while a fake adapter mocks model inference.
     feedback_dir = _build_feedback_plan(tmp_path, contentions=2)
     bundle, output_dir = run_apply_from_args(
         build_apply_parser().parse_args([str(feedback_dir / "feedback_plan.json")])
@@ -564,6 +693,7 @@ def test_run_feedback_hooks_cli_uses_filtered_hooks(
 
 
 def test_run_feedback_hooks_cli_text_output(tmp_path: Path, monkeypatch, capsys) -> None:
+    # Tests hooked-inference CLI formatting while a fake adapter mocks model loading and generation.
     feedback_dir = _build_feedback_plan(tmp_path, contentions=1)
     _, output_dir = run_apply_from_args(
         build_apply_parser().parse_args([str(feedback_dir / "feedback_plan.json")])
@@ -602,6 +732,7 @@ def test_run_feedback_hooks_cli_text_output(tmp_path: Path, monkeypatch, capsys)
 
 
 def test_transformerlens_hook_runner_adds_scaled_vector_to_tensor() -> None:
+    # Tests the real residual-stream hook math at a selected token using an actual PyTorch tensor.
     torch = pytest.importorskip("torch")
 
     feedback_dir = Path("/tmp/not-used")
@@ -630,8 +761,11 @@ def _build_feedback_plan(tmp_path: Path, *, contentions: int) -> Path:
                 str(feedback_dir),
                 "--contrast-pairs",
                 "1",
+                "--model-path",
+                "fake-model",
             ]
-        )
+        ),
+        locator=ScriptedTransformerLensLocator(),
     )
     return feedback_dir
 
@@ -652,7 +786,8 @@ def _build_courtroom_feedback(tmp_path: Path, *, contentions: int) -> Path:
                 str(contentions),
                 "--persist",
             ]
-        )
+        ),
+        model_provider=ScriptedInferenceProvider(),
     )
     return Path(courtroom_result.artifact_dir)
 

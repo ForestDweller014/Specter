@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 from urllib.error import HTTPError, URLError
 from urllib.request import Request as UrlRequest
@@ -12,6 +13,7 @@ class ModelRequest:
     model: str
     prompt: str
     max_tokens: int = 512
+    temperature: float | None = None
 
 
 @dataclass(frozen=True)
@@ -31,22 +33,39 @@ class ModelProviderError(RuntimeError):
 
 
 class OpenAICompatibleHttpProvider(ModelProvider):
-    """HTTP provider for OpenAI-compatible completion APIs, including SGLang."""
+    """HTTP provider for Dullahan and other OpenAI-compatible completion APIs."""
 
-    def __init__(self, *, base_url: str, timeout_seconds: float = 30.0) -> None:
+    def __init__(
+        self,
+        *,
+        base_url: str,
+        timeout_seconds: float = 120.0,
+        api_key: str | None = None,
+        api_key_env: str | None = None,
+        model_override: str | None = None,
+        provider_name: str = "openai-compatible-http",
+    ) -> None:
         self.base_url = base_url.rstrip("/")
         self.timeout_seconds = timeout_seconds
+        self.api_key = api_key or (os.getenv(api_key_env) if api_key_env else None)
+        self.model_override = model_override
+        self.provider_name = provider_name
 
     def complete(self, request: ModelRequest) -> ModelResult:
         payload = {
-            "model": request.model,
+            "model": self.model_override or request.model,
             "prompt": request.prompt,
             "max_tokens": request.max_tokens,
         }
+        if request.temperature is not None:
+            payload["temperature"] = request.temperature
+        headers = {"Content-Type": "application/json", "Accept": "application/json"}
+        if self.api_key:
+            headers["Authorization"] = f"Bearer {self.api_key}"
         http_request = UrlRequest(
             url=f"{self.base_url}/completions",
             data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json", "Accept": "application/json"},
+            headers=headers,
             method="POST",
         )
 
@@ -67,7 +86,7 @@ class OpenAICompatibleHttpProvider(ModelProvider):
         token_count = usage.get("completion_tokens") or len(text.split())
         return ModelResult(
             text=text,
-            provider="openai-compatible-http",
+            provider=self.provider_name,
             token_count=int(token_count),
         )
 
@@ -85,4 +104,3 @@ class OpenAICompatibleHttpProvider(ModelProvider):
             return str(message["content"]).strip()
 
         raise ModelProviderError("model provider response contained no text")
-

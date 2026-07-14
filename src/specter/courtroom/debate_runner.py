@@ -2,11 +2,8 @@ from __future__ import annotations
 
 import re
 
-from specter.ids import new_id
-from specter.model_provider import ModelProvider, ModelRequest
-
 from specter.config import CourtroomConfig
-from specter.courtroom.contention_generator import DeterministicContentionGenerator
+from specter.courtroom.contention_generator import InferenceContentionGenerator
 from specter.courtroom.models import (
     DebateRound,
     DebateRoundItem,
@@ -16,19 +13,23 @@ from specter.courtroom.models import (
     TargetCourtroomResult,
 )
 from specter.courtroom.role_prompts import CourtroomPromptBuilder
+from specter.ids import new_id
+from specter.model_provider import ModelProvider, ModelRequest
 from specter.text import clamp_words
 
 
-class DeterministicCourtroomRunner:
+class CourtroomRunner:
     def __init__(
         self,
         *,
-        contention_generator: DeterministicContentionGenerator | None = None,
-        model_provider: ModelProvider | None = None,
+        model_provider: ModelProvider,
+        contention_generator: InferenceContentionGenerator | None = None,
         prompt_builder: CourtroomPromptBuilder | None = None,
     ) -> None:
-        self.contention_generator = contention_generator or DeterministicContentionGenerator()
         self.model_provider = model_provider
+        self.contention_generator = contention_generator or InferenceContentionGenerator(
+            model_provider=model_provider
+        )
         self.prompt_builder = prompt_builder or CourtroomPromptBuilder()
 
     def run_target(
@@ -57,6 +58,7 @@ class DeterministicCourtroomRunner:
                         summary=before,
                         round_index=round_index,
                         token_budget=contention.token_budget,
+                        temperature=config.inference_temperature,
                     )
                     current_contention_texts[contention.contention_id] = contention_text
 
@@ -155,23 +157,19 @@ class DeterministicCourtroomRunner:
         summary: str,
         round_index: int,
         token_budget: int,
+        temperature: float,
     ) -> str:
-        if self.model_provider is not None:
-            return self._complete(
+        return self._complete(
+            target=target,
+            prompt=self.prompt_builder.revise_contention(
                 target=target,
-                prompt=self.prompt_builder.revise_contention(
-                    target=target,
-                    contention=contention,
-                    running_summary=summary,
-                    round_index=round_index,
-                ),
-                max_words=token_budget,
-            )
-        text = (
-            f"Round {round_index} refined contention: {contention} Updated focus: "
-            f"test the response against the strongest unresolved prosecution signal."
+                contention=contention,
+                running_summary=summary,
+                round_index=round_index,
+            ),
+            max_words=token_budget,
+            temperature=temperature,
         )
-        return clamp_words(text, token_budget)
 
     def _defend(
         self,
@@ -181,24 +179,17 @@ class DeterministicCourtroomRunner:
         round_index: int,
         config: CourtroomConfig,
     ) -> str:
-        if self.model_provider is not None:
-            return self._complete(
+        return self._complete(
+            target=target,
+            prompt=self.prompt_builder.defender(
                 target=target,
-                prompt=self.prompt_builder.defender(
-                    target=target,
-                    contention=contention,
-                    running_summary=summary,
-                    round_index=round_index,
-                ),
-                max_words=config.response_token_budget,
-            )
-        text = (
-            f"Round {round_index} defense by {target.expert_id}: the original response should be "
-            f"judged against the query '{target.query_text}'. The contention is '{contention}'. "
-            f"The response remains defensible where it follows the available context and avoids "
-            f"claiming more than the retrieved evidence supports. Prior summary: {summary or 'none'}."
+                contention=contention,
+                running_summary=summary,
+                round_index=round_index,
+            ),
+            max_words=config.response_token_budget,
+            temperature=config.inference_temperature,
         )
-        return clamp_words(text, config.response_token_budget)
 
     def _prosecute(
         self,
@@ -209,25 +200,18 @@ class DeterministicCourtroomRunner:
         round_index: int,
         config: CourtroomConfig,
     ) -> str:
-        if self.model_provider is not None:
-            return self._complete(
+        return self._complete(
+            target=target,
+            prompt=self.prompt_builder.prosecutor(
                 target=target,
-                prompt=self.prompt_builder.prosecutor(
-                    target=target,
-                    contention=contention,
-                    running_summary=summary,
-                    defense=defense,
-                    round_index=round_index,
-                ),
-                max_words=config.response_token_budget,
-            )
-        text = (
-            f"Round {round_index} prosecution by a second {target.expert_id} instance: the contention "
-            f"'{contention}' still matters if the response lacks direct support, misses constraints, "
-            f"or compresses uncertainty too aggressively. Defense considered: {defense}. "
-            f"Prior summary: {summary or 'none'}."
+                contention=contention,
+                running_summary=summary,
+                defense=defense,
+                round_index=round_index,
+            ),
+            max_words=config.response_token_budget,
+            temperature=config.inference_temperature,
         )
-        return clamp_words(text, config.response_token_budget)
 
     def _judge(
         self,
@@ -240,43 +224,23 @@ class DeterministicCourtroomRunner:
         round_index: int,
         config: CourtroomConfig,
     ) -> JudgeScore:
-        if self.model_provider is not None:
-            judge_text = self._complete(
+        judge_text = self._complete(
+            target=target,
+            prompt=self.prompt_builder.judge(
                 target=target,
-                prompt=self.prompt_builder.judge(
-                    target=target,
-                    contention=contention,
-                    running_summary=summary,
-                    defense=defense,
-                    rebuttal=rebuttal,
-                    round_index=round_index,
-                ),
-                max_words=config.judge_rationale_token_budget,
-            )
-            return JudgeScore(
-                contention_id=contention_id,
-                prosecution_strength=self._parse_score(judge_text),
-                rationale=judge_text,
-            )
-        score = 0.15
-        if not target.context_text:
-            score += 0.35
-        if target.child_query_ids and "child" in contention:
-            score += 0.2
-        if len(target.response_text.split()) < 20:
-            score += 0.2
-        if "unsupported" in contention or "confidence" in contention:
-            score += 0.1
-        score = max(-1.0, min(1.0, score))
-        rationale = (
-            f"The prosecution strength is {score:.2f}. The score reflects the contention, "
-            f"available context, response length, and whether child subqueries affect the claim. "
-            f"Defense signal: {defense}. Prosecution signal: {rebuttal}. Prior summary: {summary or 'none'}."
+                contention=contention,
+                running_summary=summary,
+                defense=defense,
+                rebuttal=rebuttal,
+                round_index=round_index,
+            ),
+            max_words=config.judge_rationale_token_budget,
+            temperature=config.inference_temperature,
         )
         return JudgeScore(
             contention_id=contention_id,
-            prosecution_strength=round(score, 4),
-            rationale=clamp_words(rationale, config.judge_rationale_token_budget),
+            prosecution_strength=self._parse_score(judge_text),
+            rationale=judge_text,
         )
 
     def _summarize(
@@ -290,24 +254,21 @@ class DeterministicCourtroomRunner:
         judge_score: JudgeScore,
         config: CourtroomConfig,
     ) -> str:
-        if self.model_provider is not None and target is not None:
-            return self._complete(
+        if target is None:
+            raise ValueError("court reporter inference requires a feedback target")
+        return self._complete(
+            target=target,
+            prompt=self.prompt_builder.reporter(
                 target=target,
-                prompt=self.prompt_builder.reporter(
-                    target=target,
-                    running_summary=before,
-                    defense=defense,
-                    rebuttal=rebuttal,
-                    judge_score=judge_score,
-                    round_index=round_index,
-                ),
-                max_words=config.summary_token_budget,
-            )
-        text = (
-            f"Prior: {before or 'none'} Defense: {defense} Prosecution: {rebuttal} "
-            f"Judge: strength={judge_score.prosecution_strength}; {judge_score.rationale}"
+                running_summary=before,
+                defense=defense,
+                rebuttal=rebuttal,
+                judge_score=judge_score,
+                round_index=round_index,
+            ),
+            max_words=config.summary_token_budget,
+            temperature=config.inference_temperature,
         )
-        return clamp_words(text, config.summary_token_budget)
 
     def _latest_score(self, rounds: list[DebateRound], contention_id: str) -> float:
         for debate_round in reversed(rounds):
@@ -322,17 +283,19 @@ class DeterministicCourtroomRunner:
         target: FeedbackTargetNode,
         prompt: str,
         max_words: int,
+        temperature: float,
     ) -> str:
-        if self.model_provider is None:
-            raise RuntimeError("model provider is not configured")
         result = self.model_provider.complete(
             ModelRequest(
                 model=target.model_name,
                 prompt=prompt,
                 max_tokens=max_words,
+                temperature=temperature,
             )
         )
-        text = result.text.strip() or "No model output."
+        text = result.text.strip()
+        if not text:
+            raise ValueError("inference provider returned an empty courtroom response")
         return clamp_words(text, max_words)
 
     def _parse_score(self, text: str) -> float:

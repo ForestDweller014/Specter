@@ -26,7 +26,9 @@ class MinimalPairContrastSetBuilder:
 
     def _neutralize(self, item: FeedbackItem) -> str:
         context_hint = self._first_sentence(item.target_context) or "No context excerpt available."
-        response_hint = self._first_sentence(item.target_response) or "No response excerpt available."
+        response_hint = (
+            self._first_sentence(item.target_response) or "No response excerpt available."
+        )
         text = (
             "Neutral trace note without validation pressure. "
             f"Query: {item.target_query} "

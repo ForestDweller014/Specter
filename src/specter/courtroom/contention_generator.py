@@ -1,49 +1,81 @@
 from __future__ import annotations
 
+import json
+import re
+
 from specter.config import CourtroomConfig
 from specter.courtroom.models import Contention, FeedbackTargetNode
+from specter.model_provider import ModelProvider, ModelRequest
 from specter.text import clamp_words
 
 
-class DeterministicContentionGenerator:
-    templates = [
-        "The delegated query may not faithfully preserve the parent query intent.",
-        "The response may not be sufficiently grounded in the supplied context.",
-        "The response may omit important constraints from the query.",
-        "The response may overstate confidence beyond the evidence available.",
-        "The response may fail to account for relevant child subqueries.",
-        "The response may conflate retrieved context with unsupported inference.",
-        "The response may be too shallow to satisfy the requested reasoning depth.",
-        "The response may cite or rely on context unevenly.",
-        "The response may leave unresolved risks that should be explicit.",
-    ]
+class InferenceContentionGenerator:
+    """Generate evidence-specific validation contentions through a real model provider."""
+
+    def __init__(self, *, model_provider: ModelProvider) -> None:
+        self.model_provider = model_provider
 
     def generate(self, target: FeedbackTargetNode, config: CourtroomConfig) -> list[Contention]:
-        contentions = []
-        for index, template in enumerate(self.templates[: config.max_contentions], start=1):
-            text = self._specialize(template, target)
-            contentions.append(
-                Contention(
-                    contention_id=f"{target.query_id}:contention:{index}",
-                    text=clamp_words(text, config.contention_token_budget),
-                    token_budget=config.contention_token_budget,
-                )
+        result = self.model_provider.complete(
+            ModelRequest(
+                model=target.model_name,
+                prompt=self._prompt(target, config.max_contentions),
+                max_tokens=config.contention_generation_token_budget,
+                temperature=config.inference_temperature,
             )
-        return contentions
+        )
+        texts = self._parse_contentions(result.text, maximum=config.max_contentions)
+        if not texts:
+            raise ValueError("inference provider returned no usable validation contentions")
+        return [
+            Contention(
+                contention_id=f"{target.query_id}:contention:{index}",
+                text=clamp_words(text, config.contention_token_budget),
+                token_budget=config.contention_token_budget,
+            )
+            for index, text in enumerate(texts, start=1)
+        ]
 
-    def _specialize(self, template: str, target: FeedbackTargetNode) -> str:
-        if "delegated query" in template and target.parent_query_text:
-            return (
-                f"{template} Parent query: {target.parent_query_text} "
-                f"Delegated query: {target.delegation_query or target.query_text}"
-            )
-        if "delegated query" in template:
-            return f"{template} Query: {target.query_text}"
-        if "child subqueries" in template and target.child_query_ids:
-            child_text = "; ".join(
-                text for text in target.child_query_texts if text
-            ) or ", ".join(target.child_query_ids)
-            return f"{template} Child subqueries: {child_text}."
-        if "supplied context" in template and not target.context_text:
-            return "The response may be unsupported because no context documents were attached."
-        return f"{template} Query: {target.query_text}"
+    def _prompt(self, target: FeedbackTargetNode, maximum: int) -> str:
+        children = "\n".join(target.child_query_texts) or "none"
+        return "\n".join(
+            [
+                "You are an adversarial validation prosecutor.",
+                (
+                    f"Generate up to {maximum} distinct, evidence-specific contentions "
+                    "against the response."
+                ),
+                (
+                    "Evaluate grounding, omitted constraints, confidence, delegation "
+                    "quality, and reasoning."
+                ),
+                "Return only a JSON array of non-empty strings, strongest contention first.",
+                "",
+                f"Parent query: {target.parent_query_text or 'none'}",
+                f"Delegated query: {target.delegation_query or target.query_text}",
+                f"Target query: {target.query_text}",
+                f"Context: {target.context_text or 'none'}",
+                f"Response: {target.response_text or 'none'}",
+                f"Child queries: {children}",
+            ]
+        )
+
+    def _parse_contentions(self, text: str, *, maximum: int) -> list[str]:
+        cleaned = text.strip()
+        fenced = re.fullmatch(r"```(?:json)?\s*(.*?)\s*```", cleaned, flags=re.DOTALL)
+        if fenced:
+            cleaned = fenced.group(1)
+        try:
+            payload = json.loads(cleaned)
+        except json.JSONDecodeError:
+            payload = None
+        if isinstance(payload, list):
+            values = [str(value).strip() for value in payload if str(value).strip()]
+            return values[:maximum]
+
+        values = []
+        for line in cleaned.splitlines():
+            value = re.sub(r"^\s*(?:[-*]|\d+[.)])\s*", "", line).strip()
+            if value:
+                values.append(value)
+        return values[:maximum]

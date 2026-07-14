@@ -16,6 +16,18 @@ injected at that residual-stream location. The goal is sharper control over the
 model's inference step than contextual feedback that can dilute inside the
 model's existing context.
 
+## Tech Stack
+
+| Technology | How Specter Uses It |
+| --- | --- |
+| Python | Core CLI runtime, validation pipeline, artifact generation, and integration glue. |
+| PyTorch | Tensor operations for activation projections, steering vectors, and hooked inference. |
+| TransformerLens | Loading compatible transformer models, caching residual-stream activations, localizing feedback directions, and applying forward hooks. |
+| Pydantic | Typed schemas for action-graph targets, courtroom results, feedback plans, activation localizations, and hook bundles. |
+| JSON / YAML | Portable trace input, feedback artifacts, heatmaps, steering vectors, feedback plans, and applied hook specs. |
+| Dullahan / OpenAI-compatible HTTP APIs | Required model inference for contention generation and revision, defense, prosecution, judging, and reporting. |
+| pytest | Regression coverage for graph loading, courtroom artifacts, localization, plan generation, hook specs, and hook mechanics. |
+
 ```text
 Dullahan action graph or compatible trace
   -> courtroom validation
@@ -115,15 +127,30 @@ specter-courtroom /path/to/Dullahan/memory/executions/<trace_id>/action_graph.js
   --persist
 ```
 
-By default, courtroom roles are deterministic so the pipeline can run locally.
-To use an OpenAI-compatible endpoint for defender, prosecutor, judge, and court
-reporter roles:
+Courtroom validation now requires real inference for initial contention
+generation, revision, defense, prosecution, judging, and reporting. The default
+provider is Dullahan's local OpenAI-compatible inference service. Specter can
+start the module directly from a Dullahan checkout:
 
 ```bash
 specter-courtroom /path/to/action_graph.json \
   --repo-root /Users/mhamzah/Documents/Specter \
-  --courtroom-model-provider http \
-  --courtroom-model-base-url http://127.0.0.1:30000/v1 \
+  --start-dullahan-inference \
+  --dullahan-repo-root ~/Documents/Dullahan \
+  --persist
+```
+
+This uses Dullahan's `configs/inference.yaml`; its documented default requires
+Ollama with `qwen3:8b` installed. If Dullahan inference is already running, omit
+`--start-dullahan-inference`. To use another OpenAI-compatible completion
+service instead:
+
+```bash
+specter-courtroom /path/to/action_graph.json \
+  --courtroom-model-provider openai-compatible \
+  --courtroom-model-base-url http://127.0.0.1:8000/v1 \
+  --courtroom-model my-model \
+  --courtroom-api-key-env OPENAI_API_KEY \
   --persist
 ```
 
@@ -138,15 +165,8 @@ memory/feedback/<feedback_id>/
 
 ### 2. Localize Feedback
 
-Fast deterministic local path:
-
-```bash
-specter-localize-feedback memory/feedback/<feedback_id> \
-  --backend deterministic \
-  --contrast-pairs 8
-```
-
-Real TransformerLens path:
+Localization always uses real TransformerLens residual activations; the former
+hash-derived layer, vector, and heatmap fallback has been removed:
 
 ```bash
 specter-localize-feedback memory/feedback/<feedback_id> \
@@ -154,6 +174,10 @@ specter-localize-feedback memory/feedback/<feedback_id> \
   --model-path <expert-model> \
   --contrast-pairs 32
 ```
+
+Dullahan's HTTP inference service provides token generation but does not expose
+hidden states or residual hooks. The model supplied here must therefore be a
+local TransformerLens-compatible model matching the expert architecture.
 
 Output:
 
@@ -280,6 +304,18 @@ Run only Specter tests:
 ```bash
 pytest tests -q
 ```
+
+Run the real Dullahan courtroom integration test when Ollama and its configured
+model are installed:
+
+```bash
+SPECTER_RUN_LOCAL_INFERENCE=1 \
+DULLAHAN_REPO_ROOT=~/Documents/Dullahan \
+pytest tests/test_real_inference.py -m local_inference -v
+```
+
+Set `SPECTER_TRANSFORMERLENS_MODEL` as well to exercise real activation
+localization with a compatible local model.
 
 ## License
 

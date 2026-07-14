@@ -6,15 +6,11 @@ from pathlib import Path
 
 import yaml
 
-from specter.activation.activation_locator import (
-    DeterministicActivationLocator,
-    LocalizationRequest,
-)
+from specter.activation.activation_locator import LocalizationRequest
 from specter.activation.transformerlens_adapter import TransformerLensAdapter
 from specter.activation.transformerlens_locator import TransformerLensActivationLocator
 from specter.feedback.feedback_loader import FeedbackArtifactLoader
 from specter.feedback.plan_builder import FeedbackPlanBuilder
-from specter.text import stable_vector
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -24,8 +20,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("feedback_dir", type=Path, help="Path to memory/feedback/<feedback_id>.")
     parser.add_argument(
         "--backend",
-        choices=["deterministic", "transformerlens"],
-        default="deterministic",
+        choices=["transformerlens"],
+        default="transformerlens",
     )
     parser.add_argument("--model-path", default=None)
     parser.add_argument("--contrast-pairs", type=int, default=8)
@@ -36,25 +32,19 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def run_from_args(args: argparse.Namespace):
+def run_from_args(args: argparse.Namespace, *, adapter=None, locator=None):
     manifest, feedback_items = FeedbackArtifactLoader().load(args.feedback_dir)
-    model = None
-    adapter = None
-    if args.backend == "transformerlens":
+    if locator is None:
         if not args.model_path:
-            raise ValueError("--model-path is required for --backend transformerlens")
-        adapter = TransformerLensAdapter(model_path=args.model_path)
+            raise ValueError("--model-path is required for real TransformerLens localization")
+        adapter = adapter or TransformerLensAdapter(model_path=args.model_path)
         model = adapter.load_model()
+        locator = TransformerLensActivationLocator(adapter=adapter, model=model)
 
     vectors_dir = args.feedback_dir / "steering_vectors"
     vectors_dir.mkdir(parents=True, exist_ok=True)
     heatmaps_dir = args.feedback_dir / "activation_heatmaps"
     heatmaps_dir.mkdir(parents=True, exist_ok=True)
-    if args.backend == "transformerlens":
-        locator = TransformerLensActivationLocator(adapter=adapter, model=model)
-    else:
-        locator = DeterministicActivationLocator()
-
     localizations = []
     for item in feedback_items:
         vector_path = vectors_dir / f"{_safe_path_id(item.contention_id)}.json"
@@ -65,46 +55,22 @@ def run_from_args(args: argparse.Namespace):
             contrast_pair_count=args.contrast_pairs,
             n_layers=args.n_layers,
         )
-        if args.backend == "transformerlens":
-            heatmap_path = heatmaps_dir / f"{_safe_path_id(item.contention_id)}.json"
-            heatmap_ref = str(heatmap_path.relative_to(args.feedback_dir))
-            result = locator.locate(request, heatmap_ref=heatmap_ref)
-            _write_vector(
-                vector_path,
-                contention_id=item.contention_id,
-                expert_id=item.expert_id,
-                vector=result.direction_vector,
-            )
-            _write_heatmap(
-                heatmap_path,
-                contention_id=item.contention_id,
-                expert_id=item.expert_id,
-                heatmap=result.heatmap,
-            )
-            localizations.append(result.localization)
-        else:
-            heatmap_path = heatmaps_dir / f"{_safe_path_id(item.contention_id)}.json"
-            heatmap_ref = str(heatmap_path.relative_to(args.feedback_dir))
-            _write_vector(
-                vector_path,
-                contention_id=item.contention_id,
-                expert_id=item.expert_id,
-                vector=stable_vector(item.running_debate_summary, size=16),
-            )
-            localization = locator.locate(request).model_copy(
-                update={"heatmap_ref": heatmap_ref}
-            )
-            _write_heatmap(
-                heatmap_path,
-                contention_id=item.contention_id,
-                expert_id=item.expert_id,
-                heatmap=_deterministic_heatmap(
-                    selected_layer=localization.layer,
-                    projection_strength=localization.projection_strength,
-                    n_layers=args.n_layers,
-                ),
-            )
-            localizations.append(localization)
+        heatmap_path = heatmaps_dir / f"{_safe_path_id(item.contention_id)}.json"
+        heatmap_ref = str(heatmap_path.relative_to(args.feedback_dir))
+        result = locator.locate(request, heatmap_ref=heatmap_ref)
+        _write_vector(
+            vector_path,
+            contention_id=item.contention_id,
+            expert_id=item.expert_id,
+            vector=result.direction_vector,
+        )
+        _write_heatmap(
+            heatmap_path,
+            contention_id=item.contention_id,
+            expert_id=item.expert_id,
+            heatmap=result.heatmap,
+        )
+        localizations.append(result.localization)
 
     plan = FeedbackPlanBuilder().build(
         manifest=manifest,
@@ -115,12 +81,7 @@ def run_from_args(args: argparse.Namespace):
     )
     _write_yaml(
         args.feedback_dir / "activation_localizations.yaml",
-        {
-            "localizations": [
-                localization.model_dump(mode="json")
-                for localization in localizations
-            ]
-        },
+        {"localizations": [localization.model_dump(mode="json") for localization in localizations]},
     )
     (args.feedback_dir / "feedback_plan.json").write_text(
         json.dumps(plan.model_dump(mode="json", by_alias=True), indent=2, sort_keys=True) + "\n",
@@ -201,24 +162,8 @@ def _write_heatmap(
     )
 
 
-def _deterministic_heatmap(
-    *,
-    selected_layer: int,
-    projection_strength: float,
-    n_layers: int,
-) -> list[list[float]]:
-    heatmap = [[0.0] for _ in range(max(n_layers, selected_layer + 1))]
-    heatmap[selected_layer] = [round(projection_strength, 8)]
-    return heatmap
-
-
 def _safe_path_id(identifier: str) -> str:
-    return (
-        identifier.replace(":", "_")
-        .replace("/", "_")
-        .replace("\\", "_")
-        .replace(" ", "_")
-    )
+    return identifier.replace(":", "_").replace("/", "_").replace("\\", "_").replace(" ", "_")
 
 
 if __name__ == "__main__":

@@ -8,10 +8,8 @@ class TransformerLensUnavailableError(RuntimeError):
 class TransformerLensAdapter:
     """Thin optional boundary for real TransformerLens localization.
 
-    The feedback pipeline can produce deterministic feedback plans without heavy
-    model dependencies. When the TransformerLens backend is selected, this adapter
-    loads a HookedTransformer and exposes only the small surface the feedback
-    localizer needs.
+    This adapter loads a HookedTransformer and exposes only the small surface the
+    feedback localizer and hooked-generation runtime need.
     """
 
     def __init__(self, *, model_path: str) -> None:
