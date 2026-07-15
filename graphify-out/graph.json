@@ -4,14 +4,174 @@
   "graph": {},
   "nodes": [
     {
+      "label": "transformerlens_adapter.py",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter",
+      "community": 34,
+      "norm_label": "transformerlens_adapter.py"
+    },
+    {
+      "label": "TransformerLensUnavailableError",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror",
+      "community": 34,
+      "norm_label": "transformerlensunavailableerror"
+    },
+    {
+      "label": "RuntimeError",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "runtimeerror",
+      "community": 34,
+      "norm_label": "runtimeerror"
+    },
+    {
+      "label": "TransformerLensAdapter",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "community": 34,
+      "norm_label": "transformerlensadapter"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_init",
+      "community": 34,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".assert_available()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available",
+      "community": 34,
+      "norm_label": ".assert_available()"
+    },
+    {
+      "label": ".load_model()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
+      "community": 34,
+      "norm_label": ".load_model()"
+    },
+    {
+      "label": "._huggingface_auth()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth",
+      "community": 34,
+      "norm_label": "._huggingface_auth()"
+    },
+    {
+      "label": ".run_with_cache()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_run_with_cache",
+      "community": 34,
+      "norm_label": ".run_with_cache()"
+    },
+    {
+      "label": ".n_layers()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_n_layers",
+      "community": 34,
+      "norm_label": ".n_layers()"
+    },
+    {
+      "label": ".resid_post()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_resid_post",
+      "community": 34,
+      "norm_label": ".resid_post()"
+    },
+    {
+      "label": ".generate_with_hooks()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_generate_with_hooks",
+      "community": 34,
+      "norm_label": ".generate_with_hooks()"
+    },
+    {
+      "label": "_restore_environment()",
+      "file_type": "code",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L117",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_restore_environment",
+      "community": 34,
+      "norm_label": "_restore_environment()"
+    },
+    {
+      "label": "Thin optional boundary for real TransformerLens localization.      This adapter",
+      "file_type": "rationale",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "src_specter_activation_transformerlens_adapter_rationale_12",
+      "community": 34,
+      "norm_label": "thin optional boundary for real transformerlens localization.      this adapter"
+    },
+    {
+      "label": "test_transformerlens_adapter.py",
+      "file_type": "code",
+      "source_file": "tests/test_transformerlens_adapter.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_transformerlens_adapter",
+      "community": 34,
+      "norm_label": "test_transformerlens_adapter.py"
+    },
+    {
+      "label": "test_load_model_forwards_remote_code_and_anonymous_hub_options()",
+      "file_type": "code",
+      "source_file": "tests/test_transformerlens_adapter.py",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "tests_test_transformerlens_adapter_test_load_model_forwards_remote_code_and_anonymous_hub_options",
+      "community": 34,
+      "norm_label": "test_load_model_forwards_remote_code_and_anonymous_hub_options()"
+    },
+    {
       "label": "contrast_set_builder.py",
       "file_type": "code",
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_specter_activation_contrast_set_builder",
       "community": 33,
-      "norm_label": "contrast_set_builder.py"
+      "norm_label": "contrast_set_builder.py",
+      "id": "src_specter_activation_contrast_set_builder"
     },
     {
       "label": "MinimalPairContrastSetBuilder",
@@ -19,9 +179,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
       "community": 5,
-      "norm_label": "minimalpaircontrastsetbuilder"
+      "norm_label": "minimalpaircontrastsetbuilder",
+      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder"
     },
     {
       "label": ".build()",
@@ -29,9 +189,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
       "community": 5,
-      "norm_label": ".build()"
+      "norm_label": ".build()",
+      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build"
     },
     {
       "label": "ContrastPair",
@@ -39,9 +199,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "contrastpair",
       "community": 5,
-      "norm_label": "contrastpair"
+      "norm_label": "contrastpair",
+      "id": "contrastpair"
     },
     {
       "label": "._neutralize()",
@@ -49,9 +209,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize",
       "community": 5,
-      "norm_label": "._neutralize()"
+      "norm_label": "._neutralize()",
+      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize"
     },
     {
       "label": "._variant()",
@@ -59,9 +219,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant",
       "community": 5,
-      "norm_label": "._variant()"
+      "norm_label": "._variant()",
+      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant"
     },
     {
       "label": "._first_sentence()",
@@ -69,9 +229,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence",
       "community": 5,
-      "norm_label": "._first_sentence()"
+      "norm_label": "._first_sentence()",
+      "id": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence"
     },
     {
       "label": "cli.py",
@@ -79,9 +239,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_specter_cli",
       "community": 6,
-      "norm_label": "cli.py"
+      "norm_label": "cli.py",
+      "id": "src_specter_cli"
     },
     {
       "label": "build_parser()",
@@ -89,9 +249,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "src_specter_cli_build_parser",
       "community": 6,
-      "norm_label": "build_parser()"
+      "norm_label": "build_parser()",
+      "id": "src_specter_cli_build_parser"
     },
     {
       "label": "ArgumentParser",
@@ -99,9 +259,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "argumentparser",
       "community": 6,
-      "norm_label": "argumentparser"
+      "norm_label": "argumentparser",
+      "id": "argumentparser"
     },
     {
       "label": "run_from_args()",
@@ -109,9 +269,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L79",
       "_origin": "ast",
-      "id": "src_specter_cli_run_from_args",
       "community": 6,
-      "norm_label": "run_from_args()"
+      "norm_label": "run_from_args()",
+      "id": "src_specter_cli_run_from_args"
     },
     {
       "label": "Namespace",
@@ -119,9 +279,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "namespace",
       "community": 6,
-      "norm_label": "namespace"
+      "norm_label": "namespace",
+      "id": "namespace"
     },
     {
       "label": "ModelProvider",
@@ -129,9 +289,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "src_specter_cli_py_modelprovider",
       "community": 6,
-      "norm_label": "modelprovider"
+      "norm_label": "modelprovider",
+      "id": "src_specter_cli_py_modelprovider"
     },
     {
       "label": "_build_model_provider()",
@@ -139,9 +299,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L127",
       "_origin": "ast",
-      "id": "src_specter_cli_build_model_provider",
       "community": 6,
-      "norm_label": "_build_model_provider()"
+      "norm_label": "_build_model_provider()",
+      "id": "src_specter_cli_build_model_provider"
     },
     {
       "label": "format_text()",
@@ -149,9 +309,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L143",
       "_origin": "ast",
-      "id": "src_specter_cli_format_text",
       "community": 6,
-      "norm_label": "format_text()"
+      "norm_label": "format_text()",
+      "id": "src_specter_cli_format_text"
     },
     {
       "label": "main()",
@@ -159,9 +319,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L158",
       "_origin": "ast",
-      "id": "src_specter_cli_main",
       "community": 6,
-      "norm_label": "main()"
+      "norm_label": "main()",
+      "id": "src_specter_cli_main"
     },
     {
       "label": "config.py",
@@ -169,9 +329,9 @@
       "source_file": "src/specter/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_specter_config",
       "community": 6,
-      "norm_label": "config.py"
+      "norm_label": "config.py",
+      "id": "src_specter_config"
     },
     {
       "label": "CourtroomConfig",
@@ -179,9 +339,9 @@
       "source_file": "src/specter/config.py",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_specter_config_courtroomconfig",
       "community": 0,
-      "norm_label": "courtroomconfig"
+      "norm_label": "courtroomconfig",
+      "id": "src_specter_config_courtroomconfig"
     },
     {
       "label": "BaseModel",
@@ -189,9 +349,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "src_specter_config_py_basemodel",
       "community": 0,
-      "norm_label": "basemodel"
+      "norm_label": "basemodel",
+      "id": "src_specter_config_py_basemodel"
     },
     {
       "label": ".feedback_root()",
@@ -199,9 +359,9 @@
       "source_file": "src/specter/config.py",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_specter_config_courtroomconfig_feedback_root",
       "community": 0,
-      "norm_label": ".feedback_root()"
+      "norm_label": ".feedback_root()",
+      "id": "src_specter_config_courtroomconfig_feedback_root"
     },
     {
       "label": "Path",
@@ -209,9 +369,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "src_specter_config_py_path",
       "community": 0,
-      "norm_label": "path"
+      "norm_label": "path",
+      "id": "src_specter_config_py_path"
     },
     {
       "label": "debate_runner.py",
@@ -219,9 +379,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner",
       "community": 33,
-      "norm_label": "debate_runner.py"
+      "norm_label": "debate_runner.py",
+      "id": "src_specter_courtroom_debate_runner"
     },
     {
       "label": "CourtroomRunner",
@@ -229,9 +389,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner",
       "community": 0,
-      "norm_label": "courtroomrunner"
+      "norm_label": "courtroomrunner",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner"
     },
     {
       "label": ".__init__()",
@@ -239,9 +399,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_init",
       "community": 0,
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_init"
     },
     {
       "label": "ModelProvider",
@@ -249,9 +409,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_py_modelprovider",
       "community": 0,
-      "norm_label": "modelprovider"
+      "norm_label": "modelprovider",
+      "id": "src_specter_courtroom_debate_runner_py_modelprovider"
     },
     {
       "label": "InferenceContentionGenerator",
@@ -259,9 +419,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "inferencecontentiongenerator",
       "community": 0,
-      "norm_label": "inferencecontentiongenerator"
+      "norm_label": "inferencecontentiongenerator",
+      "id": "inferencecontentiongenerator"
     },
     {
       "label": ".run_target()",
@@ -269,9 +429,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
       "community": 0,
-      "norm_label": ".run_target()"
+      "norm_label": ".run_target()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_run_target"
     },
     {
       "label": ".run()",
@@ -279,9 +439,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L146",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_run",
       "community": 0,
-      "norm_label": ".run()"
+      "norm_label": ".run()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_run"
     },
     {
       "label": "._revise_contention()",
@@ -289,9 +449,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L168",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention",
       "community": 0,
-      "norm_label": "._revise_contention()"
+      "norm_label": "._revise_contention()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention"
     },
     {
       "label": "._defend()",
@@ -299,9 +459,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L190",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_defend",
       "community": 0,
-      "norm_label": "._defend()"
+      "norm_label": "._defend()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_defend"
     },
     {
       "label": "._prosecute()",
@@ -309,9 +469,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L210",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute",
       "community": 0,
-      "norm_label": "._prosecute()"
+      "norm_label": "._prosecute()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute"
     },
     {
       "label": "._judge()",
@@ -319,9 +479,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L232",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
       "community": 0,
-      "norm_label": "._judge()"
+      "norm_label": "._judge()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_judge"
     },
     {
       "label": "._summarize()",
@@ -329,9 +489,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L262",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
       "community": 0,
-      "norm_label": "._summarize()"
+      "norm_label": "._summarize()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_summarize"
     },
     {
       "label": "._latest_score()",
@@ -339,9 +499,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L289",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score",
       "community": 0,
-      "norm_label": "._latest_score()"
+      "norm_label": "._latest_score()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score"
     },
     {
       "label": "._judge_evaluations()",
@@ -349,9 +509,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L296",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations",
       "community": 0,
-      "norm_label": "._judge_evaluations()"
+      "norm_label": "._judge_evaluations()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations"
     },
     {
       "label": "._generate_feedback()",
@@ -359,9 +519,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L308",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
       "community": 0,
-      "norm_label": "._generate_feedback()"
+      "norm_label": "._generate_feedback()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback"
     },
     {
       "label": "._complete()",
@@ -369,9 +529,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L330",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
       "community": 0,
-      "norm_label": "._complete()"
+      "norm_label": "._complete()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "label": "._parse_score()",
@@ -379,9 +539,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L351",
       "_origin": "ast",
-      "id": "src_specter_courtroom_debate_runner_courtroomrunner_parse_score",
       "community": 0,
-      "norm_label": "._parse_score()"
+      "norm_label": "._parse_score()",
+      "id": "src_specter_courtroom_debate_runner_courtroomrunner_parse_score"
     },
     {
       "label": "models.py",
@@ -389,9 +549,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models",
       "community": 0,
-      "norm_label": "models.py"
+      "norm_label": "models.py",
+      "id": "src_specter_courtroom_models"
     },
     {
       "label": "FeedbackTargetNode",
@@ -399,9 +559,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_feedbacktargetnode",
       "community": 0,
-      "norm_label": "feedbacktargetnode"
+      "norm_label": "feedbacktargetnode",
+      "id": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "label": "BaseModel",
@@ -409,9 +569,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_py_basemodel",
       "community": 0,
-      "norm_label": "basemodel"
+      "norm_label": "basemodel",
+      "id": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "label": ".query_text()",
@@ -419,9 +579,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_feedbacktargetnode_query_text",
       "community": 0,
-      "norm_label": ".query_text()"
+      "norm_label": ".query_text()",
+      "id": "src_specter_courtroom_models_feedbacktargetnode_query_text"
     },
     {
       "label": ".response_text()",
@@ -429,9 +589,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_feedbacktargetnode_response_text",
       "community": 0,
-      "norm_label": ".response_text()"
+      "norm_label": ".response_text()",
+      "id": "src_specter_courtroom_models_feedbacktargetnode_response_text"
     },
     {
       "label": ".context_text()",
@@ -439,9 +599,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_feedbacktargetnode_context_text",
       "community": 0,
-      "norm_label": ".context_text()"
+      "norm_label": ".context_text()",
+      "id": "src_specter_courtroom_models_feedbacktargetnode_context_text"
     },
     {
       "label": ".model_name()",
@@ -449,9 +609,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L39",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_feedbacktargetnode_model_name",
       "community": 0,
-      "norm_label": ".model_name()"
+      "norm_label": ".model_name()",
+      "id": "src_specter_courtroom_models_feedbacktargetnode_model_name"
     },
     {
       "label": "Contention",
@@ -459,9 +619,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_contention",
       "community": 0,
-      "norm_label": "contention"
+      "norm_label": "contention",
+      "id": "src_specter_courtroom_models_contention"
     },
     {
       "label": "JudgeScore",
@@ -469,9 +629,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L57",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_judgescore",
       "community": 0,
-      "norm_label": "judgescore"
+      "norm_label": "judgescore",
+      "id": "src_specter_courtroom_models_judgescore"
     },
     {
       "label": "DebateRoundItem",
@@ -479,9 +639,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_debaterounditem",
       "community": 0,
-      "norm_label": "debaterounditem"
+      "norm_label": "debaterounditem",
+      "id": "src_specter_courtroom_models_debaterounditem"
     },
     {
       "label": "DebateRound",
@@ -489,9 +649,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L74",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_debateround",
       "community": 0,
-      "norm_label": "debateround"
+      "norm_label": "debateround",
+      "id": "src_specter_courtroom_models_debateround"
     },
     {
       "label": "FeedbackItem",
@@ -499,9 +659,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L79",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_feedbackitem",
       "community": 5,
-      "norm_label": "feedbackitem"
+      "norm_label": "feedbackitem",
+      "id": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "label": "TargetCourtroomResult",
@@ -509,9 +669,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L92",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_targetcourtroomresult",
       "community": 0,
-      "norm_label": "targetcourtroomresult"
+      "norm_label": "targetcourtroomresult",
+      "id": "src_specter_courtroom_models_targetcourtroomresult"
     },
     {
       "label": "CourtroomRunResult",
@@ -519,9 +679,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L99",
       "_origin": "ast",
-      "id": "src_specter_courtroom_models_courtroomrunresult",
       "community": 0,
-      "norm_label": "courtroomrunresult"
+      "norm_label": "courtroomrunresult",
+      "id": "src_specter_courtroom_models_courtroomrunresult"
     },
     {
       "label": "role_prompts.py",
@@ -529,9 +689,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts",
       "community": 0,
-      "norm_label": "role_prompts.py"
+      "norm_label": "role_prompts.py",
+      "id": "src_specter_courtroom_role_prompts"
     },
     {
       "label": "CourtroomPromptBuilder",
@@ -539,9 +699,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
       "community": 0,
-      "norm_label": "courtroompromptbuilder"
+      "norm_label": "courtroompromptbuilder",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder"
     },
     {
       "label": ".revise_contention()",
@@ -549,9 +709,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention",
       "community": 0,
-      "norm_label": ".revise_contention()"
+      "norm_label": ".revise_contention()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention"
     },
     {
       "label": ".defender()",
@@ -559,9 +719,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender",
       "community": 0,
-      "norm_label": ".defender()"
+      "norm_label": ".defender()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender"
     },
     {
       "label": ".prosecutor()",
@@ -569,9 +729,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L57",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor",
       "community": 0,
-      "norm_label": ".prosecutor()"
+      "norm_label": ".prosecutor()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor"
     },
     {
       "label": ".judge()",
@@ -579,9 +739,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L85",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge",
       "community": 0,
-      "norm_label": ".judge()"
+      "norm_label": ".judge()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge"
     },
     {
       "label": ".reporter()",
@@ -589,9 +749,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L117",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter",
       "community": 0,
-      "norm_label": ".reporter()"
+      "norm_label": ".reporter()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter"
     },
     {
       "label": ".judge_feedback()",
@@ -599,9 +759,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L150",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback",
       "community": 0,
-      "norm_label": ".judge_feedback()"
+      "norm_label": ".judge_feedback()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback"
     },
     {
       "label": "._base()",
@@ -609,9 +769,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L186",
       "_origin": "ast",
-      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
       "community": 0,
-      "norm_label": "._base()"
+      "norm_label": "._base()",
+      "id": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "label": "test_real_inference.py",
@@ -619,9 +779,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tests_test_real_inference",
       "community": 3,
-      "norm_label": "test_real_inference.py"
+      "norm_label": "test_real_inference.py",
+      "id": "tests_test_real_inference"
     },
     {
       "label": "test_dullahan_inference_executes_every_courtroom_role()",
@@ -629,9 +789,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "tests_test_real_inference_test_dullahan_inference_executes_every_courtroom_role",
       "community": 0,
-      "norm_label": "test_dullahan_inference_executes_every_courtroom_role()"
+      "norm_label": "test_dullahan_inference_executes_every_courtroom_role()",
+      "id": "tests_test_real_inference_test_dullahan_inference_executes_every_courtroom_role"
     },
     {
       "label": "test_real_transformerlens_localizes_feedback_activations()",
@@ -639,9 +799,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L85",
       "_origin": "ast",
-      "id": "tests_test_real_inference_test_real_transformerlens_localizes_feedback_activations",
       "community": 3,
-      "norm_label": "test_real_transformerlens_localizes_feedback_activations()"
+      "norm_label": "test_real_transformerlens_localizes_feedback_activations()",
+      "id": "tests_test_real_inference_test_real_transformerlens_localizes_feedback_activations"
     },
     {
       "label": "test_specter.py",
@@ -649,9 +809,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tests_test_specter",
       "community": 6,
-      "norm_label": "test_specter.py"
+      "norm_label": "test_specter.py",
+      "id": "tests_test_specter"
     },
     {
       "label": "ScriptedInferenceProvider",
@@ -659,9 +819,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedinferenceprovider",
       "community": 6,
-      "norm_label": "scriptedinferenceprovider"
+      "norm_label": "scriptedinferenceprovider",
+      "id": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "label": "ModelProvider",
@@ -669,9 +829,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "tests_test_specter_py_modelprovider",
       "community": 6,
-      "norm_label": "modelprovider"
+      "norm_label": "modelprovider",
+      "id": "tests_test_specter_py_modelprovider"
     },
     {
       "label": ".__init__()",
@@ -679,9 +839,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedinferenceprovider_init",
       "community": 6,
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "tests_test_specter_scriptedinferenceprovider_init"
     },
     {
       "label": ".complete()",
@@ -689,9 +849,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedinferenceprovider_complete",
       "community": 6,
-      "norm_label": ".complete()"
+      "norm_label": ".complete()",
+      "id": "tests_test_specter_scriptedinferenceprovider_complete"
     },
     {
       "label": "ModelRequest",
@@ -699,9 +859,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "modelrequest",
       "community": 6,
-      "norm_label": "modelrequest"
+      "norm_label": "modelrequest",
+      "id": "modelrequest"
     },
     {
       "label": "ModelResult",
@@ -709,9 +869,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "modelresult",
       "community": 6,
-      "norm_label": "modelresult"
+      "norm_label": "modelresult",
+      "id": "modelresult"
     },
     {
       "label": "ScriptedTransformerLensLocator",
@@ -719,9 +879,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L82",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedtransformerlenslocator",
       "community": 6,
-      "norm_label": "scriptedtransformerlenslocator"
+      "norm_label": "scriptedtransformerlenslocator",
+      "id": "tests_test_specter_scriptedtransformerlenslocator"
     },
     {
       "label": ".__init__()",
@@ -729,9 +889,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L85",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedtransformerlenslocator_init",
       "community": 6,
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "tests_test_specter_scriptedtransformerlenslocator_init"
     },
     {
       "label": ".locate()",
@@ -739,9 +899,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L88",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedtransformerlenslocator_locate",
       "community": 5,
-      "norm_label": ".locate()"
+      "norm_label": ".locate()",
+      "id": "tests_test_specter_scriptedtransformerlenslocator_locate"
     },
     {
       "label": "ScriptedTransformerLensAdapter",
@@ -749,9 +909,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L114",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedtransformerlensadapter",
       "community": 5,
-      "norm_label": "scriptedtransformerlensadapter"
+      "norm_label": "scriptedtransformerlensadapter",
+      "id": "tests_test_specter_scriptedtransformerlensadapter"
     },
     {
       "label": ".__init__()",
@@ -759,9 +919,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L115",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedtransformerlensadapter_init",
       "community": 5,
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "tests_test_specter_scriptedtransformerlensadapter_init"
     },
     {
       "label": ".load_model()",
@@ -769,9 +929,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L118",
       "_origin": "ast",
-      "id": "tests_test_specter_scriptedtransformerlensadapter_load_model",
       "community": 5,
-      "norm_label": ".load_model()"
+      "norm_label": ".load_model()",
+      "id": "tests_test_specter_scriptedtransformerlensadapter_load_model"
     },
     {
       "label": "test_action_graph_loader_returns_answered_targets()",
@@ -779,9 +939,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L122",
       "_origin": "ast",
-      "id": "tests_test_specter_test_action_graph_loader_returns_answered_targets",
       "community": 6,
-      "norm_label": "test_action_graph_loader_returns_answered_targets()"
+      "norm_label": "test_action_graph_loader_returns_answered_targets()",
+      "id": "tests_test_specter_test_action_graph_loader_returns_answered_targets"
     },
     {
       "label": "Path",
@@ -789,9 +949,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "tests_test_specter_py_path",
       "community": 6,
-      "norm_label": "path"
+      "norm_label": "path",
+      "id": "tests_test_specter_py_path"
     },
     {
       "label": "test_courtroom_cli_persists_feedback_artifacts()",
@@ -799,9 +959,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L141",
       "_origin": "ast",
-      "id": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts",
       "community": 6,
-      "norm_label": "test_courtroom_cli_persists_feedback_artifacts()"
+      "norm_label": "test_courtroom_cli_persists_feedback_artifacts()",
+      "id": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts"
     },
     {
       "label": "test_inference_clis_reject_removed_deterministic_backends()",
@@ -809,9 +969,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L197",
       "_origin": "ast",
-      "id": "tests_test_specter_test_inference_clis_reject_removed_deterministic_backends",
       "community": 6,
-      "norm_label": "test_inference_clis_reject_removed_deterministic_backends()"
+      "norm_label": "test_inference_clis_reject_removed_deterministic_backends()",
+      "id": "tests_test_specter_test_inference_clis_reject_removed_deterministic_backends"
     },
     {
       "label": "test_courtroom_cli_text_output()",
@@ -819,9 +979,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L207",
       "_origin": "ast",
-      "id": "tests_test_specter_test_courtroom_cli_text_output",
       "community": 6,
-      "norm_label": "test_courtroom_cli_text_output()"
+      "norm_label": "test_courtroom_cli_text_output()",
+      "id": "tests_test_specter_test_courtroom_cli_text_output"
     },
     {
       "label": "test_courtroom_cli_json_output()",
@@ -829,9 +989,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L236",
       "_origin": "ast",
-      "id": "tests_test_specter_test_courtroom_cli_json_output",
       "community": 6,
-      "norm_label": "test_courtroom_cli_json_output()"
+      "norm_label": "test_courtroom_cli_json_output()",
+      "id": "tests_test_specter_test_courtroom_cli_json_output"
     },
     {
       "label": "test_courtroom_runner_can_use_model_backed_roles()",
@@ -839,9 +999,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L264",
       "_origin": "ast",
-      "id": "tests_test_specter_test_courtroom_runner_can_use_model_backed_roles",
       "community": 0,
-      "norm_label": "test_courtroom_runner_can_use_model_backed_roles()"
+      "norm_label": "test_courtroom_runner_can_use_model_backed_roles()",
+      "id": "tests_test_specter_test_courtroom_runner_can_use_model_backed_roles"
     },
     {
       "label": "test_courtroom_runner_evolves_contentions_after_first_round()",
@@ -849,9 +1009,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L330",
       "_origin": "ast",
-      "id": "tests_test_specter_test_courtroom_runner_evolves_contentions_after_first_round",
       "community": 0,
-      "norm_label": "test_courtroom_runner_evolves_contentions_after_first_round()"
+      "norm_label": "test_courtroom_runner_evolves_contentions_after_first_round()",
+      "id": "tests_test_specter_test_courtroom_runner_evolves_contentions_after_first_round"
     },
     {
       "label": "test_courtroom_model_provider_can_revise_contentions()",
@@ -859,9 +1019,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L363",
       "_origin": "ast",
-      "id": "tests_test_specter_test_courtroom_model_provider_can_revise_contentions",
       "community": 0,
-      "norm_label": "test_courtroom_model_provider_can_revise_contentions()"
+      "norm_label": "test_courtroom_model_provider_can_revise_contentions()",
+      "id": "tests_test_specter_test_courtroom_model_provider_can_revise_contentions"
     },
     {
       "label": "test_localize_feedback_cli_writes_feedback_plan()",
@@ -869,9 +1029,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L408",
       "_origin": "ast",
-      "id": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
       "community": 6,
-      "norm_label": "test_localize_feedback_cli_writes_feedback_plan()"
+      "norm_label": "test_localize_feedback_cli_writes_feedback_plan()",
+      "id": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan"
     },
     {
       "label": "test_localize_feedback_cli_text_output()",
@@ -879,9 +1039,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L466",
       "_origin": "ast",
-      "id": "tests_test_specter_test_localize_feedback_cli_text_output",
       "community": 6,
-      "norm_label": "test_localize_feedback_cli_text_output()"
+      "norm_label": "test_localize_feedback_cli_text_output()",
+      "id": "tests_test_specter_test_localize_feedback_cli_text_output"
     },
     {
       "label": "test_contrast_builder_removes_feedback_concept_from_negative()",
@@ -889,9 +1049,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L504",
       "_origin": "ast",
-      "id": "tests_test_specter_test_contrast_builder_removes_feedback_concept_from_negative",
       "community": 5,
-      "norm_label": "test_contrast_builder_removes_feedback_concept_from_negative()"
+      "norm_label": "test_contrast_builder_removes_feedback_concept_from_negative()",
+      "id": "tests_test_specter_test_contrast_builder_removes_feedback_concept_from_negative"
     },
     {
       "label": "test_localize_feedback_transformerlens_backend_writes_heatmaps()",
@@ -899,9 +1059,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L536",
       "_origin": "ast",
-      "id": "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps",
       "community": 6,
-      "norm_label": "test_localize_feedback_transformerlens_backend_writes_heatmaps()"
+      "norm_label": "test_localize_feedback_transformerlens_backend_writes_heatmaps()",
+      "id": "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps"
     },
     {
       "label": "test_apply_feedback_cli_writes_activation_hooks()",
@@ -909,9 +1069,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L617",
       "_origin": "ast",
-      "id": "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks",
       "community": 6,
-      "norm_label": "test_apply_feedback_cli_writes_activation_hooks()"
+      "norm_label": "test_apply_feedback_cli_writes_activation_hooks()",
+      "id": "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks"
     },
     {
       "label": "test_apply_feedback_cli_text_output()",
@@ -919,9 +1079,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L652",
       "_origin": "ast",
-      "id": "tests_test_specter_test_apply_feedback_cli_text_output",
       "community": 6,
-      "norm_label": "test_apply_feedback_cli_text_output()"
+      "norm_label": "test_apply_feedback_cli_text_output()",
+      "id": "tests_test_specter_test_apply_feedback_cli_text_output"
     },
     {
       "label": "test_run_feedback_hooks_cli_uses_filtered_hooks()",
@@ -929,9 +1089,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L665",
       "_origin": "ast",
-      "id": "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks",
       "community": 6,
-      "norm_label": "test_run_feedback_hooks_cli_uses_filtered_hooks()"
+      "norm_label": "test_run_feedback_hooks_cli_uses_filtered_hooks()",
+      "id": "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks"
     },
     {
       "label": "test_run_feedback_hooks_cli_text_output()",
@@ -939,9 +1099,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L717",
       "_origin": "ast",
-      "id": "tests_test_specter_test_run_feedback_hooks_cli_text_output",
       "community": 6,
-      "norm_label": "test_run_feedback_hooks_cli_text_output()"
+      "norm_label": "test_run_feedback_hooks_cli_text_output()",
+      "id": "tests_test_specter_test_run_feedback_hooks_cli_text_output"
     },
     {
       "label": "test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()",
@@ -949,9 +1109,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L756",
       "_origin": "ast",
-      "id": "tests_test_specter_test_transformerlens_hook_runner_adds_scaled_vector_to_tensor",
       "community": 6,
-      "norm_label": "test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()"
+      "norm_label": "test_transformerlens_hook_runner_adds_scaled_vector_to_tensor()",
+      "id": "tests_test_specter_test_transformerlens_hook_runner_adds_scaled_vector_to_tensor"
     },
     {
       "label": "_build_feedback_plan()",
@@ -959,9 +1119,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L778",
       "_origin": "ast",
-      "id": "tests_test_specter_build_feedback_plan",
       "community": 6,
-      "norm_label": "_build_feedback_plan()"
+      "norm_label": "_build_feedback_plan()",
+      "id": "tests_test_specter_build_feedback_plan"
     },
     {
       "label": "_build_courtroom_feedback()",
@@ -969,9 +1129,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L795",
       "_origin": "ast",
-      "id": "tests_test_specter_build_courtroom_feedback",
       "community": 6,
-      "norm_label": "_build_courtroom_feedback()"
+      "norm_label": "_build_courtroom_feedback()",
+      "id": "tests_test_specter_build_courtroom_feedback"
     },
     {
       "label": "_write_action_graph()",
@@ -979,9 +1139,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L817",
       "_origin": "ast",
-      "id": "tests_test_specter_write_action_graph",
       "community": 6,
-      "norm_label": "_write_action_graph()"
+      "norm_label": "_write_action_graph()",
+      "id": "tests_test_specter_write_action_graph"
     },
     {
       "label": "Deterministic test double for inference that is not under direct test.",
@@ -989,9 +1149,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "tests_test_specter_rationale_47",
       "community": 6,
-      "norm_label": "deterministic test double for inference that is not under direct test."
+      "norm_label": "deterministic test double for inference that is not under direct test.",
+      "id": "tests_test_specter_rationale_47"
     },
     {
       "label": "Test double for activation analysis when localization itself is not under test.",
@@ -999,9 +1159,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L83",
       "_origin": "ast",
-      "id": "tests_test_specter_rationale_83",
       "community": 6,
-      "norm_label": "test double for activation analysis when localization itself is not under test."
+      "norm_label": "test double for activation analysis when localization itself is not under test.",
+      "id": "tests_test_specter_rationale_83"
     },
     {
       "label": "specter",
@@ -1442,7 +1602,7 @@
       "source_file": "src/specter/activation/hook_runner.py",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": ".__init__()",
       "id": "src_specter_activation_hook_runner_transformerlenshookrunner_init"
     },
@@ -1537,26 +1697,6 @@
       "id": "src_specter_activation_models_activationlocalization"
     },
     {
-      "label": "transformerlens_adapter.py",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "transformerlens_adapter.py",
-      "id": "src_specter_activation_transformerlens_adapter"
-    },
-    {
-      "label": "TransformerLensUnavailableError",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L7",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "transformerlensunavailableerror",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror"
-    },
-    {
       "label": "RuntimeError",
       "file_type": "code",
       "source_file": "",
@@ -1565,116 +1705,6 @@
       "community": 8,
       "norm_label": "runtimeerror",
       "id": "src_specter_activation_transformerlens_adapter_py_runtimeerror"
-    },
-    {
-      "label": "TransformerLensAdapter",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "transformerlensadapter",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "label": ".__init__()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".__init__()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_init"
-    },
-    {
-      "label": ".assert_available()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L35",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".assert_available()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available"
-    },
-    {
-      "label": ".load_model()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L45",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".load_model()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model"
-    },
-    {
-      "label": "._huggingface_auth()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "._huggingface_auth()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth"
-    },
-    {
-      "label": ".run_with_cache()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L86",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".run_with_cache()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_run_with_cache"
-    },
-    {
-      "label": ".n_layers()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L89",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".n_layers()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_n_layers"
-    },
-    {
-      "label": ".resid_post()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L92",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".resid_post()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_resid_post"
-    },
-    {
-      "label": ".generate_with_hooks()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L95",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": ".generate_with_hooks()",
-      "id": "src_specter_activation_transformerlens_adapter_transformerlensadapter_generate_with_hooks"
-    },
-    {
-      "label": "_restore_environment()",
-      "file_type": "code",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L117",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "_restore_environment()",
-      "id": "src_specter_activation_transformerlens_adapter_restore_environment"
-    },
-    {
-      "label": "Thin optional boundary for real TransformerLens localization.      This adapter",
-      "file_type": "rationale",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "thin optional boundary for real transformerlens localization.      this adapter",
-      "id": "src_specter_activation_transformerlens_adapter_rationale_12"
     },
     {
       "label": "transformerlens_locator.py",
@@ -1712,7 +1742,7 @@
       "source_file": "src/specter/activation/transformerlens_locator.py",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 8,
+      "community": 34,
       "norm_label": ".__init__()",
       "id": "src_specter_activation_transformerlens_locator_transformerlensactivationlocator_init"
     },
@@ -2582,7 +2612,7 @@
       "source_file": "src/specter/feedback/run_hooks_cli.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "run_hooks_cli.py",
       "id": "src_specter_feedback_run_hooks_cli"
     },
@@ -2592,7 +2622,7 @@
       "source_file": "src/specter/feedback/run_hooks_cli.py",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "build_parser()",
       "id": "src_specter_feedback_run_hooks_cli_build_parser"
     },
@@ -2602,7 +2632,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "argumentparser",
       "id": "src_specter_feedback_run_hooks_cli_py_argumentparser"
     },
@@ -2612,7 +2642,7 @@
       "source_file": "src/specter/feedback/run_hooks_cli.py",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "run_from_args()",
       "id": "src_specter_feedback_run_hooks_cli_run_from_args"
     },
@@ -2622,7 +2652,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "namespace",
       "id": "src_specter_feedback_run_hooks_cli_py_namespace"
     },
@@ -2632,7 +2662,7 @@
       "source_file": "src/specter/feedback/run_hooks_cli.py",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "format_text()",
       "id": "src_specter_feedback_run_hooks_cli_format_text"
     },
@@ -2642,7 +2672,7 @@
       "source_file": "src/specter/feedback/run_hooks_cli.py",
       "source_location": "L59",
       "_origin": "ast",
-      "community": 8,
+      "community": 1,
       "norm_label": "main()",
       "id": "src_specter_feedback_run_hooks_cli_main"
     },
@@ -3065,26 +3095,6 @@
       "community": 33,
       "norm_label": "test_openai_compatible_provider_sends_completion_contract()",
       "id": "tests_test_model_provider_test_openai_compatible_provider_sends_completion_contract"
-    },
-    {
-      "label": "test_transformerlens_adapter.py",
-      "file_type": "code",
-      "source_file": "tests/test_transformerlens_adapter.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "test_transformerlens_adapter.py",
-      "id": "tests_test_transformerlens_adapter"
-    },
-    {
-      "label": "test_load_model_forwards_remote_code_and_anonymous_hub_options()",
-      "file_type": "code",
-      "source_file": "tests/test_transformerlens_adapter.py",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "test_load_model_forwards_remote_code_and_anonymous_hub_options()",
-      "id": "tests_test_transformerlens_adapter_test_load_model_forwards_remote_code_and_anonymous_hub_options"
     },
     {
       "label": "SKILL.md",
@@ -5179,14 +5189,292 @@
   ],
   "links": [
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/contrast_set_builder.py",
-      "source_location": "L5",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L117",
       "weight": 1.0,
-      "source": "src_specter_activation_contrast_set_builder",
-      "target": "src_specter_text",
+      "source": "src_specter_activation_transformerlens_adapter",
+      "target": "src_specter_activation_transformerlens_adapter_restore_environment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror",
+      "target": "runtimeerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src/specter/activation/hook_runner.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "src_specter_activation_hook_runner_appliedfeedbackloader",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src/specter/activation/hook_runner.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "src_specter_activation_hook_runner_hookedgenerationresult",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src/specter/activation/hook_runner.py",
+      "source_location": "L7",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "src_specter_activation_hook_runner_transformerlenshookrunner",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/hook_runner.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_activation_hook_runner_transformerlenshookrunner_init",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_rationale_12",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_generate_with_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_n_layers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_resid_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_run_with_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src/specter/activation/transformerlens_locator.py",
+      "source_location": "L8",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "src_specter_activation_transformerlens_locator_transformerlensactivationlocator",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_locator.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_activation_transformerlens_locator_transformerlensactivationlocator_init",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src/specter/activation/transformerlens_locator.py",
+      "source_location": "L8",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "src_specter_activation_transformerlens_locator_transformerlenslocalizationresult",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/specter/feedback/localize_cli.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_specter_feedback_localize_cli_run_from_args",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/specter/feedback/run_hooks_cli.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_specter_feedback_run_hooks_cli_run_from_args",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_transformerlens_adapter.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tests_test_transformerlens_adapter_test_load_model_forwards_remote_code_and_anonymous_hub_options",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
+      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/transformerlens_adapter.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth",
+      "target": "src_specter_activation_transformerlens_adapter_restore_environment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_transformerlens_adapter.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_test_transformerlens_adapter",
+      "target": "tests_test_transformerlens_adapter_test_load_model_forwards_remote_code_and_anonymous_hub_options",
       "confidence_score": 1.0
     },
     {
@@ -5195,9 +5483,20 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/activation/contrast_set_builder.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_activation_contrast_set_builder",
+      "target": "src_specter_text"
     },
     {
       "relation": "method",
@@ -5205,9 +5504,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build"
     },
     {
       "relation": "method",
@@ -5215,9 +5514,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence"
     },
     {
       "relation": "method",
@@ -5225,9 +5524,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize"
     },
     {
       "relation": "method",
@@ -5235,9 +5534,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant"
     },
     {
       "relation": "uses",
@@ -5245,9 +5544,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "uses",
@@ -5286,9 +5585,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L8",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "confidence_score": 0.5
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder"
     },
     {
       "relation": "uses",
@@ -5296,9 +5595,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L8",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "confidence_score": 0.5
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder"
     },
     {
       "relation": "uses",
@@ -5306,9 +5605,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L8",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder",
-      "confidence_score": 0.5
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder"
     },
     {
       "relation": "calls",
@@ -5339,9 +5638,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
-      "target": "contrastpair",
-      "confidence_score": 1.0
+      "target": "contrastpair"
     },
     {
       "relation": "calls",
@@ -5350,9 +5649,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize"
     },
     {
       "relation": "calls",
@@ -5361,9 +5660,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_variant"
     },
     {
       "relation": "references",
@@ -5372,9 +5671,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_build",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "calls",
@@ -5383,9 +5682,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize",
-      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence",
-      "confidence_score": 1.0
+      "target": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_first_sentence"
     },
     {
       "relation": "references",
@@ -5394,9 +5693,9 @@
       "source_file": "src/specter/activation/contrast_set_builder.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_activation_contrast_set_builder_minimalpaircontrastsetbuilder_neutralize",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "imports_from",
@@ -5405,9 +5704,59 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli",
-      "target": "src_specter_artifacts",
-      "confidence_score": 1.0
+      "target": "src_specter_artifacts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/cli.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_cli",
+      "target": "src_specter_cli_build_model_provider"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/cli.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_cli",
+      "target": "src_specter_cli_build_parser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/cli.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_cli",
+      "target": "src_specter_cli_format_text"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/cli.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_cli",
+      "target": "src_specter_cli_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/cli.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_cli",
+      "target": "src_specter_cli_run_from_args"
     },
     {
       "relation": "imports_from",
@@ -5416,9 +5765,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli",
-      "target": "src_specter_config",
-      "confidence_score": 1.0
+      "target": "src_specter_config"
     },
     {
       "relation": "imports_from",
@@ -5427,9 +5776,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli",
-      "target": "src_specter_dullahan_inference",
-      "confidence_score": 1.0
+      "target": "src_specter_dullahan_inference"
     },
     {
       "relation": "imports_from",
@@ -5438,9 +5787,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli",
-      "target": "src_specter_graph_loader",
-      "confidence_score": 1.0
+      "target": "src_specter_graph_loader"
     },
     {
       "relation": "imports_from",
@@ -5449,59 +5798,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli",
-      "target": "src_specter_model_provider",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/cli.py",
-      "source_location": "L127",
-      "weight": 1.0,
-      "source": "src_specter_cli",
-      "target": "src_specter_cli_build_model_provider",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/cli.py",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "src_specter_cli",
-      "target": "src_specter_cli_build_parser",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/cli.py",
-      "source_location": "L143",
-      "weight": 1.0,
-      "source": "src_specter_cli",
-      "target": "src_specter_cli_format_text",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/cli.py",
-      "source_location": "L158",
-      "weight": 1.0,
-      "source": "src_specter_cli",
-      "target": "src_specter_cli_main",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/cli.py",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "src_specter_cli",
-      "target": "src_specter_cli_run_from_args",
-      "confidence_score": 1.0
+      "target": "src_specter_model_provider"
     },
     {
       "relation": "imports_from",
@@ -5510,9 +5809,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "src_specter_cli",
-      "confidence_score": 1.0
+      "target": "src_specter_cli"
     },
     {
       "relation": "references",
@@ -5521,9 +5820,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_build_parser",
-      "target": "argumentparser",
-      "confidence_score": 1.0
+      "target": "argumentparser"
     },
     {
       "relation": "calls",
@@ -5532,9 +5831,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_main",
-      "target": "src_specter_cli_build_parser",
-      "confidence_score": 1.0
+      "target": "src_specter_cli_build_parser"
     },
     {
       "relation": "calls",
@@ -5598,9 +5897,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_main",
-      "target": "src_specter_cli_run_from_args",
-      "confidence_score": 1.0
+      "target": "src_specter_cli_run_from_args"
     },
     {
       "relation": "references",
@@ -5609,9 +5908,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_run_from_args",
-      "target": "namespace",
-      "confidence_score": 1.0
+      "target": "namespace"
     },
     {
       "relation": "calls",
@@ -5620,9 +5919,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_run_from_args",
-      "target": "src_specter_cli_build_model_provider",
-      "confidence_score": 1.0
+      "target": "src_specter_cli_build_model_provider"
     },
     {
       "relation": "references",
@@ -5631,9 +5930,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_run_from_args",
-      "target": "src_specter_cli_py_modelprovider",
-      "confidence_score": 1.0
+      "target": "src_specter_cli_py_modelprovider"
     },
     {
       "relation": "calls",
@@ -5664,9 +5963,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_run_from_args",
-      "target": "src_specter_courtroom_models_courtroomrunresult",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_courtroomrunresult"
     },
     {
       "relation": "calls",
@@ -5719,9 +6018,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_build_model_provider",
-      "target": "namespace",
-      "confidence_score": 1.0
+      "target": "namespace"
     },
     {
       "relation": "references",
@@ -5730,9 +6029,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_build_model_provider",
-      "target": "src_specter_cli_py_modelprovider",
-      "confidence_score": 1.0
+      "target": "src_specter_cli_py_modelprovider"
     },
     {
       "relation": "references",
@@ -5741,9 +6040,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_format_text",
-      "target": "src_specter_courtroom_models_courtroomrunresult",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_courtroomrunresult"
     },
     {
       "relation": "calls",
@@ -5752,9 +6051,9 @@
       "source_file": "src/specter/cli.py",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_cli_main",
-      "target": "src_specter_cli_format_text",
-      "confidence_score": 1.0
+      "target": "src_specter_cli_format_text"
     },
     {
       "relation": "calls",
@@ -5784,9 +6083,9 @@
       "source_file": "src/specter/config.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_config",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "imports_from",
@@ -5806,9 +6105,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner",
-      "target": "src_specter_config",
-      "confidence_score": 1.0
+      "target": "src_specter_config"
     },
     {
       "relation": "imports_from",
@@ -5817,9 +6116,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_real_inference",
-      "target": "src_specter_config",
-      "confidence_score": 1.0
+      "target": "src_specter_config"
     },
     {
       "relation": "imports_from",
@@ -5828,9 +6127,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "src_specter_config",
-      "confidence_score": 1.0
+      "target": "src_specter_config"
     },
     {
       "relation": "method",
@@ -5838,9 +6137,9 @@
       "source_file": "src/specter/config.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_config_courtroomconfig",
-      "target": "src_specter_config_courtroomconfig_feedback_root",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig_feedback_root"
     },
     {
       "relation": "inherits",
@@ -5848,9 +6147,9 @@
       "source_file": "src/specter/config.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_config_courtroomconfig",
-      "target": "src_specter_config_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_config_py_basemodel"
     },
     {
       "relation": "uses",
@@ -5879,9 +6178,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L5",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 0.5
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5890,9 +6189,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_defend",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5901,9 +6200,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5912,9 +6211,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5923,9 +6222,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5934,9 +6233,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5945,9 +6244,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "references",
@@ -5956,9 +6255,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L262",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 1.0
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "calls",
@@ -5977,9 +6276,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 0.5
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "uses",
@@ -5987,9 +6286,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 0.5
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "uses",
@@ -5997,9 +6296,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "src_specter_config_courtroomconfig",
-      "confidence_score": 0.5
+      "target": "src_specter_config_courtroomconfig"
     },
     {
       "relation": "calls",
@@ -6041,9 +6340,19 @@
       "source_file": "src/specter/config.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_config_courtroomconfig_feedback_root",
-      "target": "src_specter_config_py_path",
-      "confidence_score": 1.0
+      "target": "src_specter_config_py_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/specter/courtroom/debate_runner.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_specter_courtroom_debate_runner",
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner"
     },
     {
       "relation": "imports_from",
@@ -6052,9 +6361,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner",
-      "target": "src_specter_ids",
-      "confidence_score": 1.0
+      "target": "src_specter_ids"
     },
     {
       "relation": "imports_from",
@@ -6063,9 +6372,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner",
-      "target": "src_specter_model_provider",
-      "confidence_score": 1.0
+      "target": "src_specter_model_provider"
     },
     {
       "relation": "imports_from",
@@ -6074,19 +6383,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner",
-      "target": "src_specter_text",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/courtroom/debate_runner.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_specter_courtroom_debate_runner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "confidence_score": 1.0
+      "target": "src_specter_text"
     },
     {
       "relation": "method",
@@ -6094,9 +6393,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L330",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "method",
@@ -6104,9 +6403,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_defend",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_defend"
     },
     {
       "relation": "method",
@@ -6114,9 +6413,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback"
     },
     {
       "relation": "method",
@@ -6124,9 +6423,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_init",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_init"
     },
     {
       "relation": "method",
@@ -6134,9 +6433,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge"
     },
     {
       "relation": "method",
@@ -6144,9 +6443,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L296",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations"
     },
     {
       "relation": "method",
@@ -6154,9 +6453,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L289",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score"
     },
     {
       "relation": "method",
@@ -6164,9 +6463,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L351",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_parse_score",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_parse_score"
     },
     {
       "relation": "method",
@@ -6174,9 +6473,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute"
     },
     {
       "relation": "method",
@@ -6184,9 +6483,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L168",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention"
     },
     {
       "relation": "method",
@@ -6194,9 +6493,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_run",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_run"
     },
     {
       "relation": "method",
@@ -6204,9 +6503,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_run_target"
     },
     {
       "relation": "method",
@@ -6214,9 +6513,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L262",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_summarize"
     },
     {
       "relation": "uses",
@@ -6224,9 +6523,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L154",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_courtroomrunresult",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_courtroomrunresult"
     },
     {
       "relation": "uses",
@@ -6234,9 +6533,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_debateround",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_debateround"
     },
     {
       "relation": "uses",
@@ -6244,9 +6543,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_debaterounditem",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_debaterounditem"
     },
     {
       "relation": "uses",
@@ -6254,9 +6553,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "uses",
@@ -6264,9 +6563,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "uses",
@@ -6274,9 +6573,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "uses",
@@ -6284,9 +6583,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_models_targetcourtroomresult",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_targetcourtroomresult"
     },
     {
       "relation": "uses",
@@ -6294,9 +6593,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder"
     },
     {
       "relation": "calls",
@@ -6315,9 +6614,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner"
     },
     {
       "relation": "uses",
@@ -6325,9 +6624,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner"
     },
     {
       "relation": "uses",
@@ -6335,9 +6634,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner"
     },
     {
       "relation": "calls",
@@ -6379,9 +6678,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_init",
-      "target": "inferencecontentiongenerator",
-      "confidence_score": 1.0
+      "target": "inferencecontentiongenerator"
     },
     {
       "relation": "references",
@@ -6390,9 +6689,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_init",
-      "target": "src_specter_courtroom_debate_runner_py_modelprovider",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_py_modelprovider"
     },
     {
       "relation": "references",
@@ -6401,9 +6700,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_init",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder"
     },
     {
       "relation": "calls",
@@ -6412,9 +6711,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_run_target"
     },
     {
       "relation": "calls",
@@ -6423,9 +6722,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_defend",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_defend"
     },
     {
       "relation": "calls",
@@ -6434,9 +6733,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback"
     },
     {
       "relation": "calls",
@@ -6445,9 +6744,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge"
     },
     {
       "relation": "calls",
@@ -6456,9 +6755,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations"
     },
     {
       "relation": "calls",
@@ -6467,9 +6766,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score"
     },
     {
       "relation": "calls",
@@ -6478,9 +6777,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute"
     },
     {
       "relation": "calls",
@@ -6489,9 +6788,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention"
     },
     {
       "relation": "calls",
@@ -6500,9 +6799,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_summarize"
     },
     {
       "relation": "calls",
@@ -6511,9 +6810,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_models_debateround",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_debateround"
     },
     {
       "relation": "calls",
@@ -6544,9 +6843,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -6555,9 +6854,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run_target",
-      "target": "src_specter_courtroom_models_targetcourtroomresult",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_targetcourtroomresult"
     },
     {
       "relation": "calls",
@@ -6577,9 +6876,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_run",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "calls",
@@ -6588,9 +6887,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "references",
@@ -6599,9 +6898,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L168",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_revise_contention",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "calls",
@@ -6610,9 +6909,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L198",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_defend",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "references",
@@ -6621,9 +6920,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_defend",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "calls",
@@ -6632,9 +6931,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "references",
@@ -6643,9 +6942,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_prosecute",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "calls",
@@ -6654,9 +6953,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L243",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "calls",
@@ -6665,9 +6964,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L258",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_parse_score",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_parse_score"
     },
     {
       "relation": "references",
@@ -6676,9 +6975,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -6687,9 +6986,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "calls",
@@ -6698,9 +6997,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L275",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "references",
@@ -6709,9 +7008,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L262",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -6720,9 +7019,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L262",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_summarize",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "references",
@@ -6731,9 +7030,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L289",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_latest_score",
-      "target": "src_specter_courtroom_models_debateround",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_debateround"
     },
     {
       "relation": "references",
@@ -6742,9 +7041,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L296",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations",
-      "target": "src_specter_courtroom_models_debateround",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_debateround"
     },
     {
       "relation": "references",
@@ -6753,9 +7052,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L296",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_judge_evaluations",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "calls",
@@ -6764,9 +7063,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
-      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_debate_runner_courtroomrunner_complete"
     },
     {
       "relation": "references",
@@ -6775,9 +7074,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -6786,9 +7085,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_generate_feedback",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "calls",
@@ -6808,9 +7107,9 @@
       "source_file": "src/specter/courtroom/debate_runner.py",
       "source_location": "L330",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_debate_runner_courtroomrunner_complete",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "contains",
@@ -6818,9 +7117,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_contention",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_contention"
     },
     {
       "relation": "contains",
@@ -6828,9 +7127,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_courtroomrunresult",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_courtroomrunresult"
     },
     {
       "relation": "contains",
@@ -6838,9 +7137,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_debateround",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_debateround"
     },
     {
       "relation": "contains",
@@ -6848,9 +7147,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_debaterounditem",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_debaterounditem"
     },
     {
       "relation": "contains",
@@ -6858,9 +7157,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "contains",
@@ -6868,9 +7167,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "contains",
@@ -6878,9 +7177,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "contains",
@@ -6888,9 +7187,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models",
-      "target": "src_specter_courtroom_models_targetcourtroomresult",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_targetcourtroomresult"
     },
     {
       "relation": "references",
@@ -6920,9 +7219,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_feedbacktargetnode",
-      "target": "src_specter_courtroom_models_feedbacktargetnode_context_text",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode_context_text"
     },
     {
       "relation": "method",
@@ -6930,9 +7229,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_feedbacktargetnode",
-      "target": "src_specter_courtroom_models_feedbacktargetnode_model_name",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode_model_name"
     },
     {
       "relation": "method",
@@ -6940,9 +7239,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_feedbacktargetnode",
-      "target": "src_specter_courtroom_models_feedbacktargetnode_query_text",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode_query_text"
     },
     {
       "relation": "method",
@@ -6950,9 +7249,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_feedbacktargetnode",
-      "target": "src_specter_courtroom_models_feedbacktargetnode_response_text",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode_response_text"
     },
     {
       "relation": "inherits",
@@ -6960,9 +7259,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_feedbacktargetnode",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "uses",
@@ -6970,9 +7269,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -6981,9 +7280,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -6992,9 +7291,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -7003,9 +7302,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -7014,9 +7313,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -7025,9 +7324,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -7036,9 +7335,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -7047,9 +7346,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "references",
@@ -7079,9 +7378,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "uses",
@@ -7089,9 +7388,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "uses",
@@ -7099,9 +7398,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "src_specter_courtroom_models_feedbacktargetnode",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbacktargetnode"
     },
     {
       "relation": "calls",
@@ -7142,9 +7441,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_contention",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "inherits",
@@ -7152,9 +7451,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_courtroomrunresult",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "inherits",
@@ -7162,9 +7461,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_debateround",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "inherits",
@@ -7172,9 +7471,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_debaterounditem",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "inherits",
@@ -7182,9 +7481,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_feedbackitem",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "inherits",
@@ -7192,9 +7491,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_judgescore",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "inherits",
@@ -7202,9 +7501,9 @@
       "source_file": "src/specter/courtroom/models.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_models_targetcourtroomresult",
-      "target": "src_specter_courtroom_models_py_basemodel",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_py_basemodel"
     },
     {
       "relation": "references",
@@ -7223,9 +7522,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "references",
@@ -7234,9 +7533,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "references",
@@ -7245,9 +7544,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter",
-      "target": "src_specter_courtroom_models_judgescore",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_models_judgescore"
     },
     {
       "relation": "references",
@@ -7277,9 +7576,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "uses",
@@ -7287,9 +7586,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "uses",
@@ -7297,9 +7596,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "src_specter_courtroom_models_feedbackitem",
-      "confidence_score": 0.5
+      "target": "src_specter_courtroom_models_feedbackitem"
     },
     {
       "relation": "calls",
@@ -7340,9 +7639,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder"
     },
     {
       "relation": "method",
@@ -7350,9 +7649,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "method",
@@ -7360,9 +7659,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender"
     },
     {
       "relation": "method",
@@ -7370,9 +7669,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge"
     },
     {
       "relation": "method",
@@ -7380,9 +7679,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback"
     },
     {
       "relation": "method",
@@ -7390,9 +7689,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor"
     },
     {
       "relation": "method",
@@ -7400,9 +7699,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter"
     },
     {
       "relation": "method",
@@ -7410,9 +7709,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention"
     },
     {
       "relation": "calls",
@@ -7421,9 +7720,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_revise_contention",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "calls",
@@ -7432,9 +7731,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_defender",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "calls",
@@ -7443,9 +7742,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_prosecutor",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "calls",
@@ -7454,9 +7753,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "calls",
@@ -7465,9 +7764,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_reporter",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "calls",
@@ -7476,9 +7775,9 @@
       "source_file": "src/specter/courtroom/role_prompts.py",
       "source_location": "L166",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_specter_courtroom_role_prompts_courtroompromptbuilder_judge_feedback",
-      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base",
-      "confidence_score": 1.0
+      "target": "src_specter_courtroom_role_prompts_courtroompromptbuilder_base"
     },
     {
       "relation": "imports_from",
@@ -7487,9 +7786,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_real_inference",
-      "target": "src_specter_dullahan_inference",
-      "confidence_score": 1.0
+      "target": "src_specter_dullahan_inference"
     },
     {
       "relation": "imports_from",
@@ -7498,9 +7797,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_real_inference",
-      "target": "src_specter_model_provider",
-      "confidence_score": 1.0
+      "target": "src_specter_model_provider"
     },
     {
       "relation": "contains",
@@ -7508,9 +7807,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_real_inference",
-      "target": "tests_test_real_inference_test_dullahan_inference_executes_every_courtroom_role",
-      "confidence_score": 1.0
+      "target": "tests_test_real_inference_test_dullahan_inference_executes_every_courtroom_role"
     },
     {
       "relation": "contains",
@@ -7518,9 +7817,9 @@
       "source_file": "tests/test_real_inference.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_real_inference",
-      "target": "tests_test_real_inference_test_real_transformerlens_localizes_feedback_activations",
-      "confidence_score": 1.0
+      "target": "tests_test_real_inference_test_real_transformerlens_localizes_feedback_activations"
     },
     {
       "relation": "imports_from",
@@ -7529,9 +7828,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "src_specter_graph_loader",
-      "confidence_score": 1.0
+      "target": "src_specter_graph_loader"
     },
     {
       "relation": "imports_from",
@@ -7540,9 +7839,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "src_specter_model_provider",
-      "confidence_score": 1.0
+      "target": "src_specter_model_provider"
     },
     {
       "relation": "contains",
@@ -7550,9 +7849,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L795",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_build_courtroom_feedback",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_courtroom_feedback"
     },
     {
       "relation": "contains",
@@ -7560,9 +7859,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L778",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_build_feedback_plan",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_feedback_plan"
     },
     {
       "relation": "contains",
@@ -7570,9 +7869,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "contains",
@@ -7580,9 +7879,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_scriptedtransformerlensadapter",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlensadapter"
     },
     {
       "relation": "contains",
@@ -7590,9 +7889,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_scriptedtransformerlenslocator",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlenslocator"
     },
     {
       "relation": "contains",
@@ -7600,9 +7899,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_action_graph_loader_returns_answered_targets",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_action_graph_loader_returns_answered_targets"
     },
     {
       "relation": "contains",
@@ -7610,9 +7909,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L652",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_apply_feedback_cli_text_output",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_apply_feedback_cli_text_output"
     },
     {
       "relation": "contains",
@@ -7620,9 +7919,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L617",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks"
     },
     {
       "relation": "contains",
@@ -7630,9 +7929,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L504",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_contrast_builder_removes_feedback_concept_from_negative",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_contrast_builder_removes_feedback_concept_from_negative"
     },
     {
       "relation": "contains",
@@ -7640,9 +7939,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_courtroom_cli_json_output",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_courtroom_cli_json_output"
     },
     {
       "relation": "contains",
@@ -7650,9 +7949,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts"
     },
     {
       "relation": "contains",
@@ -7660,9 +7959,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L207",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_courtroom_cli_text_output",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_courtroom_cli_text_output"
     },
     {
       "relation": "contains",
@@ -7670,9 +7969,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L363",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_courtroom_model_provider_can_revise_contentions",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_courtroom_model_provider_can_revise_contentions"
     },
     {
       "relation": "contains",
@@ -7680,9 +7979,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_courtroom_runner_can_use_model_backed_roles",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_courtroom_runner_can_use_model_backed_roles"
     },
     {
       "relation": "contains",
@@ -7690,9 +7989,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L330",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_courtroom_runner_evolves_contentions_after_first_round",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_courtroom_runner_evolves_contentions_after_first_round"
     },
     {
       "relation": "contains",
@@ -7700,9 +7999,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_inference_clis_reject_removed_deterministic_backends",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_inference_clis_reject_removed_deterministic_backends"
     },
     {
       "relation": "contains",
@@ -7710,9 +8009,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L466",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_localize_feedback_cli_text_output",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_localize_feedback_cli_text_output"
     },
     {
       "relation": "contains",
@@ -7720,9 +8019,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L408",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan"
     },
     {
       "relation": "contains",
@@ -7730,9 +8029,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L536",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps"
     },
     {
       "relation": "contains",
@@ -7740,9 +8039,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L717",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_run_feedback_hooks_cli_text_output",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_run_feedback_hooks_cli_text_output"
     },
     {
       "relation": "contains",
@@ -7750,9 +8049,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L665",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks"
     },
     {
       "relation": "contains",
@@ -7760,9 +8059,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L756",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_test_transformerlens_hook_runner_adds_scaled_vector_to_tensor",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_test_transformerlens_hook_runner_adds_scaled_vector_to_tensor"
     },
     {
       "relation": "contains",
@@ -7770,9 +8069,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L817",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "calls",
@@ -7781,9 +8080,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L812",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_build_courtroom_feedback",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "rationale_for",
@@ -7791,9 +8090,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_rationale_47",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "inherits",
@@ -7801,9 +8100,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "tests_test_specter_py_modelprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_modelprovider"
     },
     {
       "relation": "method",
@@ -7811,9 +8110,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "tests_test_specter_scriptedinferenceprovider_complete",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider_complete"
     },
     {
       "relation": "method",
@@ -7821,9 +8120,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedinferenceprovider",
-      "target": "tests_test_specter_scriptedinferenceprovider_init",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider_init"
     },
     {
       "relation": "calls",
@@ -7832,9 +8131,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L241",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_json_output",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "calls",
@@ -7843,9 +8142,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "calls",
@@ -7854,9 +8153,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_text_output",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "calls",
@@ -7865,9 +8164,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L341",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_runner_evolves_contentions_after_first_round",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "calls",
@@ -7876,9 +8175,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L484",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_text_output",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "calls",
@@ -7887,9 +8186,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L427",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
-      "target": "tests_test_specter_scriptedinferenceprovider",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedinferenceprovider"
     },
     {
       "relation": "references",
@@ -7898,9 +8197,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedinferenceprovider_complete",
-      "target": "modelrequest",
-      "confidence_score": 1.0
+      "target": "modelrequest"
     },
     {
       "relation": "references",
@@ -7909,9 +8208,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedinferenceprovider_complete",
-      "target": "modelresult",
-      "confidence_score": 1.0
+      "target": "modelresult"
     },
     {
       "relation": "calls",
@@ -7920,9 +8219,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L790",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_build_feedback_plan",
-      "target": "tests_test_specter_scriptedtransformerlenslocator",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlenslocator"
     },
     {
       "relation": "rationale_for",
@@ -7930,9 +8229,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_rationale_83",
-      "target": "tests_test_specter_scriptedtransformerlenslocator",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlenslocator"
     },
     {
       "relation": "method",
@@ -7940,9 +8239,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "tests_test_specter_scriptedtransformerlenslocator_init",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlenslocator_init"
     },
     {
       "relation": "method",
@@ -7950,9 +8249,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedtransformerlenslocator",
-      "target": "tests_test_specter_scriptedtransformerlenslocator_locate",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlenslocator_locate"
     },
     {
       "relation": "indirect_call",
@@ -7961,9 +8260,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L492",
       "weight": 1.0,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_test_localize_feedback_cli_text_output",
-      "target": "tests_test_specter_scriptedtransformerlenslocator",
-      "confidence_score": 0.5
+      "target": "tests_test_specter_scriptedtransformerlenslocator"
     },
     {
       "relation": "calls",
@@ -7972,9 +8271,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L443",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
-      "target": "tests_test_specter_scriptedtransformerlenslocator",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlenslocator"
     },
     {
       "relation": "method",
@@ -7982,9 +8281,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "tests_test_specter_scriptedtransformerlensadapter_init",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlensadapter_init"
     },
     {
       "relation": "method",
@@ -7992,9 +8291,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_scriptedtransformerlensadapter",
-      "target": "tests_test_specter_scriptedtransformerlensadapter_load_model",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_scriptedtransformerlensadapter_load_model"
     },
     {
       "relation": "indirect_call",
@@ -8003,9 +8302,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L488",
       "weight": 1.0,
+      "confidence_score": 0.5,
       "source": "tests_test_specter_test_localize_feedback_cli_text_output",
-      "target": "tests_test_specter_scriptedtransformerlensadapter",
-      "confidence_score": 0.5
+      "target": "tests_test_specter_scriptedtransformerlensadapter"
     },
     {
       "relation": "references",
@@ -8014,9 +8313,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_action_graph_loader_returns_answered_targets",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "calls",
@@ -8025,9 +8324,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_action_graph_loader_returns_answered_targets",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "references",
@@ -8036,9 +8335,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L795",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_build_courtroom_feedback",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8047,9 +8346,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L778",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_build_feedback_plan",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8058,9 +8357,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L652",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_apply_feedback_cli_text_output",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8069,9 +8368,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L617",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8080,9 +8379,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_json_output",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8091,9 +8390,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8102,9 +8401,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L207",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_text_output",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8113,9 +8412,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L466",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_text_output",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8124,9 +8423,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L408",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8135,9 +8434,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L536",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8146,9 +8445,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L717",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_run_feedback_hooks_cli_text_output",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8157,9 +8456,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L665",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "calls",
@@ -8168,9 +8467,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L760",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_transformerlens_hook_runner_adds_scaled_vector_to_tensor",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "references",
@@ -8179,9 +8478,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L817",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_write_action_graph",
-      "target": "tests_test_specter_py_path",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_py_path"
     },
     {
       "relation": "calls",
@@ -8190,9 +8489,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_persists_feedback_artifacts",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "calls",
@@ -8201,9 +8500,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L209",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_text_output",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "calls",
@@ -8212,9 +8511,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L238",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_courtroom_cli_json_output",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "calls",
@@ -8223,9 +8522,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L410",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_writes_feedback_plan",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "calls",
@@ -8234,9 +8533,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L468",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_cli_text_output",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "calls",
@@ -8245,9 +8544,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L541",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_localize_feedback_transformerlens_backend_writes_heatmaps",
-      "target": "tests_test_specter_build_courtroom_feedback",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_courtroom_feedback"
     },
     {
       "relation": "calls",
@@ -8256,9 +8555,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L619",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_apply_feedback_cli_writes_activation_hooks",
-      "target": "tests_test_specter_build_feedback_plan",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_feedback_plan"
     },
     {
       "relation": "calls",
@@ -8267,9 +8566,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L654",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_apply_feedback_cli_text_output",
-      "target": "tests_test_specter_build_feedback_plan",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_feedback_plan"
     },
     {
       "relation": "calls",
@@ -8278,9 +8577,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L670",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_run_feedback_hooks_cli_uses_filtered_hooks",
-      "target": "tests_test_specter_build_feedback_plan",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_feedback_plan"
     },
     {
       "relation": "calls",
@@ -8289,9 +8588,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L719",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_test_run_feedback_hooks_cli_text_output",
-      "target": "tests_test_specter_build_feedback_plan",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_feedback_plan"
     },
     {
       "relation": "calls",
@@ -8300,9 +8599,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L779",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_build_feedback_plan",
-      "target": "tests_test_specter_build_courtroom_feedback",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_build_courtroom_feedback"
     },
     {
       "relation": "calls",
@@ -8311,9 +8610,9 @@
       "source_file": "tests/test_specter.py",
       "source_location": "L796",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_specter_build_courtroom_feedback",
-      "target": "tests_test_specter_write_action_graph",
-      "confidence_score": 1.0
+      "target": "tests_test_specter_write_action_graph"
     },
     {
       "relation": "contains",
@@ -9210,16 +9509,6 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "src/specter/activation/hook_runner.py",
-      "source_location": "L7",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "src_specter_activation_hook_runner_hookedgenerationresult",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "src/specter/activation/hook_runner.py",
       "source_location": "L8",
       "weight": 0.8,
       "confidence_score": 0.5,
@@ -9256,16 +9545,6 @@
       "confidence_score": 1.0,
       "source": "src_specter_activation_hook_runner_appliedfeedbackloader",
       "target": "src_specter_activation_hook_runner_appliedfeedbackloader_load"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "src/specter/activation/hook_runner.py",
-      "source_location": "L7",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "src_specter_activation_hook_runner_appliedfeedbackloader",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
     },
     {
       "relation": "uses",
@@ -9374,16 +9653,6 @@
       "relation": "uses",
       "confidence": "INFERRED",
       "source_file": "src/specter/activation/hook_runner.py",
-      "source_location": "L7",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "src_specter_activation_hook_runner_transformerlenshookrunner",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "src/specter/activation/hook_runner.py",
       "source_location": "L8",
       "weight": 0.8,
       "confidence_score": 0.5,
@@ -9410,17 +9679,6 @@
       "weight": 1.0,
       "source": "src_specter_feedback_run_hooks_cli_run_from_args",
       "target": "src_specter_activation_hook_runner_transformerlenshookrunner"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/hook_runner.py",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_hook_runner_transformerlenshookrunner_init",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
     },
     {
       "relation": "calls",
@@ -9579,244 +9837,6 @@
       "confidence_score": 1.0,
       "source": "src_specter_feedback_plan_builder_feedbackplanbuilder_build",
       "target": "src_specter_activation_models_activationlocalization"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L117",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter",
-      "target": "src_specter_activation_transformerlens_adapter_restore_environment"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror"
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensunavailableerror",
-      "target": "src_specter_activation_transformerlens_adapter_py_runtimeerror"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_rationale_12",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L95",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_generate_with_hooks"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_init"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_n_layers"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L92",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_resid_post"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L86",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_run_with_cache"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "src/specter/activation/transformerlens_locator.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "src_specter_activation_transformerlens_locator_transformerlensactivationlocator",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_locator.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_locator_transformerlensactivationlocator_init",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "src/specter/activation/transformerlens_locator.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "src_specter_activation_transformerlens_locator_transformerlenslocalizationresult",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src/specter/feedback/localize_cli.py",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "src_specter_feedback_localize_cli_run_from_args",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src/specter/feedback/run_hooks_cli.py",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "src_specter_feedback_run_hooks_cli_run_from_args",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "tests/test_transformerlens_adapter.py",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "tests_test_transformerlens_adapter_test_load_model_forwards_remote_code_and_anonymous_hub_options",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_assert_available"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_load_model",
-      "target": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/specter/activation/transformerlens_adapter.py",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_specter_activation_transformerlens_adapter_transformerlensadapter_huggingface_auth",
-      "target": "src_specter_activation_transformerlens_adapter_restore_environment"
     },
     {
       "relation": "contains",
@@ -12306,16 +12326,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "tests/test_transformerlens_adapter.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_test_transformerlens_adapter",
-      "target": "tests_test_transformerlens_adapter_test_load_model_forwards_remote_code_and_anonymous_hub_options"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": ".agents/skills/architecture-first-changes/SKILL.md",
       "source_location": "L6",
       "weight": 1.0,
@@ -14215,5 +14225,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "36c37b99ec3805a9f0bec6c38a82df832565f259"
+  "built_at_commit": "ae7524763bee9329dc9f1d384422fb24b2bf2a5a"
 }
