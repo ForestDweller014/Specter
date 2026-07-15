@@ -6,6 +6,7 @@ from specter.activation.activation_locator import LocalizationRequest
 from specter.activation.contrast_set_builder import MinimalPairContrastSetBuilder
 from specter.activation.models import ActivationLocalization
 from specter.activation.transformerlens_adapter import TransformerLensAdapter
+from specter.courtroom.models import FeedbackDisposition
 
 
 @dataclass(frozen=True)
@@ -37,6 +38,12 @@ class TransformerLensActivationLocator:
     ) -> TransformerLensLocalizationResult:
         torch = _import_torch()
         item = request.feedback_item
+        if item.disposition != FeedbackDisposition.APPLY_CORRECTION:
+            raise ValueError(
+                f"cannot localize feedback with disposition {item.disposition.value!r}"
+            )
+        if item.prosecution_strength <= 0:
+            raise ValueError("cannot localize feedback with non-positive prosecution strength")
         contrast_pairs = self.contrast_builder.build(
             item,
             pair_count=request.contrast_pair_count,
@@ -101,6 +108,7 @@ class TransformerLensActivationLocator:
             query_id=item.query_id,
             expert_id=item.expert_id,
             contention_id=item.contention_id,
+            disposition=item.disposition,
             prosecution_strength=item.prosecution_strength,
             layer=best_layer,
             token_position=best_position,
@@ -132,4 +140,3 @@ def _import_torch():
             "TransformerLens localization requires torch to compute activation projections."
         ) from exc
     return torch
-

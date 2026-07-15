@@ -9,6 +9,7 @@ import yaml
 from specter.activation.activation_locator import LocalizationRequest
 from specter.activation.transformerlens_adapter import TransformerLensAdapter
 from specter.activation.transformerlens_locator import TransformerLensActivationLocator
+from specter.courtroom.models import FeedbackDisposition
 from specter.feedback.feedback_loader import FeedbackArtifactLoader
 from specter.feedback.plan_builder import FeedbackPlanBuilder
 
@@ -34,7 +35,27 @@ def build_parser() -> argparse.ArgumentParser:
 
 def run_from_args(args: argparse.Namespace, *, adapter=None, locator=None):
     manifest, feedback_items = FeedbackArtifactLoader().load(args.feedback_dir)
-    if locator is None:
+    eligible_items = [
+        item
+        for item in feedback_items
+        if item.disposition == FeedbackDisposition.APPLY_CORRECTION
+        and item.prosecution_strength > 0
+    ]
+    skipped_items = [
+        {
+            "contention_id": item.contention_id,
+            "disposition": item.disposition.value,
+            "prosecution_strength": item.prosecution_strength,
+            "reason": (
+                "final_judge_declined_correction"
+                if item.disposition != FeedbackDisposition.APPLY_CORRECTION
+                else "non_positive_prosecution_strength"
+            ),
+        }
+        for item in feedback_items
+        if item not in eligible_items
+    ]
+    if locator is None and eligible_items:
         if not args.model_path:
             raise ValueError("--model-path is required for real TransformerLens localization")
         adapter = adapter or TransformerLensAdapter(model_path=args.model_path)
@@ -46,7 +67,7 @@ def run_from_args(args: argparse.Namespace, *, adapter=None, locator=None):
     heatmaps_dir = args.feedback_dir / "activation_heatmaps"
     heatmaps_dir.mkdir(parents=True, exist_ok=True)
     localizations = []
-    for item in feedback_items:
+    for item in eligible_items:
         vector_path = vectors_dir / f"{_safe_path_id(item.contention_id)}.json"
         direction_vector_ref = str(vector_path.relative_to(args.feedback_dir))
         request = LocalizationRequest(
@@ -81,7 +102,12 @@ def run_from_args(args: argparse.Namespace, *, adapter=None, locator=None):
     )
     _write_yaml(
         args.feedback_dir / "activation_localizations.yaml",
-        {"localizations": [localization.model_dump(mode="json") for localization in localizations]},
+        {
+            "localizations": [
+                localization.model_dump(mode="json") for localization in localizations
+            ],
+            "skipped_feedback_items": skipped_items,
+        },
     )
     (args.feedback_dir / "feedback_plan.json").write_text(
         json.dumps(plan.model_dump(mode="json", by_alias=True), indent=2, sort_keys=True) + "\n",

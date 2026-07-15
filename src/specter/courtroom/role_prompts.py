@@ -165,10 +165,13 @@ class CourtroomPromptBuilder:
         ]
         return self._base(
             role=(
-                "You are the final feedback judge. Convert the completed courtroom "
-                "record into one concise, actionable instruction for the expert "
-                "model. State what should change and ground it in the case evidence. "
-                "Do not mention courtroom roles, debate procedure, or numeric scores."
+                "You are the final feedback judge. Decide whether the completed record "
+                "establishes a specific correction to apply to the expert model. Choose "
+                "apply_correction only when the evidence supports changing the response; "
+                "choose no_correction when the defense prevails or the evidence is mixed "
+                "or insufficient. For apply_correction, write one concise, actionable, "
+                "evidence-grounded instruction. For no_correction, write one concise audit "
+                "reason. Do not mention courtroom roles, procedure, or numeric scores."
             ),
             target=target,
             round_index=round_index,
@@ -179,7 +182,11 @@ class CourtroomPromptBuilder:
                 courtroom_summary,
                 "Judge evaluations:",
                 *(evaluation_lines or ["none"]),
-                "Return only the final model-facing feedback instruction.",
+                (
+                    "Return only a JSON object with exactly these keys: "
+                    '{"disposition":"apply_correction","feedback_text":"..."}. '
+                    "The disposition value must be exactly apply_correction or no_correction."
+                ),
             ],
         )
 

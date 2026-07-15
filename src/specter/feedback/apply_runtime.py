@@ -3,13 +3,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from specter.ids import new_id
-
+from specter.courtroom.models import FeedbackDisposition
 from specter.feedback.apply_models import (
     ActivationHookSpec,
     AppliedFeedbackBundle,
 )
 from specter.feedback.models import FeedbackPlan, FeedbackPlanItem
+from specter.ids import new_id
 from specter.text import safe_path_id
 
 
@@ -56,6 +56,14 @@ class ActivationHookApplicationRuntime:
         feedback_dir: Path,
         scale_override: float | None,
     ) -> ActivationHookSpec:
+        if item.disposition != FeedbackDisposition.APPLY_CORRECTION:
+            raise FeedbackApplicationError(
+                f"feedback item {item.contention_id} is not approved for correction"
+            )
+        if item.prosecution_strength <= 0:
+            raise FeedbackApplicationError(
+                f"feedback item {item.contention_id} has non-positive prosecution strength"
+            )
         if item.application_mode != self.mode:
             raise FeedbackApplicationError(
                 f"unsupported application mode for item {item.contention_id}: "
@@ -70,6 +78,7 @@ class ActivationHookApplicationRuntime:
             contention_id=item.contention_id,
             query_id=item.query_id,
             expert_id=item.expert_id,
+            disposition=item.disposition,
             layer=item.layer,
             hook_point=f"blocks.{item.layer}.hook_resid_post",
             token_position_policy=item.token_position_policy,
@@ -93,4 +102,3 @@ class ActivationHookApplicationRuntime:
         if not isinstance(vector, list) or not vector:
             raise FeedbackApplicationError(f"steering vector is empty or invalid: {path}")
         return [float(value) for value in vector]
-

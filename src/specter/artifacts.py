@@ -43,7 +43,13 @@ class FeedbackArtifactStore:
             for target_result in result.targets
             for item in target_result.feedback_items
         ]
-        self._write_yaml(run_dir / "final_feedback.yaml", {"feedback_items": all_feedback})
+        self._write_yaml(
+            run_dir / "final_feedback.yaml",
+            {
+                "schema": "specter.final_feedback.v2",
+                "feedback_items": all_feedback,
+            },
+        )
         return run_dir
 
     def _write_target(self, run_dir: Path, target_result: TargetCourtroomResult) -> None:
@@ -94,6 +100,7 @@ class FeedbackArtifactStore:
         self._write_yaml(
             target_dir / "final_feedback.yaml",
             {
+                "schema": "specter.final_feedback.v2",
                 "feedback_items": [
                     item.model_dump(mode="json") for item in target_result.feedback_items
                 ]
@@ -112,4 +119,3 @@ def _safe_path_id(identifier: str) -> str:
         .replace("\\", "_")
         .replace(" ", "_")
     )
-

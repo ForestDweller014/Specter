@@ -2,12 +2,15 @@ from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from specter.courtroom.models import FeedbackDisposition
+
 
 class FeedbackPlanItem(BaseModel):
     contention_id: str
     query_id: str
     expert_id: str
-    prosecution_strength: float = Field(ge=-1.0, le=1.0)
+    disposition: FeedbackDisposition
+    prosecution_strength: float = Field(gt=0.0, le=1.0)
     layer: int = Field(ge=0)
     token_position_policy: str
     direction_vector_ref: str
@@ -21,7 +24,7 @@ class FeedbackPlan(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
     schema_: str = Field(
-        default="specter.feedback_plan.v1",
+        default="specter.feedback_plan.v2",
         alias="schema",
         serialization_alias="schema",
     )

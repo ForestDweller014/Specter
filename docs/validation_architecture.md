@@ -197,13 +197,15 @@ Final Feedback Judge:
   final_running_debate_summary_i,
   all_round_scores_and_rationales_i,
   final_contention_i
-    -> feedback_text_i
+    -> disposition_i, feedback_text_i
 ```
 
 The reporter's summary remains debate memory and audit evidence. It is not the
-feedback itself. The final feedback judge must emit one concise, actionable
-instruction for the expert without courtroom roles, procedural language, or
-numeric scores.
+feedback itself. The final feedback judge must emit structured JSON with an
+explicit `apply_correction` or `no_correction` disposition. Applied corrections
+contain one concise, actionable instruction for the expert; declined corrections
+contain a concise audit reason. Neither may contain courtroom roles, procedural
+language, or numeric scores.
 
 ## Debate Bounds
 
@@ -257,6 +259,7 @@ FeedbackItem
   expert_id
   contention_id
   running_debate_summary
+  disposition
   feedback_text
   prosecution_strength
   target_query
@@ -266,8 +269,9 @@ FeedbackItem
 
 ## Activation Localization
 
-The activation stage uses TransformerLens to identify where each judge-generated
-`feedback_text` activates in the corresponding expert SLM. The
+The activation stage uses TransformerLens only for `apply_correction` items with
+positive prosecution strength. It identifies where each approved `feedback_text`
+activates in the corresponding expert SLM. The
 `running_debate_summary` remains available as provenance but is never used as a
 silent fallback for activation discovery.
 
@@ -287,6 +291,7 @@ The activation output is:
 ActivationLocalization
   expert_id
   contention_id
+  disposition
   layer
   token_position
   token_position_policy
@@ -311,6 +316,10 @@ The scaled intervention is:
 scaled_direction = activation_direction * prosecution_strength * feedback_scale
 ```
 
+The application path is fail-closed: `no_correction` and non-positive-strength
+items do not produce localizations, plan items, or hooks. A signed score never
+reverses an already oriented correction vector.
+
 Supported application modes should be staged:
 
 ```text
@@ -332,6 +341,7 @@ FeedbackPlan
   items:
     - contention_id
       query_id
+      disposition
       prosecution_strength
       layer
       token_position_policy

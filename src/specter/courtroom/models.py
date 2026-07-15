@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from pydantic import BaseModel, Field
+from enum import StrEnum
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class FeedbackTargetNode(BaseModel):
@@ -60,6 +62,18 @@ class JudgeScore(BaseModel):
     rationale: str = Field(min_length=1)
 
 
+class FeedbackDisposition(StrEnum):
+    APPLY_CORRECTION = "apply_correction"
+    NO_CORRECTION = "no_correction"
+
+
+class FinalFeedbackDecision(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    disposition: FeedbackDisposition
+    feedback_text: str = Field(min_length=1)
+
+
 class DebateRoundItem(BaseModel):
     round_index: int = Field(ge=1)
     contention_id: str
@@ -82,6 +96,7 @@ class FeedbackItem(BaseModel):
     expert_id: str
     contention_id: str
     running_debate_summary: str = Field(min_length=1)
+    disposition: FeedbackDisposition
     feedback_text: str = Field(min_length=1)
     prosecution_strength: float = Field(ge=-1.0, le=1.0)
     target_query: str

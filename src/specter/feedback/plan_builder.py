@@ -24,6 +24,7 @@ class FeedbackPlanBuilder:
                     contention_id=localization.contention_id,
                     query_id=localization.query_id,
                     expert_id=localization.expert_id,
+                    disposition=localization.disposition,
                     prosecution_strength=localization.prosecution_strength,
                     layer=localization.layer,
                     token_position_policy=localization.token_position_policy,
@@ -36,4 +37,3 @@ class FeedbackPlanBuilder:
                 for localization in localizations
             ],
         )
-

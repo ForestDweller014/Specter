@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 
 from specter.config import CourtroomConfig
@@ -9,6 +10,7 @@ from specter.courtroom.models import (
     DebateRoundItem,
     FeedbackItem,
     FeedbackTargetNode,
+    FinalFeedbackDecision,
     JudgeScore,
     TargetCourtroomResult,
 )
@@ -112,6 +114,13 @@ class CourtroomRunner:
                 rounds,
                 contention.contention_id,
             )
+            feedback_decision = self._generate_feedback(
+                target=target,
+                contention=current_contention_texts[contention.contention_id],
+                courtroom_summary=courtroom_summary,
+                judge_evaluations=judge_evaluations,
+                config=config,
+            )
             feedback_items.append(
                 FeedbackItem(
                     feedback_id=feedback_id,
@@ -119,13 +128,8 @@ class CourtroomRunner:
                     expert_id=target.expert_id,
                     contention_id=contention.contention_id,
                     running_debate_summary=courtroom_summary,
-                    feedback_text=self._generate_feedback(
-                        target=target,
-                        contention=current_contention_texts[contention.contention_id],
-                        courtroom_summary=courtroom_summary,
-                        judge_evaluations=judge_evaluations,
-                        config=config,
-                    ),
+                    disposition=feedback_decision.disposition,
+                    feedback_text=feedback_decision.feedback_text,
                     prosecution_strength=self._latest_score(
                         rounds,
                         contention.contention_id,
@@ -313,8 +317,8 @@ class CourtroomRunner:
         courtroom_summary: str,
         judge_evaluations: list[tuple[int, JudgeScore]],
         config: CourtroomConfig,
-    ) -> str:
-        return self._complete(
+    ) -> FinalFeedbackDecision:
+        raw_decision = self._complete(
             target=target,
             prompt=self.prompt_builder.judge_feedback(
                 target=target,
@@ -325,6 +329,11 @@ class CourtroomRunner:
             ),
             max_words=config.feedback_token_budget,
             temperature=config.inference_temperature,
+            clamp_output=False,
+        )
+        return self._parse_feedback_decision(
+            raw_decision,
+            max_words=config.feedback_token_budget,
         )
 
     def _complete(
@@ -334,6 +343,7 @@ class CourtroomRunner:
         prompt: str,
         max_words: int,
         temperature: float,
+        clamp_output: bool = True,
     ) -> str:
         result = self.model_provider.complete(
             ModelRequest(
@@ -346,7 +356,28 @@ class CourtroomRunner:
         text = result.text.strip()
         if not text:
             raise ValueError("inference provider returned an empty courtroom response")
-        return clamp_words(text, max_words)
+        return clamp_words(text, max_words) if clamp_output else text
+
+    def _parse_feedback_decision(
+        self,
+        text: str,
+        *,
+        max_words: int,
+    ) -> FinalFeedbackDecision:
+        cleaned = text.strip()
+        fenced = re.fullmatch(r"```(?:json)?\s*(.*?)\s*```", cleaned, flags=re.DOTALL)
+        if fenced:
+            cleaned = fenced.group(1)
+        try:
+            payload = json.loads(cleaned)
+            decision = FinalFeedbackDecision.model_validate(payload)
+        except (json.JSONDecodeError, ValueError) as exc:
+            raise ValueError(
+                "final feedback judge must return a valid disposition JSON object"
+            ) from exc
+        return decision.model_copy(
+            update={"feedback_text": clamp_words(decision.feedback_text, max_words)}
+        )
 
     def _parse_score(self, text: str) -> float:
         match = re.search(r"[-+]?(?:\d*\.\d+|\d+)", text)

@@ -11,7 +11,7 @@ from specter.activation.models import ActivationLocalization
 from specter.cli import build_parser, main, run_from_args
 from specter.config import CourtroomConfig
 from specter.courtroom.debate_runner import CourtroomRunner
-from specter.courtroom.models import FeedbackItem, FeedbackTargetNode
+from specter.courtroom.models import FeedbackDisposition, FeedbackItem, FeedbackTargetNode
 from specter.feedback.apply_cli import (
     build_parser as build_apply_parser,
 )
@@ -21,6 +21,7 @@ from specter.feedback.apply_cli import (
 from specter.feedback.apply_cli import (
     run_from_args as run_apply_from_args,
 )
+from specter.feedback.feedback_loader import FeedbackArtifactLoader, FeedbackLoadError
 from specter.feedback.localize_cli import (
     build_parser as build_localize_parser,
 )
@@ -69,7 +70,14 @@ class ScriptedInferenceProvider(ModelProvider):
         elif "You are the prosecutor" in request.prompt:
             text = "model prosecution rebuttal"
         elif "You are the final feedback judge" in request.prompt:
-            text = "Use the supplied evidence and state unresolved deployment risks."
+            text = json.dumps(
+                {
+                    "disposition": "apply_correction",
+                    "feedback_text": (
+                        "Use the supplied evidence and state unresolved deployment risks."
+                    ),
+                }
+            )
         elif "You are the judge" in request.prompt:
             text = "0.42 prosecution is moderately strong"
         elif "You are the court reporter" in request.prompt:
@@ -93,6 +101,7 @@ class ScriptedTransformerLensLocator:
                 query_id=item.query_id,
                 expert_id=item.expert_id,
                 contention_id=item.contention_id,
+                disposition=item.disposition,
                 prosecution_strength=item.prosecution_strength,
                 layer=3,
                 token_position=1,
@@ -183,6 +192,8 @@ def test_courtroom_cli_persists_feedback_artifacts(tmp_path: Path) -> None:
     assert manifest["source_trace_id"] == "trace:test"
     assert manifest["target_count"] == 1
     assert len(final_feedback["feedback_items"]) == 2
+    assert final_feedback["schema"] == "specter.final_feedback.v2"
+    assert final_feedback["feedback_items"][0]["disposition"] == "apply_correction"
     assert final_feedback["feedback_items"][0]["feedback_text"].startswith(
         "Use the supplied evidence"
     )
@@ -278,7 +289,12 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
             elif "You are the prosecutor" in request.prompt:
                 text = "model prosecution rebuttal"
             elif "You are the final feedback judge" in request.prompt:
-                text = "model-facing corrective feedback"
+                text = json.dumps(
+                    {
+                        "disposition": "apply_correction",
+                        "feedback_text": "model-facing corrective feedback",
+                    }
+                )
             elif "You are the judge" in request.prompt:
                 text = "0.42 prosecution is moderately strong"
             elif "You are the court reporter" in request.prompt:
@@ -322,9 +338,143 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
     assert provider.requests[-1].max_tokens == 55
     assert "Expert model: expert-model-1" in provider.prompts[1]
     assert result.feedback_items[0].running_debate_summary == "compressed model summary"
+    assert result.feedback_items[0].disposition == FeedbackDisposition.APPLY_CORRECTION
     assert result.feedback_items[0].feedback_text == "model-facing corrective feedback"
     assert "Final courtroom summary:\ncompressed model summary" in provider.prompts[-1]
     assert "score=0.42" in provider.prompts[-1]
+    assert "exactly apply_correction or no_correction" in provider.prompts[-1]
+
+
+def test_final_judge_no_correction_is_not_localized_or_applied(tmp_path: Path) -> None:
+    # Tests the fail-closed path from an explicit final disposition through hook materialization.
+    class NoCorrectionProvider(ScriptedInferenceProvider):
+        def complete(self, request: ModelRequest) -> ModelResult:
+            if "You are the final feedback judge" in request.prompt:
+                self.prompts.append(request.prompt)
+                text = json.dumps(
+                    {
+                        "disposition": "no_correction",
+                        "feedback_text": "The response is adequately supported by the evidence.",
+                    }
+                )
+                return ModelResult(text=text, provider="scripted", token_count=len(text.split()))
+            if "You are the judge" in request.prompt:
+                self.prompts.append(request.prompt)
+                text = "-0.8 defense is strongly supported"
+                return ModelResult(text=text, provider="scripted", token_count=len(text.split()))
+            return super().complete(request)
+
+    graph_path = _write_action_graph(tmp_path)
+    repo_root = tmp_path / "repo"
+    repo_root.mkdir()
+    courtroom_result = run_from_args(
+        build_parser().parse_args(
+            [
+                str(graph_path),
+                "--repo-root",
+                str(repo_root),
+                "--rounds",
+                "1",
+                "--contentions",
+                "1",
+                "--persist",
+            ]
+        ),
+        model_provider=NoCorrectionProvider(),
+    )
+
+    feedback_item = courtroom_result.targets[0].feedback_items[0]
+    assert feedback_item.disposition == FeedbackDisposition.NO_CORRECTION
+    assert feedback_item.prosecution_strength == -0.8
+
+    feedback_dir = Path(courtroom_result.artifact_dir)
+    plan = run_localize_from_args(
+        build_localize_parser().parse_args([str(feedback_dir)])
+    )
+    localization_payload = yaml.safe_load(
+        (feedback_dir / "activation_localizations.yaml").read_text(encoding="utf-8")
+    )
+
+    assert plan.items == []
+    assert localization_payload["localizations"] == []
+    assert localization_payload["skipped_feedback_items"] == [
+        {
+            "contention_id": feedback_item.contention_id,
+            "disposition": "no_correction",
+            "prosecution_strength": -0.8,
+            "reason": "final_judge_declined_correction",
+        }
+    ]
+
+    bundle, _ = run_apply_from_args(
+        build_apply_parser().parse_args([str(feedback_dir / "feedback_plan.json")])
+    )
+    assert bundle.hook_specs == []
+
+
+def test_positive_disposition_with_negative_score_cannot_reverse_feedback(tmp_path: Path) -> None:
+    # Tests defense in depth when the final disposition conflicts with the signed round score.
+    feedback_dir = _build_courtroom_feedback(tmp_path, contentions=1)
+    feedback_path = feedback_dir / "final_feedback.yaml"
+    payload = yaml.safe_load(feedback_path.read_text(encoding="utf-8"))
+    payload["feedback_items"][0]["prosecution_strength"] = -0.8
+    feedback_path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
+
+    plan = run_localize_from_args(
+        build_localize_parser().parse_args([str(feedback_dir)])
+    )
+    localization_payload = yaml.safe_load(
+        (feedback_dir / "activation_localizations.yaml").read_text(encoding="utf-8")
+    )
+
+    assert plan.items == []
+    assert localization_payload["skipped_feedback_items"][0]["disposition"] == (
+        "apply_correction"
+    )
+    assert localization_payload["skipped_feedback_items"][0]["reason"] == (
+        "non_positive_prosecution_strength"
+    )
+
+
+def test_final_judge_rejects_feedback_without_explicit_disposition() -> None:
+    # Tests that unstructured judge output cannot silently become applicable feedback.
+    class UnstructuredFeedbackProvider(ScriptedInferenceProvider):
+        def complete(self, request: ModelRequest) -> ModelResult:
+            if "You are the final feedback judge" in request.prompt:
+                text = "Apply this correction without a disposition."
+                return ModelResult(text=text, provider="scripted", token_count=len(text.split()))
+            return super().complete(request)
+
+    target = FeedbackTargetNode(
+        query_id="query:child",
+        expert_id="expert:cluster-1",
+        query={"query": "Assess deployment risk"},
+        context={"documents": [{"text": "GPU nodes are provisioned dynamically."}]},
+        response={"response": "Risk is moderate."},
+        sender_id="query:root",
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="final feedback judge must return a valid disposition JSON object",
+    ):
+        CourtroomRunner(model_provider=UnstructuredFeedbackProvider()).run_target(
+            feedback_id="feedback:test",
+            target=target,
+            config=CourtroomConfig(rounds=1, max_contentions=1),
+        )
+
+
+def test_legacy_feedback_artifact_without_disposition_fails_closed(tmp_path: Path) -> None:
+    # Tests the intentional migration boundary for persisted feedback artifacts.
+    (tmp_path / "manifest.yaml").write_text("feedback_id: feedback:legacy\n", encoding="utf-8")
+    (tmp_path / "final_feedback.yaml").write_text(
+        "feedback_items: []\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(FeedbackLoadError, match="regenerate"):
+        FeedbackArtifactLoader().load(tmp_path)
 
 
 def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
@@ -377,7 +527,12 @@ def test_courtroom_model_provider_can_revise_contentions() -> None:
             elif "You are the prosecutor" in request.prompt:
                 text = "model prosecution rebuttal"
             elif "You are the final feedback judge" in request.prompt:
-                text = "model-facing corrective feedback"
+                text = json.dumps(
+                    {
+                        "disposition": "apply_correction",
+                        "feedback_text": "model-facing corrective feedback",
+                    }
+                )
             elif "You are the judge" in request.prompt:
                 text = "0.25 prosecution is somewhat strong"
             elif "You are the court reporter" in request.prompt:
@@ -450,12 +605,12 @@ def test_localize_feedback_cli_writes_feedback_plan(tmp_path: Path) -> None:
     vector_files = list((feedback_dir / "steering_vectors").glob("*.json"))
     heatmap_files = list((feedback_dir / "activation_heatmaps").glob("*.json"))
 
-    assert plan.schema_ == "specter.feedback_plan.v1"
+    assert plan.schema_ == "specter.feedback_plan.v2"
     assert plan.feedback_id == courtroom_result.feedback_id
     assert plan.source_trace_id == "trace:test"
     assert plan.backend == "transformerlens"
     assert len(plan.items) == 2
-    assert feedback_plan["schema"] == "specter.feedback_plan.v1"
+    assert feedback_plan["schema"] == "specter.feedback_plan.v2"
     assert len(localizations["localizations"]) == 2
     assert len(localizations["localizations"][0]["contrast_pairs"]) == 2
     assert localizations["localizations"][0]["heatmap_ref"].startswith("activation_heatmaps/")
@@ -512,6 +667,7 @@ def test_contrast_builder_removes_feedback_concept_from_negative() -> None:
             "Prosecution argues the response is unsupported and the judge finds "
             "the prosecution signal strong."
         ),
+        disposition=FeedbackDisposition.APPLY_CORRECTION,
         feedback_text=(
             "Ground the deployment risk in the missing rollback automation and regional "
             "control-plane dependency."
@@ -562,6 +718,7 @@ def test_localize_feedback_transformerlens_backend_writes_heatmaps(
                     query_id=item.query_id,
                     expert_id=item.expert_id,
                     contention_id=item.contention_id,
+                    disposition=item.disposition,
                     prosecution_strength=item.prosecution_strength,
                     layer=3,
                     token_position=5,
@@ -639,10 +796,10 @@ def test_apply_feedback_cli_writes_activation_hooks(tmp_path: Path) -> None:
         8,
     )
 
-    assert bundle.schema_ == "specter.applied_feedback.v1"
+    assert bundle.schema_ == "specter.applied_feedback.v2"
     assert bundle.feedback_id == plan["feedback_id"]
     assert len(bundle.hook_specs) == 2
-    assert hooks["schema"] == "specter.applied_feedback.v1"
+    assert hooks["schema"] == "specter.applied_feedback.v2"
     assert hooks["hook_specs"][0]["hook_point"].startswith("blocks.")
     assert hooks["hook_specs"][0]["scaled_vector"][0] == expected_first_value
     assert manifest["hook_count"] == 2

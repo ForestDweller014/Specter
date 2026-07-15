@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pydantic import BaseModel, Field
 
+from specter.courtroom.models import FeedbackDisposition
+
 
 class ContrastPair(BaseModel):
     pair_id: str
@@ -15,7 +17,8 @@ class ActivationLocalization(BaseModel):
     query_id: str
     expert_id: str
     contention_id: str
-    prosecution_strength: float = Field(ge=-1.0, le=1.0)
+    disposition: FeedbackDisposition
+    prosecution_strength: float = Field(gt=0.0, le=1.0)
     layer: int = Field(ge=0)
     token_position: int | None = Field(default=None, ge=0)
     token_position_policy: str = Field(min_length=1)

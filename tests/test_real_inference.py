@@ -10,7 +10,7 @@ from specter.activation.transformerlens_adapter import TransformerLensAdapter
 from specter.activation.transformerlens_locator import TransformerLensActivationLocator
 from specter.config import CourtroomConfig
 from specter.courtroom.debate_runner import CourtroomRunner
-from specter.courtroom.models import FeedbackItem, FeedbackTargetNode
+from specter.courtroom.models import FeedbackDisposition, FeedbackItem, FeedbackTargetNode
 from specter.dullahan_inference import DullahanInferenceServer
 from specter.model_provider import OpenAICompatibleHttpProvider
 
@@ -78,6 +78,7 @@ def test_dullahan_inference_executes_every_courtroom_role() -> None:
     assert -1.0 <= item.judge_score.prosecution_strength <= 1.0
     assert item.running_summary_after
     assert result.rounds[1].items[0].contention_text
+    assert isinstance(result.feedback_items[0].disposition, FeedbackDisposition)
     assert result.feedback_items[0].feedback_text
 
 
@@ -98,6 +99,7 @@ def test_real_transformerlens_localizes_feedback_activations() -> None:
         running_debate_summary=(
             "The prosecution established that the response ignored rollback and regional risk."
         ),
+        disposition=FeedbackDisposition.APPLY_CORRECTION,
         feedback_text=(
             "Account for missing rollback automation and the single regional control plane."
         ),
