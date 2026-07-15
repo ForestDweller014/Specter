@@ -6,8 +6,8 @@ Dullahan currently turns source context into graph memory, routes subqueries to
 cluster-owned experts, and persists each run as an action graph. The feedback
 runtime is a proposed post-run system that consumes that immutable
 `action_graph.json`, subjects each expert response to bounded adversarial review,
-and converts the resulting debate summaries into auditable activation-level
-feedback for the expert SLM.
+and asks a final judge to convert each completed debate record into auditable,
+model-facing feedback for the expert SLM.
 
 This document defines the architecture only. It does not introduce implementation
 code.
@@ -48,6 +48,7 @@ specter-courtroom memory/executions/<trace_id>/action_graph.json \
   --contentions 8 \
   --summary-token-budget 256 \
   --response-token-budget 384 \
+  --feedback-token-budget 192 \
   --persist
 ```
 
@@ -147,13 +148,14 @@ beside it under `memory/feedback/`.
 ## Courtroom Runtime
 
 For each `FeedbackTargetNode`, the expert that handled the node is reused as the
-identity for four role-conditioned model instances:
+identity for five role-conditioned model calls:
 
 ```text
 Defender: defend the original response.
 Prosecutor: criticize the original response.
 Judge: score the strength of the prosecution.
 Court Reporter: compress and maintain the running debate summary.
+Final Feedback Judge: turn the completed summary and evaluations into feedback.
 ```
 
 The prosecutor first produces an exhaustive criticism draft:
@@ -187,6 +189,22 @@ Court Reporter:
 The prosecutor may revise contentions between rounds. The defender may only
 answer the current contention and may not modify it.
 
+After all rounds finish, the runtime makes one final inference call per
+contention:
+
+```text
+Final Feedback Judge:
+  final_running_debate_summary_i,
+  all_round_scores_and_rationales_i,
+  final_contention_i
+    -> feedback_text_i
+```
+
+The reporter's summary remains debate memory and audit evidence. It is not the
+feedback itself. The final feedback judge must emit one concise, actionable
+instruction for the expert without courtroom roles, procedural language, or
+numeric scores.
+
 ## Debate Bounds
 
 The runtime should enforce fixed token budgets for:
@@ -197,6 +215,7 @@ running_debate_summary
 defense
 prosecution_rebuttal
 judge_rationale
+feedback
 ```
 
 The judge emits:
@@ -238,6 +257,7 @@ FeedbackItem
   expert_id
   contention_id
   running_debate_summary
+  feedback_text
   prosecution_strength
   target_query
   target_context
@@ -246,11 +266,13 @@ FeedbackItem
 
 ## Activation Localization
 
-The activation stage uses TransformerLens to identify where each
-`running_debate_summary` activates in the corresponding expert SLM.
+The activation stage uses TransformerLens to identify where each judge-generated
+`feedback_text` activates in the corresponding expert SLM. The
+`running_debate_summary` remains available as provenance but is never used as a
+silent fallback for activation discovery.
 
 The localizer should build sentence-level contrast sets rather than token-level
-word swaps. For each debate summary:
+word swaps. For each feedback instruction:
 
 1. Construct minimal positive/negative sentence pairs.
 2. Preserve topic, syntax, length, and vocabulary overlap where possible.

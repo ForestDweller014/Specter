@@ -153,10 +153,10 @@ specter-localize-feedback "$FEEDBACK_DIR" \
   --n-layers 12
 ```
 
-Specter compares each final courtroom summary with a topic-matched neutral text,
-runs both through the model, and records the layer and token position where the
-activation difference is strongest. It writes the heatmap, steering vector, and
-`feedback_plan.json` into the same feedback directory.
+Specter compares each judge-generated feedback instruction with a topic-matched
+neutral text, runs both through the model, and records the layer and token
+position where the activation difference is strongest. It writes the heatmap,
+steering vector, and `feedback_plan.json` into the same feedback directory.
 
 ### 5. Turn The Plan Into Reversible Hooks
 
@@ -208,25 +208,30 @@ activation discovery, **orange** for feedback application, **red** for model
 inference, **gold** for persisted evidence, and **slate** for external inputs and
 outputs.
 
+Multi-line nodes also share one internal hierarchy: the **bold first line** is
+the module, service, artifact, or decision name; the *italic second line* labels
+the information below it; and bullets identify its inputs, outputs,
+capabilities, policies, interfaces, or stored data.
+
 ```mermaid
 flowchart TD
-    Trace["<b>Completed action graph</b><br/>Contents — queries • context • responses • delegations"] --> Loader["<b>Trace loader</b><br/>Purpose — creates one case per answered node"]
-    Loader --> Courtroom["<b>Courtroom validation</b><br/>Purpose — challenges and judges each case"]
-    Courtroom --> Feedback["<b>Feedback items</b><br/>Contents — final summary • prosecution strength"]
-    Feedback --> Contrast["<b>Contrast constructor</b><br/>Purpose — builds feedback and neutral examples"]
-    Contrast --> Localization["<b>TransformerLens localizer</b><br/>Output — layer • token • heatmap • direction"]
-    Localization --> Plan["<b>Feedback plan</b><br/>Purpose — records the intervention recipe"]
-    Plan --> Hooks["<b>Activation hooks</b><br/>Output — scaled steering vectors"]
-    Hooks --> Rerun["<b>Steered inference</b><br/>Operation — generates with temporary feedback"]
+    Trace["<b>Completed action graph</b><br/><i>Contents</i><br/>• Queries<br/>• Context<br/>• Responses<br/>• Delegations"] --> Loader["<b>Trace loader</b><br/><i>Purpose</i><br/>• Create one case per answered node"]
+    Loader --> Courtroom["<b>Courtroom validation</b><br/><i>Purpose</i><br/>• Challenge and judge each case"]
+    Courtroom --> Feedback["<b>Feedback items</b><br/><i>Contents</i><br/>• Judge-generated feedback<br/>• Prosecution strength"]
+    Feedback --> Contrast["<b>Contrast constructor</b><br/><i>Purpose</i><br/>• Build feedback and neutral examples"]
+    Contrast --> Localization["<b>TransformerLens localizer</b><br/><i>Outputs</i><br/>• Layer and token<br/>• Heatmap<br/>• Direction"]
+    Localization --> Plan["<b>Feedback plan</b><br/><i>Purpose</i><br/>• Record the intervention recipe"]
+    Plan --> Hooks["<b>Activation hooks</b><br/><i>Output</i><br/>• Scaled steering vectors"]
+    Hooks --> Rerun["<b>Steered inference</b><br/><i>Operation</i><br/>• Generate with temporary feedback"]
 
-    CourtroomModel["<b>Courtroom model</b><br/>Hosting — OpenAI-compatible API • self-hosted Dullahan alternative"] --> Courtroom
-    ExpertModel["<b>Expert model</b><br/>Runtime — TransformerLens-compatible model"] --> Localization
+    CourtroomModel["<b>Courtroom model</b><br/><i>Hosting</i><br/>• OpenAI-compatible API<br/>• Self-hosted Dullahan alternative"] --> Courtroom
+    ExpertModel["<b>Expert model</b><br/><i>Runtime</i><br/>• TransformerLens-compatible model"] --> Localization
     ExpertModel --> Rerun
 
-    Courtroom --> Evidence["<b>Experiment artifacts</b><br/>Contents — feedback • localization • hook evidence"]
+    Courtroom --> Evidence["<b>Experiment artifacts</b><br/><i>Contents</i><br/>• Feedback<br/>• Localization<br/>• Hook evidence"]
     Localization --> Evidence
     Hooks --> Evidence
-    Rerun --> Result["<b>Steered response</b><br/>Result — ready for baseline comparison"]
+    Rerun --> Result["<b>Steered response</b><br/><i>Result</i><br/>• Ready for baseline comparison"]
 
     class Trace,Result external
     class Loader,Courtroom,Feedback validation
@@ -250,7 +255,9 @@ change the model. A contention generator identifies concrete ways an answer or
 delegation may have failed. The defender protects valid reasoning; the
 prosecutor tests that defense; the judge records which side is stronger; and the
 reporter compresses the state so later rounds can build on it without carrying
-an ever-growing transcript.
+an ever-growing transcript. Once the rounds end, a final feedback judge reads
+that summary together with every round's score and rationale, then writes the
+model-facing correction that the rest of the pipeline uses.
 
 These roles are separate prompts sent through real inference. They are
 role-conditioned views of the case, not hard-coded verdicts. Every contention
@@ -259,26 +266,30 @@ to the exact target and argument that produced it.
 
 ```mermaid
 flowchart TB
-    Target["<b>Validation target</b><br/>Contents — query • context • response • delegation"] --> Generate["<b>Contention generator</b><br/>Purpose — identifies testable failures"]
-    Generate --> Contention["<b>Contention</b><br/>Output — one bounded validation claim"]
-    Contention --> Defender["<b>Defender</b><br/>Purpose — protects supported reasoning"]
-    Defender --> Prosecutor["<b>Prosecutor</b><br/>Purpose — challenges and sharpens the claim"]
-    Prosecutor --> Judge["<b>Judge</b><br/>Purpose — scores the prosecution's case"]
-    Judge --> Reporter["<b>Court reporter</b><br/>Purpose — preserves the surviving argument"]
-    Reporter --> More{"<b>Continue debate?</b><br/>Decision — run another round"}
-    More -->|"yes"| Revise["<b>Contention revision</b><br/>Purpose — refines the same validation claim"]
+    Target["<b>Validation target</b><br/><i>Contents</i><br/>• Query<br/>• Context<br/>• Response<br/>• Delegation"] --> Generate["<b>Contention generator</b><br/><i>Purpose</i><br/>• Identify testable failures"]
+    Generate --> Contention["<b>Contention</b><br/><i>Output</i><br/>• One bounded validation claim"]
+    Contention --> Defender["<b>Defender</b><br/><i>Purpose</i><br/>• Protect supported reasoning"]
+    Defender --> Prosecutor["<b>Prosecutor</b><br/><i>Purpose</i><br/>• Challenge and sharpen the claim"]
+    Prosecutor --> Judge["<b>Judge</b><br/><i>Purpose</i><br/>• Score the prosecution's case"]
+    Judge --> Reporter["<b>Court reporter</b><br/><i>Purpose</i><br/>• Preserve the surviving argument"]
+    Judge --> Evaluations["<b>Evaluation history</b><br/><i>Contents</i><br/>• Round scores<br/>• Rationales"]
+    Reporter --> More{"<b>Continue debate?</b><br/><i>Decision</i><br/>• Run another round"}
+    More -->|"yes"| Revise["<b>Contention revision</b><br/><i>Purpose</i><br/>• Refine the same validation claim"]
     Revise --> Defender
-    More -->|"no"| Item["<b>Feedback item</b><br/>Contents — final summary • judge score"]
+    More -->|"no"| FinalJudge["<b>Final feedback judge</b><br/><i>Purpose</i><br/>• Turn the record into a model-facing correction"]
+    Evaluations --> FinalJudge
+    FinalJudge --> Item["<b>Feedback item</b><br/><i>Contents</i><br/>• Generated feedback<br/>• Judge strength"]
 
-    Provider["<b>Completion provider</b><br/>Hosting — OpenAI-compatible API • self-hosted Dullahan alternative"] --> Generate
+    Provider["<b>Completion provider</b><br/><i>Hosting</i><br/>• OpenAI-compatible API<br/>• Self-hosted Dullahan alternative"] --> Generate
     Provider --> Defender
     Provider --> Prosecutor
     Provider --> Judge
     Provider --> Reporter
     Provider --> Revise
+    Provider --> FinalJudge
 
     class Target external
-    class Generate,Contention,Defender,Prosecutor,Judge,Reporter,More,Revise,Item validation
+    class Generate,Contention,Defender,Prosecutor,Judge,Reporter,Evaluations,More,Revise,FinalJudge,Item validation
     class Provider inference
 
     classDef external fill:#475569,stroke:#1E293B,color:#FFFFFF
@@ -288,12 +299,12 @@ flowchart TB
 
 ### Activation Localization And Feedback Application
 
-The second half asks a different question: if the final summary expresses the
-criticism we want the expert to account for, where does that distinction appear
-inside the expert model? Specter treats the summary as a positive example and a
-neutral description of the same query, context, and response as the negative
-example. TransformerLens measures their residual-stream difference rather than
-guessing a layer from a hash or a rule.
+The second half asks a different question: if the final judge's feedback
+expresses the correction we want the expert to follow, where does that
+distinction appear inside the expert model? Specter treats the generated
+feedback as a positive example and a neutral description of the same query,
+context, and response as the negative example. TransformerLens measures their
+residual-stream difference rather than guessing a layer from a hash or a rule.
 
 The strongest normalized direction becomes a steering vector. The feedback plan
 keeps that vector separate from the policy that applies it, so a reviewer can
@@ -302,23 +313,23 @@ the courtroom.
 
 ```mermaid
 flowchart TB
-    Summary["<b>Final courtroom summary</b><br/>Input — positive feedback text"] --> Pairs["<b>Contrast-pair builder</b><br/>Purpose — creates positive and neutral examples"]
-    Case["<b>Original case</b><br/>Contents — query • context • response"] --> Neutral["<b>Neutral example</b><br/>Method — deterministic topic matching"]
+    Feedback["<b>Judge-generated feedback</b><br/><i>Input</i><br/>• Positive correction text"] --> Pairs["<b>Contrast-pair builder</b><br/><i>Purpose</i><br/>• Create positive and neutral examples"]
+    Case["<b>Original case</b><br/><i>Contents</i><br/>• Query<br/>• Context<br/>• Response"] --> Neutral["<b>Neutral example</b><br/><i>Method</i><br/>• Deterministic topic matching"]
     Neutral --> Pairs
-    Pairs --> Cache["<b>Activation cache</b><br/>Operation — records expert residual activations"]
-    Cache --> Difference["<b>Activation comparison</b><br/>Calculation — positive minus neutral by layer and token"]
-    Difference --> Heatmap["<b>Activation heatmap</b><br/>Output — separation score by layer and token"]
-    Difference --> Direction["<b>Steering direction</b><br/>Output — normalized activation vector"]
-    Heatmap --> Select["<b>Localization selector</b><br/>Output — strongest layer and token"]
-    Direction --> Plan["<b>Feedback plan</b><br/>Purpose — records the intervention recipe"]
+    Pairs --> Cache["<b>Activation cache</b><br/><i>Operation</i><br/>• Record expert residual activations"]
+    Cache --> Difference["<b>Activation comparison</b><br/><i>Calculation</i><br/>• Positive minus neutral<br/>• Compare by layer and token"]
+    Difference --> Heatmap["<b>Activation heatmap</b><br/><i>Output</i><br/>• Separation score by layer and token"]
+    Difference --> Direction["<b>Steering direction</b><br/><i>Output</i><br/>• Normalized activation vector"]
+    Heatmap --> Select["<b>Localization selector</b><br/><i>Output</i><br/>• Strongest layer and token"]
+    Direction --> Plan["<b>Feedback plan</b><br/><i>Purpose</i><br/>• Record the intervention recipe"]
     Select --> Plan
-    Strength["<b>Judge score</b><br/>Signal — prosecution strength"] --> Plan
-    Plan --> Scale["<b>Vector scaling</b><br/>Calculation — judge strength × feedback scale"]
-    Scale --> Hook["<b>Activation hook</b><br/>Output — residual-stream intervention"]
-    Hook --> Model["<b>Expert generation</b><br/>Operation — runs with temporary hooks"]
-    Model --> Output["<b>Steered response</b><br/>Result — ready for baseline comparison"]
+    Strength["<b>Judge score</b><br/><i>Signal</i><br/>• Prosecution strength"] --> Plan
+    Plan --> Scale["<b>Vector scaling</b><br/><i>Calculation</i><br/>• Judge strength × feedback scale"]
+    Scale --> Hook["<b>Activation hook</b><br/><i>Output</i><br/>• Residual-stream intervention"]
+    Hook --> Model["<b>Expert generation</b><br/><i>Operation</i><br/>• Run with temporary hooks"]
+    Model --> Output["<b>Steered response</b><br/><i>Result</i><br/>• Ready for baseline comparison"]
 
-    class Summary,Case external
+    class Feedback,Case external
     class Pairs,Neutral,Cache,Difference,Heatmap,Direction,Select teal
     class Plan,Strength,Scale,Hook application
     class Model inference
@@ -366,32 +377,36 @@ adversarial defense before it influences the model. Second, the artifacts retain
 the reasoning trail, so a high score is never the only explanation available to
 a reviewer.
 
-### The reporter's summary becomes the candidate feedback concept
+### The final judge turns the debate record into feedback
 
 At the end of the final round, Specter stores one `FeedbackItem` per contention.
-Its two most important fields are the running courtroom summary and the latest
-prosecution-strength score. The summary supplies the meaning of the proposed
-feedback; the score supplies its eventual magnitude.
+Before creating that item, the final feedback judge reads the reporter's final
+summary and the score and rationale from every debate round. It produces one
+concise, evidence-grounded instruction describing what the expert should change.
+The item retains the summary as provenance, stores the generated instruction as
+`feedback_text`, and keeps the latest prosecution-strength score as the
+intervention's eventual magnitude.
 
-This is an important current design choice: the summary itself is the positive
-text used during activation discovery. Specter does not yet rewrite it into a
-separate, tightly controlled correction statement. A clear, focused summary can
-produce a useful direction; a summary full of courtroom rhetoric or several
-mixed concepts can produce a less precise one.
+This separation gives the reporter and judge distinct jobs. The reporter
+preserves what happened in the debate; it does not decide the correction. The
+final judge converts the whole record into focused model-facing feedback, without
+courtroom rhetoric, procedural language, or numeric scores. Only that generated
+feedback enters activation discovery.
 
 ### Contrast construction creates a measurable question
 
-`activation/contrast_set_builder` pairs that summary with a neutral description
-of the same query, the first context sentence, and the first response sentence.
-The negative text is deterministic, not LLM-generated. This makes a localization
-run cheap and reproducible, and it keeps the original topic present while
-removing the explicit prosecution signal.
+`activation/contrast_set_builder` pairs the judge-generated feedback with a
+neutral description of the same query, the first context sentence, and the first
+response sentence. The negative text is deterministic, not LLM-generated. This
+makes a localization run cheap and reproducible, and it keeps the original topic
+present while removing the explicit correction signal.
 
 It is also the most deliberately simple part of the current research pipeline.
-The positive examples repeat the same summary, and negative variants differ
-mainly by an index. The pair is topic-matched, but it is not a rigorously
-controlled linguistic minimal pair. That limitation is visible in the stored
-metadata rather than hidden behind a claim that the contrast set is learned.
+The positive examples repeat the same feedback instruction, and negative
+variants differ mainly by an index. The pair is topic-matched, but it is not a
+rigorously controlled linguistic minimal pair. That limitation is visible in
+the stored metadata rather than hidden behind a claim that the contrast set is
+learned.
 
 ### TransformerLens finds where the distinction appears
 
@@ -460,7 +475,7 @@ memory/feedback/<feedback_id>/
 
 | Artifact | Purpose |
 | --- | --- |
-| `final_feedback.yaml` | Final summary and judge strength for every validated contention |
+| `final_feedback.yaml` | Generated feedback, source summary, and judge strength for every validated contention |
 | `targets/<query_id>/` | Complete case record: target, contentions, rounds, summaries, and scores |
 | `activation_localizations.yaml` | Selected expert, layer, token, projection strength, and confidence |
 | `activation_heatmaps/` | Layer-by-token evidence used to inspect the localization |
