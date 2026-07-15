@@ -28,6 +28,14 @@ transformerlens = [
   "torch",
   "transformer-lens",
 ]
+notebook = [
+  "ipykernel>=6.29,<7",
+  "ipywidgets>=8.1,<9",
+  "jupyterlab>=4.2,<5",
+  "matplotlib>=3.9,<4",
+  "pandas>=2.2,<3",
+  "psutil>=6,<8",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

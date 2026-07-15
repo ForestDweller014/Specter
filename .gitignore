@@ -1,14 +1,17 @@
 __pycache__/
 *.py[cod]
+.DS_Store
 .pytest_cache/
 .ruff_cache/
 .venv/
+.venv-benchmark/
 dist/
 build/
 *.egg-info/
 .env
 memory/feedback/*
 !memory/feedback/.gitkeep
+notebooks/results/
 
 # Graphify machine-local and transient state
 graphify-out/.graphify_python
@@ -21,4 +24,5 @@ graphify-out/memory/
 graphify-out/reflections/
 graphify-out/backups/
 graphify-out/????-??-??/
+graphify-out/cache/ast/
 graphify-out/cache/stat-index.json
