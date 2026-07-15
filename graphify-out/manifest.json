@@ -1,7 +1,7 @@
 {
   "pyproject.toml": {
-    "mtime": 1783998698.3471122,
-    "ast_hash": "9deca01a6b903c0d8f91307971450d8e",
+    "mtime": 1784088685.722977,
+    "ast_hash": "feddc3d1636d14d6d9e3f17423076888",
     "semantic_hash": ""
   },
   "src/specter/__init__.py": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "src/specter/activation/contrast_set_builder.py": {
-    "mtime": 1783999021.6777155,
-    "ast_hash": "1f88a095e0fcb6eef075836a1b2c1b7f",
+    "mtime": 1784080153.5581229,
+    "ast_hash": "d4b17d3f3ca32a9b91f88e26dfe89620",
     "semantic_hash": ""
   },
   "src/specter/activation/hook_runner.py": {
@@ -35,8 +35,8 @@
     "semantic_hash": "2cab25431caddfc84b581ed113dbb8d2"
   },
   "src/specter/activation/transformerlens_adapter.py": {
-    "mtime": 1783998777.1027555,
-    "ast_hash": "40ce1a8c8935e34e375079c014ccfa52",
+    "mtime": 1784091039.1156182,
+    "ast_hash": "7cef73b03b1db44f7d54a4da2308a897",
     "semantic_hash": ""
   },
   "src/specter/activation/transformerlens_locator.py": {
@@ -50,13 +50,13 @@
     "semantic_hash": "b5a5c0f3a4b300303173dbe933523b46"
   },
   "src/specter/cli.py": {
-    "mtime": 1783999239.524891,
-    "ast_hash": "b26e7c21ae292c26697eedbece89d06d",
+    "mtime": 1784080153.555097,
+    "ast_hash": "631ef52183a96fb444e27094ecc71267",
     "semantic_hash": ""
   },
   "src/specter/config.py": {
-    "mtime": 1783998432.1681652,
-    "ast_hash": "5c45130d6c6a0395ff05ed647f3efc06",
+    "mtime": 1784080153.5534759,
+    "ast_hash": "a24805e9bc22e14c63a9c6f29c89c90e",
     "semantic_hash": ""
   },
   "src/specter/courtroom/__init__.py": {
@@ -70,19 +70,19 @@
     "semantic_hash": ""
   },
   "src/specter/courtroom/debate_runner.py": {
-    "mtime": 1783998979.6309426,
-    "ast_hash": "b9f52cc356825176187eba7620b5fb13",
+    "mtime": 1784080153.557179,
+    "ast_hash": "44e317f20805f4c88db14eaced0d46b5",
     "semantic_hash": ""
   },
   "src/specter/courtroom/models.py": {
-    "mtime": 1783732112.745553,
-    "ast_hash": "d469644435e43dc991891b71054d07a0",
-    "semantic_hash": "d469644435e43dc991891b71054d07a0"
+    "mtime": 1784080153.5524497,
+    "ast_hash": "05dbe8a63a5ba825b1cafdfcb517e7fc",
+    "semantic_hash": ""
   },
   "src/specter/courtroom/role_prompts.py": {
-    "mtime": 1783732112.7457614,
-    "ast_hash": "7a6d4c52af804d809ab5687750088415",
-    "semantic_hash": "7a6d4c52af804d809ab5687750088415"
+    "mtime": 1784080153.556328,
+    "ast_hash": "52a85d4620e6723abc14807e291bfcc7",
+    "semantic_hash": ""
   },
   "src/specter/feedback/__init__.py": {
     "mtime": 1783732112.7459018,
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "tests/test_specter.py": {
-    "mtime": 1783999243.7038827,
-    "ast_hash": "2d84f08c8aefc8ac5b27c5fe85b4b011",
+    "mtime": 1784080193.3579571,
+    "ast_hash": "f24687fa3e1caf6e2c165f2e3790db4f",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -250,13 +250,13 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784072852.746887,
-    "ast_hash": "cc67db9941dcfe1828b2d7a2915ff9fa",
+    "mtime": 1784140950.8997018,
+    "ast_hash": "2921f026817bb2733ef1381898225314",
     "semantic_hash": ""
   },
   "docs/validation_architecture.md": {
-    "mtime": 1783998777.1017394,
-    "ast_hash": "207aab489a86759c15ac06fbcf916e46",
+    "mtime": 1784080312.6471746,
+    "ast_hash": "8c267fa34ba2a93a0fc4d70d05dfc260",
     "semantic_hash": ""
   },
   ".agents/skills/continuous-integration/SKILL.md": {
@@ -275,8 +275,1043 @@
     "semantic_hash": ""
   },
   "tests/test_real_inference.py": {
-    "mtime": 1783999088.6193092,
-    "ast_hash": "2ef1fca3bb4370c9ba66f38031551f62",
+    "mtime": 1784080174.443245,
+    "ast_hash": "49dc86f5219ee666f62fd10499c9ff45",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T023233Z/inference.yaml": {
+    "mtime": 1784082766.4866195,
+    "ast_hash": "6983b7ca4185119ee6d5b55ebdffa499",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T030205Z/inference.yaml": {
+    "mtime": 1784084538.1309323,
+    "ast_hash": "6983b7ca4185119ee6d5b55ebdffa499",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T030258Z/inference.yaml": {
+    "mtime": 1784084596.0073183,
+    "ast_hash": "6983b7ca4185119ee6d5b55ebdffa499",
+    "semantic_hash": ""
+  },
+  "tests/test_transformerlens_adapter.py": {
+    "mtime": 1784091039.116396,
+    "ast_hash": "e3251d73c1fadea714f9272e21c89d76",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T040548Z/inference.yaml": {
+    "mtime": 1784088357.369384,
+    "ast_hash": "6983b7ca4185119ee6d5b55ebdffa499",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/benchmark-config.json": {
+    "mtime": 1784091444.573464,
+    "ast_hash": "097aba4049db95eb8341ba181b27b903",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/correction-evidence.json": {
+    "mtime": 1784091444.572969,
+    "ast_hash": "303fda3f49974dc2f3fc7dbe4aa58539",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784091245.35754,
+    "ast_hash": "1641b0f8f193e1fbaf662b3f49805ecf",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784091360.5146933,
+    "ast_hash": "2de3018b08cf3e169e4c454bf2143f7b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/applied/application_163a9f2acccb4d06a55483566090f418/activation_hooks.json": {
+    "mtime": 1784091360.6036623,
+    "ast_hash": "f7b48f290c14d03721473bf59366594f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/feedback_plan.json": {
+    "mtime": 1784091360.5680308,
+    "ast_hash": "0c88003fdc243bf95fd473e2b3c89f29",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784091360.5091982,
+    "ast_hash": "6521a8266c2e9235d3c6e31f18a009ae",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/document-manifest.json": {
+    "mtime": 1784091444.5732224,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/raw-runs.json": {
+    "mtime": 1784091444.5701637,
+    "ast_hash": "e38721b6964676cab6e91724bba0d08d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/benchmark-config.json": {
+    "mtime": 1784091975.9622774,
+    "ast_hash": "2939d15eb8b843c2978f4233d5cf4096",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/correction-evidence.json": {
+    "mtime": 1784091975.9615657,
+    "ast_hash": "9c96a1292a3749fb1f95919c6a0539e8",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784091641.4582264,
+    "ast_hash": "150acb07015811900485615d2741efee",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784091850.5662296,
+    "ast_hash": "17279d4a2d722fbca012b146c5715198",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/applied/application_ebbeb5b07e824863b3537917085b34ae/activation_hooks.json": {
+    "mtime": 1784091850.644753,
+    "ast_hash": "5d8c53c3e6fcb68a1e42a5a6efa2c80d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/feedback_plan.json": {
+    "mtime": 1784091850.6075828,
+    "ast_hash": "9ced6580ea26f46cb7c59ad4d44914a9",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784091850.5649598,
+    "ast_hash": "3f0b7500ed3826871eac2a9b13320d72",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/document-manifest.json": {
+    "mtime": 1784091975.9618578,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/raw-runs.json": {
+    "mtime": 1784091975.958745,
+    "ast_hash": "77954f12ba5dfe508f3836036a22ddd3",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/benchmark-config.json": {
+    "mtime": 1784092422.0424712,
+    "ast_hash": "424b83f18c246f117a415bd577ea5edf",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/correction-evidence.json": {
+    "mtime": 1784092422.040408,
+    "ast_hash": "3574c8d77d56eeb0e337d94c1ece33b3",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784092175.747185,
+    "ast_hash": "e46917edd4c68ddbd31dcef9636297b7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784092295.1524527,
+    "ast_hash": "1fd3fc250907100ec4d3e172785720fe",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/applied/application_757ddf732cbf4ec2b191caa0c23a78ea/activation_hooks.json": {
+    "mtime": 1784092295.2583203,
+    "ast_hash": "f935d7cbb9b8567c139cb5e836d663ee",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/feedback_plan.json": {
+    "mtime": 1784092295.2143898,
+    "ast_hash": "8322c8880f8b5e76e1e9ff7a37c1f356",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784092295.1510055,
+    "ast_hash": "c83ccb58f0d76f10b567acbf943441f8",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/document-manifest.json": {
+    "mtime": 1784092422.0413525,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/raw-runs.json": {
+    "mtime": 1784092421.9228432,
+    "ast_hash": "eed06ecb051c164c0560c6f517e09bcd",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/benchmark-config.json": {
+    "mtime": 1784092972.5228662,
+    "ast_hash": "f33895ddb93aec804c9e99cca8ab9fb0",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/correction-evidence.json": {
+    "mtime": 1784092972.5215611,
+    "ast_hash": "fe849939bbe7bb45f426ae11d98d81b2",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784092744.0112848,
+    "ast_hash": "732dcfd28b7c022e5a52391d06bc47e8",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784092839.2251532,
+    "ast_hash": "515617a70f25626bd2356538cbcf82c3",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/applied/application_1b78c452d9c24b319c31be6e4907d119/activation_hooks.json": {
+    "mtime": 1784092839.3229976,
+    "ast_hash": "f50377de173edc6d097263e87b97174f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/feedback_plan.json": {
+    "mtime": 1784092839.2788527,
+    "ast_hash": "262095cc3ddda2c1e864c4fd9e2cd299",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784092839.2190144,
+    "ast_hash": "1cd0043886574925269ad8ff83dcd789",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/document-manifest.json": {
+    "mtime": 1784092972.522568,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/raw-runs.json": {
+    "mtime": 1784092972.5182364,
+    "ast_hash": "4cd9c5c16124856f23d857722d299c38",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/benchmark-config.json": {
+    "mtime": 1784097275.6161563,
+    "ast_hash": "680813880837640cfe0dd6b1950c6af6",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/correction-evidence.json": {
+    "mtime": 1784097275.615414,
+    "ast_hash": "1d0ffc328bef1ba428b90ff48b2dc004",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/action_graph.json": {
+    "mtime": 1784093793.6664312,
+    "ast_hash": "e3c779f0e1cca1cbec6d6a0cf9f11242",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/activation_heatmaps/query_currency-overlay_contention_1.json": {
+    "mtime": 1784093976.2150388,
+    "ast_hash": "07f749122515264c6ac887aac0c6edd2",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/applied/application_5b8c38130b8b4558821fb190a2716fa2/activation_hooks.json": {
+    "mtime": 1784093976.2360477,
+    "ast_hash": "270a150f028aff8cc4ad41810dd4a4ee",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/feedback_plan.json": {
+    "mtime": 1784093976.2265162,
+    "ast_hash": "0e0562d5f227916eaaa551fddb76154c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/steering_vectors/query_currency-overlay_contention_1.json": {
+    "mtime": 1784093976.2135904,
+    "ast_hash": "b7d29bf827b169a591a941afeac9031b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/action_graph.json": {
+    "mtime": 1784093377.1079555,
+    "ast_hash": "3b4068760f4aa34de8be3926fbb8059c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/activation_heatmaps/query_pension-duration-hedge_contention_1.json": {
+    "mtime": 1784093561.1484892,
+    "ast_hash": "68f3acbde1516faa732686ef381c2070",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/applied/application_a9f2cdb222144b75a33f06e84a58b505/activation_hooks.json": {
+    "mtime": 1784093561.1714745,
+    "ast_hash": "337037bbf7927e5c75a4962c31dcc4a7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/feedback_plan.json": {
+    "mtime": 1784093561.1628656,
+    "ast_hash": "3e4fd3271c73de33458b2a86f2c7c0d4",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/steering_vectors/query_pension-duration-hedge_contention_1.json": {
+    "mtime": 1784093561.1458843,
+    "ast_hash": "963c0480927d1dd8b48a5913559de792",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784093163.4435558,
+    "ast_hash": "9ca7877d06e1689c591fd2e77ca78fe9",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784093264.86798,
+    "ast_hash": "b73a4e127e481a4e8016b8ff0757d44e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/applied/application_173d02eea9a04c0ca976494e1201a856/activation_hooks.json": {
+    "mtime": 1784093264.8923407,
+    "ast_hash": "f40659754037cd3a13a0ed006c026c71",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/feedback_plan.json": {
+    "mtime": 1784093264.8838973,
+    "ast_hash": "26b63f0e158bca5cd158a4dc12525e37",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784093264.8666077,
+    "ast_hash": "52870b27b6d9a860aab95576ae4d5320",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/document-manifest.json": {
+    "mtime": 1784097275.6158533,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/raw-runs.json": {
+    "mtime": 1784097275.606538,
+    "ast_hash": "5f7b1dffaa8095b243a3844cc1ab3a5f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T043903Z/inference.yaml": {
+    "mtime": 1784090343.9984815,
+    "ast_hash": "6983b7ca4185119ee6d5b55ebdffa499",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T044215Z/inference.yaml": {
+    "mtime": 1784090535.9317136,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T044725Z/inference.yaml": {
+    "mtime": 1784090845.766797,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/answers.md": {
+    "mtime": 1784091444.575563,
+    "ast_hash": "9fffe6e85c338fc06289e8f8239fa2b3",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/final_feedback.yaml": {
+    "mtime": 1784091338.9365733,
+    "ast_hash": "f3ae7ce27624d5b948606e684ef29480",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/manifest.yaml": {
+    "mtime": 1784091338.9090245,
+    "ast_hash": "bf9cebd2bc5871d5dad944220c280b92",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784091338.9225373,
+    "ast_hash": "68b19d495b791b228e203231f1c76f34",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784091338.9262302,
+    "ast_hash": "0dcfdc9c381a7345950debec7955098d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784091338.9316127,
+    "ast_hash": "f3ae7ce27624d5b948606e684ef29480",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784091338.9268646,
+    "ast_hash": "9e9f807c3115b98ad10c1f5e32e28def",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784091338.925657,
+    "ast_hash": "7e994749fd00b68b57ccdd7cea6a7410",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/corrections/private-wealth-ips/feedback/feedback_ce2ec111f2b041f0be23a78085b0e537/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784091338.9220462,
+    "ast_hash": "88471ec76cc828ac01371ef58a825a99",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/inference.yaml": {
+    "mtime": 1784091177.4957654,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/answers.md": {
+    "mtime": 1784091975.9629242,
+    "ast_hash": "f102aadec1ac63239b649ef7178c017f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/final_feedback.yaml": {
+    "mtime": 1784091826.147511,
+    "ast_hash": "eee0184c6e37544a876a1d5c74ee3d58",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/manifest.yaml": {
+    "mtime": 1784091826.1040924,
+    "ast_hash": "088a9ce76f53ffa278b4849a5fb61dbc",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784091826.1252484,
+    "ast_hash": "21342dae979d491a1b8025aea3abc658",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784091826.1322634,
+    "ast_hash": "7a1b198ee03f176a4bf8b90b1fc61c0f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784091826.1408234,
+    "ast_hash": "eee0184c6e37544a876a1d5c74ee3d58",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784091826.1330612,
+    "ast_hash": "7855764fb9d701b774dd51937bba0d72",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784091826.131049,
+    "ast_hash": "4ce27870388b70f2c4372b1ef152cb05",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/corrections/private-wealth-ips/feedback/feedback_bb2c73d733cd4defb18267bca1c51bf6/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784091826.1227336,
+    "ast_hash": "1fc886e035b3984f7fd9d9dcbc237dd5",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/inference.yaml": {
+    "mtime": 1784091560.0955565,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/answers.md": {
+    "mtime": 1784092422.0432432,
+    "ast_hash": "4970390c15f7a80db9bdcc820efb81a4",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/final_feedback.yaml": {
+    "mtime": 1784092272.3370628,
+    "ast_hash": "f4896a267e1b706dd694d071a9040730",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/manifest.yaml": {
+    "mtime": 1784092272.303124,
+    "ast_hash": "88a9434207573cb0ce4381b51573b74f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784092272.3179114,
+    "ast_hash": "3ab9f11307e0fd11b6a949bbb88bc231",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784092272.3236578,
+    "ast_hash": "e365122e3c1863b43b71b3edf603ff57",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784092272.3308053,
+    "ast_hash": "f4896a267e1b706dd694d071a9040730",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784092272.324482,
+    "ast_hash": "82d784f4a1923ebc49338b4b81b3a4c6",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784092272.3213851,
+    "ast_hash": "fdb156da62e81def22f95a831f5a49c9",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/corrections/private-wealth-ips/feedback/feedback_9d18ce87254d4942ab7205c91666d0e8/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784092272.3155746,
+    "ast_hash": "aabc45e9704c5cc8b81ead356f0d2f45",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/inference.yaml": {
+    "mtime": 1784092090.4344964,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/answers.md": {
+    "mtime": 1784092972.5233862,
+    "ast_hash": "25bffe6f0837c6c97a3b28ec28667dee",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/final_feedback.yaml": {
+    "mtime": 1784092815.279688,
+    "ast_hash": "eccdb093f89fa70314b9517ed09b5e95",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/manifest.yaml": {
+    "mtime": 1784092815.253672,
+    "ast_hash": "6a998b6a9ed553b8fbace0b8b1fd57a8",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784092815.2659109,
+    "ast_hash": "4ae680d8a7d113ddb0cd0feafc18b431",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784092815.270105,
+    "ast_hash": "69f710a24560bd4eb001cc581c7b468f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784092815.2757416,
+    "ast_hash": "eccdb093f89fa70314b9517ed09b5e95",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784092815.2710917,
+    "ast_hash": "cfb72ab2fb545fe60c2cc9f533a868c7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784092815.2687902,
+    "ast_hash": "d183e6880bb094f2449f7687eada3e4d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/corrections/private-wealth-ips/feedback/feedback_75ead302f2024cdab774a55d05d21623/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784092815.2646298,
+    "ast_hash": "b20ea450fd5dcf58e88f1e6bb6cb657b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/inference.yaml": {
+    "mtime": 1784092649.1421747,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/answers.md": {
+    "mtime": 1784097275.6166072,
+    "ast_hash": "8eb43325d400181a3bcf599f3bba3875",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/final_feedback.yaml": {
+    "mtime": 1784093918.4334748,
+    "ast_hash": "31e0bfb7f297c99deaeaa9c753664cd7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/manifest.yaml": {
+    "mtime": 1784093918.395466,
+    "ast_hash": "da11d1c9c1eb1025a1b3617124925641",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/targets/query_currency-overlay/contentions.yaml": {
+    "mtime": 1784093918.414711,
+    "ast_hash": "9b6f1a770b9e6561bcdddce48a635462",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/targets/query_currency-overlay/debate_summaries.yaml": {
+    "mtime": 1784093918.419607,
+    "ast_hash": "26aff36d000880c4e0758ee66b389562",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/targets/query_currency-overlay/final_feedback.yaml": {
+    "mtime": 1784093918.4281523,
+    "ast_hash": "31e0bfb7f297c99deaeaa9c753664cd7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/targets/query_currency-overlay/judge_scores.yaml": {
+    "mtime": 1784093918.4206805,
+    "ast_hash": "db9d2cb7015304036d780e1ab13c1476",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/targets/query_currency-overlay/rounds.yaml": {
+    "mtime": 1784093918.4183786,
+    "ast_hash": "a5af1727b72b6b73f6f1be66ae49c4e0",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/currency-overlay/feedback/feedback_611f39d53e2f4013a0271e3b8bf0c0f1/targets/query_currency-overlay/target.yaml": {
+    "mtime": 1784093918.4130006,
+    "ast_hash": "2ba43e27ca82f8132b6dc476c32975e9",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/final_feedback.yaml": {
+    "mtime": 1784093485.7871435,
+    "ast_hash": "2738f005788bdb004497f8a0923ef981",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/manifest.yaml": {
+    "mtime": 1784093485.7590575,
+    "ast_hash": "420080707ca06dc0ea88e4a009dbc4e4",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/targets/query_pension-duration-hedge/contentions.yaml": {
+    "mtime": 1784093485.7738066,
+    "ast_hash": "58c67a26a6aebd9029e3507ffde56dc5",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/targets/query_pension-duration-hedge/debate_summaries.yaml": {
+    "mtime": 1784093485.7773838,
+    "ast_hash": "97f7503a46a56ff0cf82116fab6da032",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/targets/query_pension-duration-hedge/final_feedback.yaml": {
+    "mtime": 1784093485.7834194,
+    "ast_hash": "2738f005788bdb004497f8a0923ef981",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/targets/query_pension-duration-hedge/judge_scores.yaml": {
+    "mtime": 1784093485.7784307,
+    "ast_hash": "5dc462a05e49be5ecdd7f006263ebe10",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/targets/query_pension-duration-hedge/rounds.yaml": {
+    "mtime": 1784093485.7763877,
+    "ast_hash": "057c49b0ffb7e640a41aca317078ac60",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/pension-duration-hedge/feedback/feedback_1d68f959d2f54610b4608cb1aecc120d/targets/query_pension-duration-hedge/target.yaml": {
+    "mtime": 1784093485.7722886,
+    "ast_hash": "f337a8054064d6f0eb77ac5b81b3dbaf",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/final_feedback.yaml": {
+    "mtime": 1784093235.42553,
+    "ast_hash": "39a5b1d1b5702c4ae577c83f2a881d5f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/manifest.yaml": {
+    "mtime": 1784093235.3662453,
+    "ast_hash": "0184813f52bd1bec44f9de995e9ea0ef",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784093235.396516,
+    "ast_hash": "b830c2bf9ee823fe52f0309dcdad620d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784093235.4039984,
+    "ast_hash": "4388fb259577b48f695a0009eee11c6e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784093235.4149947,
+    "ast_hash": "39a5b1d1b5702c4ae577c83f2a881d5f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784093235.404575,
+    "ast_hash": "6233e0c1ddf70877b235e5df189cc996",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784093235.4032607,
+    "ast_hash": "fc891f7525f7af0a913fabb81efb0154",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/corrections/private-wealth-ips/feedback/feedback_f7163862c16940be9815fa1d549b2180/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784093235.3913202,
+    "ast_hash": "50f171dcb0645af305f3b28e41590330",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/inference.yaml": {
+    "mtime": 1784093025.4152582,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/specter_inference_correction_benchmark_bug_log.md": {
+    "mtime": 1784139756.2903943,
+    "ast_hash": "1c1e7228c63a836ce59c199c52e153f1",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/action-trees.png": {
+    "mtime": 1784091444.408255,
+    "ast_hash": "3db8b0a2fcbdc84b44de9622af8b0111",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/headline-comparison.png": {
+    "mtime": 1784091443.1711502,
+    "ast_hash": "7843616c08dc5b6de5bc1c03f00173c4",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045257Z/throughput.png": {
+    "mtime": 1784091443.6734173,
+    "ast_hash": "6e1d95dc340650ff32362fbea06cdd14",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/action-trees.png": {
+    "mtime": 1784091975.8483255,
+    "ast_hash": "b54cf9a5288dc7fc7e528de17e6c5270",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/headline-comparison.png": {
+    "mtime": 1784091975.1665633,
+    "ast_hash": "221fc9017267f27412c8a5d76dbc3915",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T045920Z/throughput.png": {
+    "mtime": 1784091975.5649736,
+    "ast_hash": "93ff054f332c4d5dbc9f05e08926d739",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/action-trees.png": {
+    "mtime": 1784092421.347212,
+    "ast_hash": "09d867cf4037418a621ae35489d0786f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/headline-comparison.png": {
+    "mtime": 1784092420.7052727,
+    "ast_hash": "617a57bdccc0ad8b185141be0f85c12c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T050810Z/throughput.png": {
+    "mtime": 1784092421.1256888,
+    "ast_hash": "f101b4a9a0f3edab5b33057d8aa8770d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/action-trees.png": {
+    "mtime": 1784092972.404828,
+    "ast_hash": "2ca8a2bd74f5fb91a468e2189c7cdde7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/headline-comparison.png": {
+    "mtime": 1784092971.6782384,
+    "ast_hash": "8b68d39406782390c68bf0a76c78737d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T051729Z/throughput.png": {
+    "mtime": 1784092972.1771598,
+    "ast_hash": "635bf3cde21efe047da40e6a760c9f7e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/action-trees.png": {
+    "mtime": 1784097275.4416974,
+    "ast_hash": "bae7c7d3f8d58e4039627089470d7b57",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/headline-comparison.png": {
+    "mtime": 1784097274.884468,
+    "ast_hash": "de8427a6347c2f7c8aa68c4519b8d678",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T052345Z/throughput.png": {
+    "mtime": 1784097275.1664157,
+    "ast_hash": "ec4c596ccb5e9a2f0b08d61a6dd37d27",
+    "semantic_hash": ""
+  },
+  ".vscode/settings.json": {
+    "mtime": 1784098359.9051635,
+    "ast_hash": "8a6928525b2f9d4eaa9f63caece94c3e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/benchmark-config.json": {
+    "mtime": 1784139356.9978971,
+    "ast_hash": "5fcc7a84948f71256ddad7c3757d1801",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/correction-evidence.json": {
+    "mtime": 1784139356.997524,
+    "ast_hash": "53971ad1fafeb50e5ccdc04a7b3d95bd",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784139098.6102028,
+    "ast_hash": "d2f62bd745c11f8dad8b8f869a7d9e3a",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784139343.9275734,
+    "ast_hash": "87ecc4aa0c0063d0eb8e0dd0bf5cd3ed",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/applied/application_cfe48578766d44a58145ed4e92dc93ea/activation_hooks.json": {
+    "mtime": 1784139343.9557562,
+    "ast_hash": "a674eb2b2bba48ac04764b83ddd2aa10",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/feedback_plan.json": {
+    "mtime": 1784139343.9460304,
+    "ast_hash": "227bb7b84c4d2226266b791dbe8fbe7f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784139343.9251776,
+    "ast_hash": "39edeb67430a01aafd1fa6e2bc227622",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/document-manifest.json": {
+    "mtime": 1784139356.9977102,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/raw-runs.json": {
+    "mtime": 1784139356.9963055,
+    "ast_hash": "5e2a68504bef54b324d335786d0731bd",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/benchmark-config.json": {
+    "mtime": 1784139610.169732,
+    "ast_hash": "2ad305728d92870d7aa29c0b295dbe15",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/correction-evidence.json": {
+    "mtime": 1784139610.168605,
+    "ast_hash": "2fefa9f1f6ff4c8ed61f05374b4c11ac",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784139496.8713453,
+    "ast_hash": "031fdf57abbed8581a39c43420a159b7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784139599.9668787,
+    "ast_hash": "b44a420f9de566e4db9f1ae19ab563fd",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/applied/application_56143191a8f44ab3ae1e5665f77d9c7a/activation_hooks.json": {
+    "mtime": 1784139599.9926958,
+    "ast_hash": "6e13075ae06f6eebce0568540237808e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/feedback_plan.json": {
+    "mtime": 1784139599.9836988,
+    "ast_hash": "f26043cc85468888a3062c478b334f7d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784139599.9653997,
+    "ast_hash": "c6c506d0d746e0b7fefa704b01e4afe2",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/document-manifest.json": {
+    "mtime": 1784139610.169541,
+    "ast_hash": "fc3aab32f30e8a5ac93beb81a1e6752c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/raw-runs.json": {
+    "mtime": 1784139610.166955,
+    "ast_hash": "ad3385d87d15cb6b9e9b76b4b4188df9",
+    "semantic_hash": ""
+  },
+  "tests/test_benchmark_notebook.py": {
+    "mtime": 1784139756.2894554,
+    "ast_hash": "0a93961983e8fde6e65be4a561eeb412",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T070331Z/inference.yaml": {
+    "mtime": 1784099011.5293078,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/answers.md": {
+    "mtime": 1784139356.9982176,
+    "ast_hash": "824f413abd0aeac2b5992e157e8781dc",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/final_feedback.yaml": {
+    "mtime": 1784139321.8830092,
+    "ast_hash": "7b28982f95d055dce8af059be3eaf8af",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/manifest.yaml": {
+    "mtime": 1784139321.8607905,
+    "ast_hash": "cc0e6c47fdf3975fc2eeb3348d7d5666",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784139321.8699932,
+    "ast_hash": "ce02aa6bf96bdd14cc8666a3013d1ffd",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784139321.8739939,
+    "ast_hash": "1b79478eb26ff83acfc14cef9fc211f8",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784139321.8788006,
+    "ast_hash": "7b28982f95d055dce8af059be3eaf8af",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784139321.8746004,
+    "ast_hash": "5027865c887d245ffd0d5f1eed86b4c3",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784139321.8727317,
+    "ast_hash": "0a83c8624dd4d3aca60d1db661a9b13d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/corrections/private-wealth-ips/feedback/feedback_d7ff90ff59f84739bd879ac298ceec7b/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784139321.8693202,
+    "ast_hash": "33135537f1e88dd5d11b61b9870cea77",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/inference.yaml": {
+    "mtime": 1784139067.0554323,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/answers.md": {
+    "mtime": 1784139610.1702154,
+    "ast_hash": "e94f69d6021b4593c74eff2f5f646fbe",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/final_feedback.yaml": {
+    "mtime": 1784139572.317303,
+    "ast_hash": "c8c442a0ecfe1f94e71039b851d17f8e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/manifest.yaml": {
+    "mtime": 1784139572.293044,
+    "ast_hash": "f79752e2afd44ed9c326214601b814d9",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784139572.3042998,
+    "ast_hash": "fb35f2e02a577ee024f5a8563a2fa16f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784139572.3087568,
+    "ast_hash": "08f3bec119089a5312e92f8ee46dab8b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784139572.313188,
+    "ast_hash": "c8c442a0ecfe1f94e71039b851d17f8e",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784139572.3097022,
+    "ast_hash": "b069a47a388f4fcb9cf4a5f24fb6b7f6",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784139572.3078387,
+    "ast_hash": "00e4578434996ce08b76961c4d703e35",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/corrections/private-wealth-ips/feedback/feedback_4fc2fdb3f6a54826a0a1a866013df31d/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784139572.3035479,
+    "ast_hash": "64df10d0ff92ba50ba996603ca2f0e23",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/inference.yaml": {
+    "mtime": 1784139455.7879348,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182133Z/inference.yaml": {
+    "mtime": 1784139693.874032,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/action-trees.png": {
+    "mtime": 1784139356.9101963,
+    "ast_hash": "e03b03d448584845be89312e5a128565",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/headline-comparison.png": {
+    "mtime": 1784139356.4058857,
+    "ast_hash": "b0a0af2e4c067a5037f17c3c06d91c63",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181106Z/throughput.png": {
+    "mtime": 1784139356.7340014,
+    "ast_hash": "1a41e64955de0fde13920f585793e4db",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/action-trees.png": {
+    "mtime": 1784139610.0844088,
+    "ast_hash": "b0c19a83dc4331e5ccfa99c10ab6262a",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/headline-comparison.png": {
+    "mtime": 1784139609.5771067,
+    "ast_hash": "d7ed499af6718f45c6199e319b2bff0c",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T181735Z/throughput.png": {
+    "mtime": 1784139609.9030726,
+    "ast_hash": "afa241096afefde0120d0a4d78480cd7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/action_graph.json": {
+    "mtime": 1784140231.961261,
+    "ast_hash": "732dcfd28b7c022e5a52391d06bc47e8",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/activation_heatmaps/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784140321.3279626,
+    "ast_hash": "515617a70f25626bd2356538cbcf82c3",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/applied/application_6dcd6200171f428a85c781279fdc8443/activation_hooks.json": {
+    "mtime": 1784140321.3500483,
+    "ast_hash": "ce80671126595c4a11bc74a96247e398",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/feedback_plan.json": {
+    "mtime": 1784140321.3407428,
+    "ast_hash": "c10589d53901710c3d50f6453e3316ec",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/steering_vectors/query_private-wealth-ips_contention_1.json": {
+    "mtime": 1784140321.3268206,
+    "ast_hash": "1cd0043886574925269ad8ff83dcd789",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/final_feedback.yaml": {
+    "mtime": 1784140301.351455,
+    "ast_hash": "76bd61ed454dd3ac777adaf0258e78f7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/manifest.yaml": {
+    "mtime": 1784140301.3255544,
+    "ast_hash": "c3869ab5a75456295cd5d4ba32ba0c64",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/targets/query_private-wealth-ips/contentions.yaml": {
+    "mtime": 1784140301.3373587,
+    "ast_hash": "4ae680d8a7d113ddb0cd0feafc18b431",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/targets/query_private-wealth-ips/debate_summaries.yaml": {
+    "mtime": 1784140301.3413997,
+    "ast_hash": "69f710a24560bd4eb001cc581c7b468f",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/targets/query_private-wealth-ips/final_feedback.yaml": {
+    "mtime": 1784140301.346907,
+    "ast_hash": "76bd61ed454dd3ac777adaf0258e78f7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/targets/query_private-wealth-ips/judge_scores.yaml": {
+    "mtime": 1784140301.342627,
+    "ast_hash": "cfb72ab2fb545fe60c2cc9f533a868c7",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/targets/query_private-wealth-ips/rounds.yaml": {
+    "mtime": 1784140301.3403914,
+    "ast_hash": "d183e6880bb094f2449f7687eada3e4d",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/corrections/private-wealth-ips/feedback/feedback_f2c409e35a6d4592bf8476976f60eb30/targets/query_private-wealth-ips/target.yaml": {
+    "mtime": 1784140301.3367846,
+    "ast_hash": "b20ea450fd5dcf58e88f1e6bb6cb657b",
+    "semantic_hash": ""
+  },
+  "notebooks/results/specter-cfa-20260715T182755Z/inference.yaml": {
+    "mtime": 1784140107.094839,
+    "ast_hash": "102a4617bc44e4ffc704e49b24c8b42b",
     "semantic_hash": ""
   }
 }
