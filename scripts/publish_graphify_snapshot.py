@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import subprocess
@@ -40,6 +41,11 @@ DURABLE_ROOT_FILES = {
     "manifest.json",
 }
 DATE_DIRECTORY = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+QUERY_RESULT_TYPES = {"query", "path_query", "explain"}
+QUERY_SOURCE_MARKERS = (
+    "/graphify-out/memory/",
+    "/graphify-out/reflections/",
+)
 
 
 class PublishError(RuntimeError):
@@ -170,6 +176,35 @@ def durable_changes(root: Path) -> list[PurePosixPath]:
     return sorted(candidates, key=str)
 
 
+def ensure_structure_only_graph(root: Path) -> None:
+    graph_path = root / OUTPUT_ROOT / "graph.json"
+    if not graph_path.is_file():
+        return
+
+    try:
+        graph = json.loads(graph_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise PublishError(f"cannot validate {graph_path}: {exc}") from exc
+
+    for node in graph.get("nodes", []):
+        if not isinstance(node, dict):
+            continue
+        source = str(node.get("source_file", "")).replace("\\", "/")
+        normalized_source = f"/{source.strip('/')}/"
+        result_types = {
+            str(node.get(key, "")).casefold()
+            for key in ("query_type", "file_type", "type")
+            if node.get(key)
+        }
+        if any(marker in normalized_source for marker in QUERY_SOURCE_MARKERS) or (
+            result_types & QUERY_RESULT_TYPES
+        ):
+            raise PublishError(
+                "refusing to publish Graphify query memory; rebuild with "
+                "`graphify extract . --code-only`"
+            )
+
+
 def publish() -> int:
     root = repository_root()
     branch = current_branch(root)
@@ -188,6 +223,7 @@ def publish() -> int:
             print("[graphify publish] no durable Graphify changes to publish")
             return 0
 
+        ensure_structure_only_graph(root)
         path_args = [str(path) for path in paths]
         run_git("add", "-A", "--", *path_args, cwd=root)
 

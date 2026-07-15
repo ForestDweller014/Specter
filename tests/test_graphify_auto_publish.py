@@ -133,6 +133,36 @@ def test_publisher_refuses_manually_staged_graphify_files(tmp_path: Path) -> Non
     assert _git(repo, "log", "-1", "--format=%s").stdout.strip() == ("chore: Initialize fixture")
 
 
+def test_publisher_refuses_graphify_query_memory(tmp_path: Path) -> None:
+    repo, _ = _init_publishing_repo(tmp_path)
+    _write(
+        repo / "graphify-out/graph.json",
+        """{
+  "nodes": [
+    {
+      "id": "saved-query",
+      "source_file": "graphify-out/memory/query_20260715.md",
+      "file_type": "document"
+    }
+  ]
+}
+""",
+    )
+
+    result = _run(
+        sys.executable,
+        str(repo / PUBLISHER.name),
+        cwd=repo,
+        check=False,
+    )
+
+    assert result.returncode == 1
+    assert "refusing to publish Graphify query memory" in result.stderr
+    assert _git(repo, "log", "-1", "--format=%s").stdout.strip() == (
+        "chore: Initialize fixture"
+    )
+
+
 def _init_hook_repo(tmp_path: Path) -> tuple[Path, Path]:
     repo = tmp_path / "hook-work"
     _run("git", "init", "-b", "main", str(repo), cwd=tmp_path)

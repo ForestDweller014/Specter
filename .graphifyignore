@@ -1,0 +1,3 @@
+# Keep the persistent graph limited to source and configuration structure.
+*.md
+*.ipynb
