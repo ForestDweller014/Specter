@@ -17,7 +17,7 @@ from specter.model_provider import OpenAICompatibleHttpProvider
 
 @pytest.mark.local_inference
 def test_dullahan_inference_executes_every_courtroom_role() -> None:
-    # Tests real contention generation/revision, defense, prosecution, judging, and reporting.
+    # Tests real debate roles and final judge feedback through local Dullahan inference.
     if os.getenv("SPECTER_RUN_LOCAL_INFERENCE") != "1":
         pytest.skip("set SPECTER_RUN_LOCAL_INFERENCE=1 to run Dullahan inference")
 
@@ -78,6 +78,7 @@ def test_dullahan_inference_executes_every_courtroom_role() -> None:
     assert -1.0 <= item.judge_score.prosecution_strength <= 1.0
     assert item.running_summary_after
     assert result.rounds[1].items[0].contention_text
+    assert result.feedback_items[0].feedback_text
 
 
 @pytest.mark.local_inference
@@ -96,6 +97,9 @@ def test_real_transformerlens_localizes_feedback_activations() -> None:
         contention_id="contention:grounding",
         running_debate_summary=(
             "The prosecution established that the response ignored rollback and regional risk."
+        ),
+        feedback_text=(
+            "Account for missing rollback automation and the single regional control plane."
         ),
         prosecution_strength=0.8,
         target_query="Assess the deployment risk.",

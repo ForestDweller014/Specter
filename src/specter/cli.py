@@ -35,6 +35,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--summary-token-budget", type=int, default=256)
     parser.add_argument("--response-token-budget", type=int, default=384)
     parser.add_argument("--judge-rationale-token-budget", type=int, default=128)
+    parser.add_argument("--feedback-token-budget", type=int, default=192)
     parser.add_argument(
         "--courtroom-model-provider",
         choices=["dullahan", "openai-compatible"],
@@ -89,6 +90,7 @@ def run_from_args(
         summary_token_budget=args.summary_token_budget,
         response_token_budget=args.response_token_budget,
         judge_rationale_token_budget=args.judge_rationale_token_budget,
+        feedback_token_budget=args.feedback_token_budget,
         inference_temperature=args.courtroom_temperature,
         include_unanswered_nodes=args.include_unanswered_nodes,
     )

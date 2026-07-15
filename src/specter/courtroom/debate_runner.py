@@ -105,20 +105,36 @@ class CourtroomRunner:
                 )
             rounds.append(DebateRound(round_index=round_index, items=items))
 
-        feedback_items = [
-            FeedbackItem(
-                feedback_id=feedback_id,
-                query_id=target.query_id,
-                expert_id=target.expert_id,
-                contention_id=contention.contention_id,
-                running_debate_summary=summaries[contention.contention_id],
-                prosecution_strength=self._latest_score(rounds, contention.contention_id),
-                target_query=target.query_text,
-                target_context=target.context_text,
-                target_response=target.response_text,
+        feedback_items = []
+        for contention in contentions:
+            courtroom_summary = summaries[contention.contention_id]
+            judge_evaluations = self._judge_evaluations(
+                rounds,
+                contention.contention_id,
             )
-            for contention in contentions
-        ]
+            feedback_items.append(
+                FeedbackItem(
+                    feedback_id=feedback_id,
+                    query_id=target.query_id,
+                    expert_id=target.expert_id,
+                    contention_id=contention.contention_id,
+                    running_debate_summary=courtroom_summary,
+                    feedback_text=self._generate_feedback(
+                        target=target,
+                        contention=current_contention_texts[contention.contention_id],
+                        courtroom_summary=courtroom_summary,
+                        judge_evaluations=judge_evaluations,
+                        config=config,
+                    ),
+                    prosecution_strength=self._latest_score(
+                        rounds,
+                        contention.contention_id,
+                    ),
+                    target_query=target.query_text,
+                    target_context=target.context_text,
+                    target_response=target.response_text,
+                )
+            )
 
         return TargetCourtroomResult(
             target=target,
@@ -276,6 +292,40 @@ class CourtroomRunner:
                 if item.contention_id == contention_id:
                     return item.judge_score.prosecution_strength
         return 0.0
+
+    def _judge_evaluations(
+        self,
+        rounds: list[DebateRound],
+        contention_id: str,
+    ) -> list[tuple[int, JudgeScore]]:
+        return [
+            (debate_round.round_index, item.judge_score)
+            for debate_round in rounds
+            for item in debate_round.items
+            if item.contention_id == contention_id
+        ]
+
+    def _generate_feedback(
+        self,
+        *,
+        target: FeedbackTargetNode,
+        contention: str,
+        courtroom_summary: str,
+        judge_evaluations: list[tuple[int, JudgeScore]],
+        config: CourtroomConfig,
+    ) -> str:
+        return self._complete(
+            target=target,
+            prompt=self.prompt_builder.judge_feedback(
+                target=target,
+                contention=contention,
+                courtroom_summary=courtroom_summary,
+                judge_evaluations=judge_evaluations,
+                round_index=config.rounds,
+            ),
+            max_words=config.feedback_token_budget,
+            temperature=config.inference_temperature,
+        )
 
     def _complete(
         self,

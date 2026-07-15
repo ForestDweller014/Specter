@@ -68,6 +68,8 @@ class ScriptedInferenceProvider(ModelProvider):
             text = "model defense"
         elif "You are the prosecutor" in request.prompt:
             text = "model prosecution rebuttal"
+        elif "You are the final feedback judge" in request.prompt:
+            text = "Use the supplied evidence and state unresolved deployment risks."
         elif "You are the judge" in request.prompt:
             text = "0.42 prosecution is moderately strong"
         elif "You are the court reporter" in request.prompt:
@@ -181,6 +183,9 @@ def test_courtroom_cli_persists_feedback_artifacts(tmp_path: Path) -> None:
     assert manifest["source_trace_id"] == "trace:test"
     assert manifest["target_count"] == 1
     assert len(final_feedback["feedback_items"]) == 2
+    assert final_feedback["feedback_items"][0]["feedback_text"].startswith(
+        "Use the supplied evidence"
+    )
     assert (target_dir / "target.yaml").exists()
     assert (target_dir / "contentions.yaml").exists()
     assert (target_dir / "rounds.yaml").exists()
@@ -257,7 +262,7 @@ def test_courtroom_cli_json_output(tmp_path: Path, monkeypatch, capsys) -> None:
 
 
 def test_courtroom_runner_can_use_model_backed_roles() -> None:
-    # Tests role prompt dispatch and parsing while a fake provider mocks model completions.
+    # Tests role dispatch, final judge feedback, and parsing while inference is mocked.
     class FakeModelProvider:
         def __init__(self) -> None:
             self.prompts = []
@@ -272,6 +277,8 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
                 text = "model defense"
             elif "You are the prosecutor" in request.prompt:
                 text = "model prosecution rebuttal"
+            elif "You are the final feedback judge" in request.prompt:
+                text = "model-facing corrective feedback"
             elif "You are the judge" in request.prompt:
                 text = "0.42 prosecution is moderately strong"
             elif "You are the court reporter" in request.prompt:
@@ -299,6 +306,7 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
         config=CourtroomConfig(
             rounds=1,
             max_contentions=1,
+            feedback_token_budget=55,
             inference_temperature=0.35,
         ),
     )
@@ -309,10 +317,14 @@ def test_courtroom_runner_can_use_model_backed_roles() -> None:
     assert item.prosecution_rebuttal == "model prosecution rebuttal"
     assert item.judge_score.prosecution_strength == 0.42
     assert item.running_summary_after == "compressed model summary"
-    assert len(provider.prompts) == 5
+    assert len(provider.prompts) == 6
     assert all(request.temperature == 0.35 for request in provider.requests)
+    assert provider.requests[-1].max_tokens == 55
     assert "Expert model: expert-model-1" in provider.prompts[1]
     assert result.feedback_items[0].running_debate_summary == "compressed model summary"
+    assert result.feedback_items[0].feedback_text == "model-facing corrective feedback"
+    assert "Final courtroom summary:\ncompressed model summary" in provider.prompts[-1]
+    assert "score=0.42" in provider.prompts[-1]
 
 
 def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
@@ -326,7 +338,8 @@ def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
         sender_id="query:root",
     )
 
-    result = CourtroomRunner(model_provider=ScriptedInferenceProvider()).run_target(
+    provider = ScriptedInferenceProvider()
+    result = CourtroomRunner(model_provider=provider).run_target(
         feedback_id="feedback:test",
         target=target,
         config=CourtroomConfig(
@@ -343,6 +356,8 @@ def test_courtroom_runner_evolves_contentions_after_first_round() -> None:
     assert len(first_round_contention.split()) <= 18
     assert len(second_round_contention.split()) <= 18
     assert result.rounds[0].items[0].contention_id == result.rounds[1].items[0].contention_id
+    assert "Round 1: score=0.42" in provider.prompts[-1]
+    assert "Round 2: score=0.42" in provider.prompts[-1]
 
 
 def test_courtroom_model_provider_can_revise_contentions() -> None:
@@ -361,6 +376,8 @@ def test_courtroom_model_provider_can_revise_contentions() -> None:
                 text = "model defense"
             elif "You are the prosecutor" in request.prompt:
                 text = "model prosecution rebuttal"
+            elif "You are the final feedback judge" in request.prompt:
+                text = "model-facing corrective feedback"
             elif "You are the judge" in request.prompt:
                 text = "0.25 prosecution is somewhat strong"
             elif "You are the court reporter" in request.prompt:
@@ -485,7 +502,7 @@ def test_localize_feedback_cli_text_output(tmp_path: Path, monkeypatch, capsys) 
 
 
 def test_contrast_builder_removes_feedback_concept_from_negative() -> None:
-    # Tests that minimal pairs retain target context but remove prosecution concepts from negatives.
+    # Tests that contrast localization uses judge feedback rather than the courtroom summary.
     item = FeedbackItem(
         feedback_id="feedback:test",
         query_id="query:test",
@@ -495,6 +512,10 @@ def test_contrast_builder_removes_feedback_concept_from_negative() -> None:
             "Prosecution argues the response is unsupported and the judge finds "
             "the prosecution signal strong."
         ),
+        feedback_text=(
+            "Ground the deployment risk in the missing rollback automation and regional "
+            "control-plane dependency."
+        ),
         prosecution_strength=0.8,
         target_query="Assess deployment risk",
         target_context="Karpenter creates GPU nodes for burst capacity. Extra context.",
@@ -503,7 +524,8 @@ def test_contrast_builder_removes_feedback_concept_from_negative() -> None:
 
     pair = MinimalPairContrastSetBuilder().build(item, pair_count=1)[0]
 
-    assert "Prosecution argues" in pair.positive
+    assert "Ground the deployment risk" in pair.positive
+    assert "Prosecution argues" not in pair.positive
     assert "Prosecution argues" not in pair.negative
     assert "unsupported" not in pair.negative
     assert "Assess deployment risk" in pair.negative

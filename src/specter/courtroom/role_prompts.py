@@ -147,6 +147,42 @@ class CourtroomPromptBuilder:
             ],
         )
 
+    def judge_feedback(
+        self,
+        *,
+        target: FeedbackTargetNode,
+        contention: str,
+        courtroom_summary: str,
+        judge_evaluations: list[tuple[int, JudgeScore]],
+        round_index: int,
+    ) -> str:
+        evaluation_lines = [
+            (
+                f"Round {evaluation_round}: score="
+                f"{evaluation.prosecution_strength}; rationale={evaluation.rationale}"
+            )
+            for evaluation_round, evaluation in judge_evaluations
+        ]
+        return self._base(
+            role=(
+                "You are the final feedback judge. Convert the completed courtroom "
+                "record into one concise, actionable instruction for the expert "
+                "model. State what should change and ground it in the case evidence. "
+                "Do not mention courtroom roles, debate procedure, or numeric scores."
+            ),
+            target=target,
+            round_index=round_index,
+            extra=[
+                "Contention:",
+                contention,
+                "Final courtroom summary:",
+                courtroom_summary,
+                "Judge evaluations:",
+                *(evaluation_lines or ["none"]),
+                "Return only the final model-facing feedback instruction.",
+            ],
+        )
+
     def _base(
         self,
         *,

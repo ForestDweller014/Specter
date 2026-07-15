@@ -82,6 +82,7 @@ class FeedbackItem(BaseModel):
     expert_id: str
     contention_id: str
     running_debate_summary: str = Field(min_length=1)
+    feedback_text: str = Field(min_length=1)
     prosecution_strength: float = Field(ge=-1.0, le=1.0)
     target_query: str
     target_context: str

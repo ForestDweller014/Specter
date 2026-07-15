@@ -8,7 +8,7 @@ from specter.text import clamp_words
 class MinimalPairContrastSetBuilder:
     def build(self, item: FeedbackItem, *, pair_count: int) -> list[ContrastPair]:
         pairs = []
-        positive = clamp_words(item.running_debate_summary, 96)
+        positive = clamp_words(item.feedback_text, 96)
         negative_base = self._neutralize(item)
         for index in range(1, pair_count + 1):
             pairs.append(

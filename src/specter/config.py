@@ -14,6 +14,7 @@ class CourtroomConfig(BaseModel):
     summary_token_budget: int = Field(default=256, ge=16)
     response_token_budget: int = Field(default=384, ge=16)
     judge_rationale_token_budget: int = Field(default=128, ge=16)
+    feedback_token_budget: int = Field(default=192, ge=16)
     inference_temperature: float = Field(default=0.0, ge=0.0)
     include_unanswered_nodes: bool = False
 
