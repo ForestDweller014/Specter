@@ -49,10 +49,10 @@ class ActionGraphLoader:
                 FeedbackTargetNode(
                     query_id=node_id,
                     expert_id=expert_id or "expert:unassigned",
-                    query=node.get("query") or {},
-                    context=node.get("context"),
-                    response=primary_response,
-                    responses=responses,
+                    query_text=self._node_query_text(node),
+                    context_text=self._context_text(node.get("context")),
+                    response_text=self._response_text(primary_response),
+                    model_name=self._model_name(primary_response, expert_id),
                     child_query_ids=children_by_source.get(node_id, []),
                     child_query_texts=[
                         self._node_query_text(nodes_by_id.get(child_id))
@@ -66,7 +66,11 @@ class ActionGraphLoader:
                 )
             )
 
-        return graph, targets
+        return {
+            "schema": self.expected_schema,
+            "trace_id": str(graph["trace_id"]),
+            "root_query_id": str(graph["root_query_id"]),
+        }, targets
 
     def _expert_id(self, response: dict | None) -> str | None:
         if not response:
@@ -81,3 +85,19 @@ class ActionGraphLoader:
             return ""
         query = node.get("query") or {}
         return str(query.get("query", "")).strip()
+
+    def _context_text(self, context: dict | None) -> str:
+        if not context:
+            return ""
+        documents = context.get("documents") or []
+        return "\n\n".join(str(document.get("text", "")).strip() for document in documents)
+
+    def _response_text(self, response: dict | None) -> str:
+        if not response:
+            return ""
+        return str(response.get("response", "")).strip()
+
+    def _model_name(self, response: dict | None, expert_id: str | None) -> str:
+        routing_metadata = response.get("routing_metadata") if response else None
+        model = routing_metadata.get("model") if routing_metadata else None
+        return str(model or expert_id or "expert:unassigned")

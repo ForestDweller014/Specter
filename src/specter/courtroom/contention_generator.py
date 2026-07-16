@@ -46,8 +46,8 @@ class InferenceContentionGenerator:
                     "against the response."
                 ),
                 (
-                    "Evaluate grounding, omitted constraints, confidence, delegation "
-                    "quality, and reasoning."
+                    "Evaluate grounding, omitted constraints, uncertainty disclosure, "
+                    "delegation quality, and reasoning."
                 ),
                 "Return only a JSON array of non-empty strings, strongest contention first.",
                 "",

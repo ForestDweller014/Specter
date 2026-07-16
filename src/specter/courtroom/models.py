@@ -8,12 +8,14 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class FeedbackTargetNode(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     query_id: str
     expert_id: str
-    query: dict
-    context: dict | None = None
-    response: dict | None = None
-    responses: list[dict] = Field(default_factory=list)
+    query_text: str
+    context_text: str = ""
+    response_text: str = ""
+    model_name: str
     child_query_ids: list[str] = Field(default_factory=list)
     child_query_texts: list[str] = Field(default_factory=list)
     parent_query_id: str | None = None
@@ -21,30 +23,6 @@ class FeedbackTargetNode(BaseModel):
     delegation_query: str = ""
     depth: int = Field(default=0, ge=0)
     sender_id: str
-
-    @property
-    def query_text(self) -> str:
-        return str(self.query.get("query", "")).strip()
-
-    @property
-    def response_text(self) -> str:
-        if self.response is None:
-            return ""
-        return str(self.response.get("response", "")).strip()
-
-    @property
-    def context_text(self) -> str:
-        if not self.context:
-            return ""
-        documents = self.context.get("documents") or []
-        return "\n\n".join(str(document.get("text", "")).strip() for document in documents)
-
-    @property
-    def model_name(self) -> str:
-        if self.response is None:
-            return self.expert_id
-        routing_metadata = self.response.get("routing_metadata") or {}
-        return str(routing_metadata.get("model") or self.expert_id)
 
 
 class Contention(BaseModel):

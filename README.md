@@ -3,7 +3,7 @@
 Specter is a courtroom-style evaluation tool for language-model and agent-system
 outputs. Agent traces can show which model answered, what context it received,
 and how work was delegated, but they do not establish whether the answer was
-well grounded, complete, or appropriately confident.
+well grounded, complete, or appropriately qualified.
 
 Specter turns each answered trace node into a case. A prosecutor creates bounded,
 evidence-specific contentions; a defender protects valid reasoning; the
@@ -298,7 +298,7 @@ evidence-specific contentions in one structured call. Each contention receives a
 stable identity and the configured turn budget. The generator orders the
 strongest claim first and rejects an empty result.
 
-Contentions may address grounding, omitted constraints, unjustified confidence,
+Contentions may address grounding, omitted constraints, missing uncertainty,
 delegation quality, or reasoning. They are claims to test, not conclusions. Each
 one must survive its own independent debate before it can produce feedback.
 

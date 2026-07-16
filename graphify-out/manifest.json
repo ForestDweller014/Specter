@@ -30,9 +30,9 @@
     "semantic_hash": "dbfd715292fd8380f0c65ac60d009a86"
   },
   "src/specter/courtroom/contention_generator.py": {
-    "mtime": 1784161108.6604788,
-    "ast_hash": "410786192c55d99c533843b70a81fde7",
-    "semantic_hash": "410786192c55d99c533843b70a81fde7"
+    "mtime": 1784162108.2230349,
+    "ast_hash": "ecf1ff3921c49c9057bc928440a9ced2",
+    "semantic_hash": ""
   },
   "src/specter/courtroom/debate_runner.py": {
     "mtime": 1784161108.6599102,
@@ -40,9 +40,9 @@
     "semantic_hash": "9f293ff98cf4135249e5c9c2a4ceb7a0"
   },
   "src/specter/courtroom/models.py": {
-    "mtime": 1784161206.9372413,
-    "ast_hash": "c0e4283b16ca19a35b86fb15edf2a8ec",
-    "semantic_hash": "c0e4283b16ca19a35b86fb15edf2a8ec"
+    "mtime": 1784162108.2221556,
+    "ast_hash": "54874e3192c506a94be53ce43185dbcd",
+    "semantic_hash": ""
   },
   "src/specter/courtroom/role_prompts.py": {
     "mtime": 1784161108.659675,
@@ -55,9 +55,9 @@
     "semantic_hash": "78499d798b266f9fc6563e864037e7d8"
   },
   "src/specter/graph_loader.py": {
-    "mtime": 1784161346.5647824,
-    "ast_hash": "27eaf303683d3a6d1a705e8c3bc8f3e3",
-    "semantic_hash": "27eaf303683d3a6d1a705e8c3bc8f3e3"
+    "mtime": 1784162108.2226524,
+    "ast_hash": "618a19952b079b5bd94ab4aa6044415d",
+    "semantic_hash": ""
   },
   "src/specter/ids.py": {
     "mtime": 1784161346.5647435,
@@ -80,9 +80,9 @@
     "semantic_hash": "53bee0eed4e6f90cfc8ee5bfd02016ae"
   },
   "tests/test_specter.py": {
-    "mtime": 1784161346.5651417,
-    "ast_hash": "be0e47a1ba9e3c034360d494ec452998",
-    "semantic_hash": "be0e47a1ba9e3c034360d494ec452998"
+    "mtime": 1784162108.2237449,
+    "ast_hash": "63fbd55af0946632cb4c574da7abc818",
+    "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
     "mtime": 1784161580.8742838,

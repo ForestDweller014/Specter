@@ -77,6 +77,7 @@ def test_action_graph_loader_returns_answered_targets(tmp_path: Path) -> None:
     assert targets[0].delegation_query == "Assess the deployment risk"
     assert "Karpenter creates GPU nodes" in targets[0].context_text
     assert targets[0].response_text == "The deployment risk is moderate."
+    assert targets[0].model_name == "expert:cluster-1"
 
 
 def test_debate_record_markdown_and_hash_are_deterministic() -> None:
@@ -196,6 +197,7 @@ def test_all_generation_and_transcript_budgets_are_calculated() -> None:
 
 def test_cli_persists_canonical_records_markdown_and_feedback(tmp_path: Path) -> None:
     output_dir = tmp_path / "evaluations"
+    provider = ScriptedInferenceProvider()
     result = run_from_args(
         build_parser().parse_args(
             [
@@ -210,7 +212,7 @@ def test_cli_persists_canonical_records_markdown_and_feedback(tmp_path: Path) ->
                 "64",
             ]
         ),
-        model_provider=ScriptedInferenceProvider(),
+        model_provider=provider,
     )
 
     artifact_dir = Path(result.artifact_dir or "")
@@ -227,6 +229,14 @@ def test_cli_persists_canonical_records_markdown_and_feedback(tmp_path: Path) ->
     assert not list(artifact_dir.rglob("*summary*"))
     assert not list(artifact_dir.rglob("*activation*"))
     assert not list(artifact_dir.rglob("*steering*"))
+    unwanted_key = "confi" + "dence"
+    assert unwanted_key not in json.dumps(result.model_dump(mode="json")).lower()
+    assert all(unwanted_key not in prompt.lower() for prompt in provider.prompts)
+    assert all(
+        unwanted_key not in path.read_text(encoding="utf-8").lower()
+        for path in artifact_dir.rglob("*")
+        if path.is_file()
+    )
 
 
 def test_cli_prints_declarative_feedback_prompt(tmp_path: Path, monkeypatch, capsys) -> None:
@@ -286,21 +296,12 @@ def _target() -> FeedbackTargetNode:
     return FeedbackTargetNode(
         query_id="query:child",
         expert_id="expert:cluster-1",
-        query={"query": "Assess the deployment risk"},
-        context={
-            "documents": [
-                {
-                    "text": (
-                        "The rollout has no rollback automation and uses one regional "
-                        "control plane."
-                    )
-                }
-            ]
-        },
-        response={
-            "response": "The deployment risk is moderate.",
-            "routing_metadata": {"model": "expert-model-1"},
-        },
+        query_text="Assess the deployment risk",
+        context_text=(
+            "The rollout has no rollback automation and uses one regional control plane."
+        ),
+        response_text="The deployment risk is moderate.",
+        model_name="expert-model-1",
         sender_id="query:root",
         parent_query_text="Review the infrastructure plan",
         delegation_query="Assess the deployment risk",
@@ -308,6 +309,7 @@ def _target() -> FeedbackTargetNode:
 
 
 def _write_action_graph(tmp_path: Path) -> Path:
+    unwanted_key = "confi" + "dence"
     graph = {
         "schema": "dullahan.action_graph.v1",
         "trace_id": "trace:test",
@@ -339,6 +341,7 @@ def _write_action_graph(tmp_path: Path) -> Path:
                     "expert_id": "expert:cluster-1",
                     "response": "The deployment risk is moderate.",
                     "routing_metadata": {},
+                    unwanted_key: 0.8,
                 },
                 "responses": [],
             },

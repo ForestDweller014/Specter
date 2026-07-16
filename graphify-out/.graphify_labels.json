@@ -1,7 +1,6 @@
 {
   "0": "CourtroomRunner",
   "1": "run_from_args",
-  "2": "InferenceContentionGenerator",
   "3": "models.py",
   "4": "model_provider.py",
   "5": "ScriptedInferenceProvider",
