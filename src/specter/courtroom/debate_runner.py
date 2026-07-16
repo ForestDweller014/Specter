@@ -6,9 +6,11 @@ import re
 from specter.config import CourtroomConfig
 from specter.courtroom.contention_generator import InferenceContentionGenerator
 from specter.courtroom.models import (
+    CourtroomRunResult,
+    DebateRecord,
     DebateRound,
-    DebateRoundItem,
-    FeedbackItem,
+    FeedbackPrompt,
+    FeedbackProvenance,
     FeedbackTargetNode,
     FinalFeedbackDecision,
     JudgeScore,
@@ -17,7 +19,7 @@ from specter.courtroom.models import (
 from specter.courtroom.role_prompts import CourtroomPromptBuilder
 from specter.ids import new_id
 from specter.model_provider import ModelProvider, ModelRequest
-from specter.text import clamp_words
+from specter.text import clamp_words, safe_path_id
 
 
 class CourtroomRunner:
@@ -37,114 +39,84 @@ class CourtroomRunner:
     def run_target(
         self,
         *,
-        feedback_id: str,
+        evaluation_id: str,
         target: FeedbackTargetNode,
         config: CourtroomConfig,
     ) -> TargetCourtroomResult:
         contentions = self.contention_generator.generate(target, config)
-        current_contention_texts = {
+        records = {
+            contention.contention_id: DebateRecord(
+                contention_id=contention.contention_id,
+                initial_contention=contention.text,
+                turn_token_budget=config.turn_token_budget,
+                transcript_token_budget=config.maximum_transcript_tokens(),
+            )
+            for contention in contentions
+        }
+        active_contentions = {
             contention.contention_id: contention.text for contention in contentions
         }
-        summaries = {contention.contention_id: "" for contention in contentions}
-        rounds = []
 
         for round_index in range(1, config.rounds + 1):
-            items = []
             for contention in contentions:
-                before = summaries[contention.contention_id]
-                contention_text = current_contention_texts[contention.contention_id]
+                record = records[contention.contention_id]
+                prior_transcript = self._transcript_for_prompt(record)
+                contention_text = active_contentions[contention.contention_id]
                 if round_index > 1:
                     contention_text = self._revise_contention(
                         target=target,
                         contention=contention_text,
-                        summary=before,
+                        debate_transcript=prior_transcript,
                         round_index=round_index,
-                        token_budget=contention.token_budget,
-                        temperature=config.inference_temperature,
+                        config=config,
                     )
-                    current_contention_texts[contention.contention_id] = contention_text
+                    active_contentions[contention.contention_id] = contention_text
 
-                defense = self._defend(target, contention_text, before, round_index, config)
-                rebuttal = self._prosecute(
+                defense = self._defend(
+                    target, contention_text, prior_transcript, round_index, config
+                )
+                prosecution = self._prosecute(
                     target,
                     contention_text,
-                    before,
+                    prior_transcript,
                     defense,
                     round_index,
                     config,
                 )
-                judge_score = self._judge(
+                judge = self._judge(
                     target,
-                    contention.contention_id,
                     contention_text,
-                    before,
+                    prior_transcript,
                     defense,
-                    rebuttal,
+                    prosecution,
                     round_index,
                     config,
                 )
-                after = self._summarize(
-                    target=target,
-                    round_index=round_index,
-                    before=before,
-                    defense=defense,
-                    rebuttal=rebuttal,
-                    judge_score=judge_score,
-                    config=config,
-                )
-                summaries[contention.contention_id] = after
-                items.append(
-                    DebateRoundItem(
+                record.rounds.append(
+                    DebateRound(
                         round_index=round_index,
-                        contention_id=contention.contention_id,
                         contention_text=contention_text,
-                        running_summary_before=before,
                         defense=defense,
-                        prosecution_rebuttal=rebuttal,
-                        judge_score=judge_score,
-                        running_summary_after=after,
+                        prosecution=prosecution,
+                        judge=judge,
                     )
                 )
-            rounds.append(DebateRound(round_index=round_index, items=items))
 
-        feedback_items = []
-        for contention in contentions:
-            courtroom_summary = summaries[contention.contention_id]
-            judge_evaluations = self._judge_evaluations(
-                rounds,
-                contention.contention_id,
-            )
-            feedback_decision = self._generate_feedback(
+        debate_records = [records[contention.contention_id] for contention in contentions]
+        feedback_prompts = [
+            self._generate_feedback(
+                evaluation_id=evaluation_id,
                 target=target,
-                contention=current_contention_texts[contention.contention_id],
-                courtroom_summary=courtroom_summary,
-                judge_evaluations=judge_evaluations,
+                record=record,
                 config=config,
             )
-            feedback_items.append(
-                FeedbackItem(
-                    feedback_id=feedback_id,
-                    query_id=target.query_id,
-                    expert_id=target.expert_id,
-                    contention_id=contention.contention_id,
-                    running_debate_summary=courtroom_summary,
-                    disposition=feedback_decision.disposition,
-                    feedback_text=feedback_decision.feedback_text,
-                    prosecution_strength=self._latest_score(
-                        rounds,
-                        contention.contention_id,
-                    ),
-                    target_query=target.query_text,
-                    target_context=target.context_text,
-                    target_response=target.response_text,
-                )
-            )
-
+            for record in debate_records
+        ]
         return TargetCourtroomResult(
             target=target,
             contentions=contentions,
-            rounds=rounds,
-            feedback_items=feedback_items,
+            debate_records=debate_records,
+            feedback_prompts=feedback_prompts,
         )
 
     def run(
@@ -154,19 +126,16 @@ class CourtroomRunner:
         root_query_id: str,
         targets: list[FeedbackTargetNode],
         config: CourtroomConfig,
-    ):
-        from specter.courtroom.models import CourtroomRunResult
-
-        feedback_id = new_id("feedback")
-        target_results = [
-            self.run_target(feedback_id=feedback_id, target=target, config=config)
-            for target in targets
-        ]
+    ) -> CourtroomRunResult:
+        evaluation_id = new_id("evaluation")
         return CourtroomRunResult(
-            feedback_id=feedback_id,
+            evaluation_id=evaluation_id,
             source_trace_id=source_trace_id,
             root_query_id=root_query_id,
-            targets=target_results,
+            targets=[
+                self.run_target(evaluation_id=evaluation_id, target=target, config=config)
+                for target in targets
+            ],
         )
 
     def _revise_contention(
@@ -174,28 +143,27 @@ class CourtroomRunner:
         *,
         target: FeedbackTargetNode,
         contention: str,
-        summary: str,
+        debate_transcript: str,
         round_index: int,
-        token_budget: int,
-        temperature: float,
+        config: CourtroomConfig,
     ) -> str:
         return self._complete(
             target=target,
             prompt=self.prompt_builder.revise_contention(
                 target=target,
                 contention=contention,
-                running_summary=summary,
+                debate_transcript=debate_transcript,
                 round_index=round_index,
             ),
-            max_words=token_budget,
-            temperature=temperature,
+            max_tokens=config.turn_token_budget,
+            temperature=config.inference_temperature,
         )
 
     def _defend(
         self,
         target: FeedbackTargetNode,
         contention: str,
-        summary: str,
+        debate_transcript: str,
         round_index: int,
         config: CourtroomConfig,
     ) -> str:
@@ -204,10 +172,10 @@ class CourtroomRunner:
             prompt=self.prompt_builder.defender(
                 target=target,
                 contention=contention,
-                running_summary=summary,
+                debate_transcript=debate_transcript,
                 round_index=round_index,
             ),
-            max_words=config.response_token_budget,
+            max_tokens=config.turn_token_budget,
             temperature=config.inference_temperature,
         )
 
@@ -215,7 +183,7 @@ class CourtroomRunner:
         self,
         target: FeedbackTargetNode,
         contention: str,
-        summary: str,
+        debate_transcript: str,
         defense: str,
         round_index: int,
         config: CourtroomConfig,
@@ -225,115 +193,85 @@ class CourtroomRunner:
             prompt=self.prompt_builder.prosecutor(
                 target=target,
                 contention=contention,
-                running_summary=summary,
+                debate_transcript=debate_transcript,
                 defense=defense,
                 round_index=round_index,
             ),
-            max_words=config.response_token_budget,
+            max_tokens=config.turn_token_budget,
             temperature=config.inference_temperature,
         )
 
     def _judge(
         self,
         target: FeedbackTargetNode,
-        contention_id: str,
         contention: str,
-        summary: str,
+        debate_transcript: str,
         defense: str,
-        rebuttal: str,
+        prosecution: str,
         round_index: int,
         config: CourtroomConfig,
     ) -> JudgeScore:
-        judge_text = self._complete(
+        text = self._complete(
             target=target,
             prompt=self.prompt_builder.judge(
                 target=target,
                 contention=contention,
-                running_summary=summary,
+                debate_transcript=debate_transcript,
                 defense=defense,
-                rebuttal=rebuttal,
+                prosecution=prosecution,
                 round_index=round_index,
             ),
-            max_words=config.judge_rationale_token_budget,
+            max_tokens=config.judge_rationale_token_budget,
             temperature=config.inference_temperature,
         )
-        return JudgeScore(
-            contention_id=contention_id,
-            prosecution_strength=self._parse_score(judge_text),
-            rationale=judge_text,
-        )
-
-    def _summarize(
-        self,
-        *,
-        target: FeedbackTargetNode | None = None,
-        round_index: int = 1,
-        before: str,
-        defense: str,
-        rebuttal: str,
-        judge_score: JudgeScore,
-        config: CourtroomConfig,
-    ) -> str:
-        if target is None:
-            raise ValueError("court reporter inference requires a feedback target")
-        return self._complete(
-            target=target,
-            prompt=self.prompt_builder.reporter(
-                target=target,
-                running_summary=before,
-                defense=defense,
-                rebuttal=rebuttal,
-                judge_score=judge_score,
-                round_index=round_index,
-            ),
-            max_words=config.summary_token_budget,
-            temperature=config.inference_temperature,
-        )
-
-    def _latest_score(self, rounds: list[DebateRound], contention_id: str) -> float:
-        for debate_round in reversed(rounds):
-            for item in debate_round.items:
-                if item.contention_id == contention_id:
-                    return item.judge_score.prosecution_strength
-        return 0.0
-
-    def _judge_evaluations(
-        self,
-        rounds: list[DebateRound],
-        contention_id: str,
-    ) -> list[tuple[int, JudgeScore]]:
-        return [
-            (debate_round.round_index, item.judge_score)
-            for debate_round in rounds
-            for item in debate_round.items
-            if item.contention_id == contention_id
-        ]
+        return JudgeScore(prosecution_strength=self._parse_score(text), rationale=text)
 
     def _generate_feedback(
         self,
         *,
+        evaluation_id: str,
         target: FeedbackTargetNode,
-        contention: str,
-        courtroom_summary: str,
-        judge_evaluations: list[tuple[int, JudgeScore]],
+        record: DebateRecord,
         config: CourtroomConfig,
-    ) -> FinalFeedbackDecision:
+    ) -> FeedbackPrompt:
+        transcript = record.render_markdown()
+        record_hash = record.content_hash()
         raw_decision = self._complete(
             target=target,
             prompt=self.prompt_builder.judge_feedback(
                 target=target,
-                contention=contention,
-                courtroom_summary=courtroom_summary,
-                judge_evaluations=judge_evaluations,
+                debate_transcript=transcript,
+                debate_record_sha256=record_hash,
                 round_index=config.rounds,
             ),
-            max_words=config.feedback_token_budget,
+            max_tokens=config.feedback_token_budget,
             temperature=config.inference_temperature,
             clamp_output=False,
         )
-        return self._parse_feedback_decision(
+        decision = self._parse_feedback_decision(
             raw_decision,
             max_words=config.feedback_token_budget,
+        )
+        record_ref = (
+            f"targets/{safe_path_id(target.query_id)}/debates/"
+            f"{safe_path_id(record.contention_id)}.yaml"
+        )
+        return FeedbackPrompt(
+            evaluation_id=evaluation_id,
+            query_id=target.query_id,
+            expert_id=target.expert_id,
+            contention_id=record.contention_id,
+            disposition=decision.disposition,
+            feedback_prompt=decision.feedback_prompt,
+            prosecution_strength=record.rounds[-1].judge.prosecution_strength,
+            target_query=target.query_text,
+            target_context=target.context_text,
+            target_response=target.response_text,
+            provenance=FeedbackProvenance(
+                debate_record_ref=record_ref,
+                debate_record_sha256=record_hash,
+                transcript_token_budget=record.transcript_token_budget,
+            ),
         )
 
     def _complete(
@@ -341,7 +279,7 @@ class CourtroomRunner:
         *,
         target: FeedbackTargetNode,
         prompt: str,
-        max_words: int,
+        max_tokens: int,
         temperature: float,
         clamp_output: bool = True,
     ) -> str:
@@ -349,14 +287,14 @@ class CourtroomRunner:
             ModelRequest(
                 model=target.model_name,
                 prompt=prompt,
-                max_tokens=max_words,
+                max_tokens=max_tokens,
                 temperature=temperature,
             )
         )
         text = result.text.strip()
         if not text:
             raise ValueError("inference provider returned an empty courtroom response")
-        return clamp_words(text, max_words) if clamp_output else text
+        return clamp_words(text, max_tokens) if clamp_output else text
 
     def _parse_feedback_decision(
         self,
@@ -369,19 +307,22 @@ class CourtroomRunner:
         if fenced:
             cleaned = fenced.group(1)
         try:
-            payload = json.loads(cleaned)
-            decision = FinalFeedbackDecision.model_validate(payload)
+            decision = FinalFeedbackDecision.model_validate(json.loads(cleaned))
         except (json.JSONDecodeError, ValueError) as exc:
             raise ValueError(
                 "final feedback judge must return a valid disposition JSON object"
             ) from exc
         return decision.model_copy(
-            update={"feedback_text": clamp_words(decision.feedback_text, max_words)}
+            update={"feedback_prompt": clamp_words(decision.feedback_prompt, max_words)}
         )
 
     def _parse_score(self, text: str) -> float:
         match = re.search(r"[-+]?(?:\d*\.\d+|\d+)", text)
         if match is None:
             return 0.0
-        score = float(match.group(0))
-        return round(max(-1.0, min(1.0, score)), 4)
+        return round(max(-1.0, min(1.0, float(match.group(0)))), 4)
+
+    def _transcript_for_prompt(self, record: DebateRecord) -> str:
+        if not record.rounds:
+            return "No completed rounds."
+        return record.render_markdown()

@@ -21,9 +21,7 @@ class ActionGraphLoader:
     ) -> tuple[dict, list[FeedbackTargetNode]]:
         graph = json.loads(path.read_text(encoding="utf-8"))
         if graph.get("schema") != self.expected_schema:
-            raise ActionGraphLoadError(
-                f"unsupported action graph schema: {graph.get('schema')!r}"
-            )
+            raise ActionGraphLoadError(f"unsupported action graph schema: {graph.get('schema')!r}")
 
         nodes_by_id = {str(node.get("id", "")): node for node in graph.get("nodes", [])}
         children_by_source: dict[str, list[str]] = {}

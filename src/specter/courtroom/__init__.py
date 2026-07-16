@@ -1,2 +1,1 @@
-"""Courtroom debate runtime."""
-
+"""Adversarial courtroom evaluation primitives."""

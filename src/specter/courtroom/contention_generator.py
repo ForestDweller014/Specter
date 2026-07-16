@@ -30,8 +30,8 @@ class InferenceContentionGenerator:
         return [
             Contention(
                 contention_id=f"{target.query_id}:contention:{index}",
-                text=clamp_words(text, config.contention_token_budget),
-                token_budget=config.contention_token_budget,
+                text=clamp_words(text, config.turn_token_budget),
+                token_budget=config.turn_token_budget,
             )
             for index, text in enumerate(texts, start=1)
         ]

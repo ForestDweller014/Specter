@@ -9,9 +9,8 @@ dist/
 build/
 *.egg-info/
 .env
-memory/feedback/*
-!memory/feedback/.gitkeep
-notebooks/results/
+artifacts/evaluations/*
+!artifacts/evaluations/.gitkeep
 
 # Graphify machine-local and transient state
 graphify-out/.graphify_python

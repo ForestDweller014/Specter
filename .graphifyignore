@@ -1,3 +1,2 @@
-# Keep the persistent graph limited to source and configuration structure.
+# Keep the architecture graph focused on executable project structure.
 *.md
-*.ipynb
