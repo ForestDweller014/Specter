@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -42,24 +44,79 @@ class FeedbackTargetNode(BaseModel):
         if self.response is None:
             return self.expert_id
         routing_metadata = self.response.get("routing_metadata") or {}
-        model = routing_metadata.get("model")
-        if model is not None:
-            return str(model)
-        return self.expert_id
+        return str(routing_metadata.get("model") or self.expert_id)
 
 
 class Contention(BaseModel):
     contention_id: str
     text: str = Field(min_length=1)
-    round_created: int = Field(default=0, ge=0)
     token_budget: int = Field(gt=0)
     status: str = "active"
 
 
 class JudgeScore(BaseModel):
-    contention_id: str
     prosecution_strength: float = Field(ge=-1.0, le=1.0)
     rationale: str = Field(min_length=1)
+
+
+class DebateRound(BaseModel):
+    round_index: int = Field(ge=1)
+    contention_text: str = Field(min_length=1)
+    defense: str = Field(min_length=1)
+    prosecution: str = Field(min_length=1)
+    judge: JudgeScore
+
+
+class DebateRecord(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
+    schema_version: str = Field(default="specter.debate_record.v1", alias="schema")
+    contention_id: str
+    initial_contention: str = Field(min_length=1)
+    turn_token_budget: int = Field(gt=0)
+    transcript_token_budget: int = Field(gt=0)
+    rounds: list[DebateRound] = Field(default_factory=list)
+
+    def render_markdown(self) -> str:
+        lines = ["# Contention", "", self.initial_contention]
+        for debate_round in self.rounds:
+            score = format(debate_round.judge.prosecution_strength, "g")
+            lines.extend(
+                [
+                    "",
+                    f"## Round {debate_round.round_index}",
+                    "",
+                    "### Contention",
+                    "",
+                    debate_round.contention_text,
+                    "",
+                    "### Defense",
+                    "",
+                    debate_round.defense,
+                    "",
+                    "### Prosecution",
+                    "",
+                    debate_round.prosecution,
+                    "",
+                    "### Judge",
+                    "",
+                    f"Score: {score}",
+                    "",
+                    "Rationale:",
+                    "",
+                    debate_round.judge.rationale,
+                ]
+            )
+        return "\n".join(lines) + "\n"
+
+    def content_hash(self) -> str:
+        canonical = json.dumps(
+            self.model_dump(mode="json", by_alias=True),
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        return hashlib.sha256(canonical).hexdigest()
 
 
 class FeedbackDisposition(StrEnum):
@@ -71,48 +128,38 @@ class FinalFeedbackDecision(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     disposition: FeedbackDisposition
-    feedback_text: str = Field(min_length=1)
+    feedback_prompt: str = Field(min_length=1)
 
 
-class DebateRoundItem(BaseModel):
-    round_index: int = Field(ge=1)
-    contention_id: str
-    contention_text: str = Field(min_length=1)
-    running_summary_before: str
-    defense: str = Field(min_length=1)
-    prosecution_rebuttal: str = Field(min_length=1)
-    judge_score: JudgeScore
-    running_summary_after: str = Field(min_length=1)
+class FeedbackProvenance(BaseModel):
+    debate_record_ref: str
+    debate_record_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    transcript_token_budget: int = Field(gt=0)
 
 
-class DebateRound(BaseModel):
-    round_index: int = Field(ge=1)
-    items: list[DebateRoundItem] = Field(default_factory=list)
-
-
-class FeedbackItem(BaseModel):
-    feedback_id: str
+class FeedbackPrompt(BaseModel):
+    evaluation_id: str
     query_id: str
     expert_id: str
     contention_id: str
-    running_debate_summary: str = Field(min_length=1)
     disposition: FeedbackDisposition
-    feedback_text: str = Field(min_length=1)
+    feedback_prompt: str = Field(min_length=1)
     prosecution_strength: float = Field(ge=-1.0, le=1.0)
     target_query: str
     target_context: str
     target_response: str
+    provenance: FeedbackProvenance
 
 
 class TargetCourtroomResult(BaseModel):
     target: FeedbackTargetNode
     contentions: list[Contention]
-    rounds: list[DebateRound]
-    feedback_items: list[FeedbackItem]
+    debate_records: list[DebateRecord]
+    feedback_prompts: list[FeedbackPrompt]
 
 
 class CourtroomRunResult(BaseModel):
-    feedback_id: str
+    evaluation_id: str
     source_trace_id: str
     root_query_id: str
     targets: list[TargetCourtroomResult]

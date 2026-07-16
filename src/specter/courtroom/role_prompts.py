@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from specter.courtroom.models import FeedbackTargetNode, JudgeScore
+from specter.courtroom.models import FeedbackTargetNode
 
 
 class CourtroomPromptBuilder:
@@ -9,24 +9,18 @@ class CourtroomPromptBuilder:
         *,
         target: FeedbackTargetNode,
         contention: str,
-        running_summary: str,
+        debate_transcript: str,
         round_index: int,
     ) -> str:
         return self._base(
             role=(
-                "You are the prosecutor: another role-conditioned instance of the "
-                "same expert model. You may revise the contention for this round, "
-                "but must preserve the same validation target and keep it bounded."
+                "You are the prosecutor. Revise the contention for this round while "
+                "preserving its identity, evidence, and validation target."
             ),
             target=target,
             round_index=round_index,
-            extra=[
-                "Previous contention:",
-                contention,
-                "Running debate summary:",
-                running_summary or "none",
-                "Return only the revised contention.",
-            ],
+            debate_transcript=debate_transcript,
+            extra=["Current contention:", contention, "Return only the revised contention."],
         )
 
     def defender(
@@ -34,24 +28,18 @@ class CourtroomPromptBuilder:
         *,
         target: FeedbackTargetNode,
         contention: str,
-        running_summary: str,
+        debate_transcript: str,
         round_index: int,
     ) -> str:
         return self._base(
             role=(
-                "You are the defender: a role-conditioned instance of the same "
-                "expert model that produced the original response. Defend the "
-                "response against the contention without modifying the contention."
+                "You are the defender. Defend the original response against the active "
+                "contention using the supplied evidence and complete prior record."
             ),
             target=target,
             round_index=round_index,
-            extra=[
-                "Contention:",
-                contention,
-                "Running debate summary:",
-                running_summary or "none",
-                "Return only the defense.",
-            ],
+            debate_transcript=debate_transcript,
+            extra=["Active contention:", contention, "Return only the defense."],
         )
 
     def prosecutor(
@@ -59,26 +47,24 @@ class CourtroomPromptBuilder:
         *,
         target: FeedbackTargetNode,
         contention: str,
-        running_summary: str,
+        debate_transcript: str,
         defense: str,
         round_index: int,
     ) -> str:
         return self._base(
             role=(
-                "You are the prosecutor: another role-conditioned instance of the "
-                "same expert model. Rebut the defense and sharpen the criticism. "
-                "You may evolve the critique, but keep the contention bounded."
+                "You are the prosecutor. Rebut the defense, preserve valid concessions, "
+                "and sharpen only evidence-supported criticism."
             ),
             target=target,
             round_index=round_index,
+            debate_transcript=debate_transcript,
             extra=[
-                "Contention:",
+                "Active contention:",
                 contention,
-                "Running debate summary:",
-                running_summary or "none",
-                "Defense:",
+                "Current defense:",
                 defense,
-                "Return only the prosecution rebuttal.",
+                "Return only the prosecution argument.",
             ],
         )
 
@@ -87,63 +73,28 @@ class CourtroomPromptBuilder:
         *,
         target: FeedbackTargetNode,
         contention: str,
-        running_summary: str,
+        debate_transcript: str,
         defense: str,
-        rebuttal: str,
+        prosecution: str,
         round_index: int,
     ) -> str:
         return self._base(
             role=(
-                "You are the judge: another role-conditioned instance of the same "
-                "expert model. Score prosecution strength from -1 to 1, where -1 "
-                "means the defense is right, 0 is mixed, and 1 means the "
-                "prosecution is right."
+                "You are the judge. Score prosecution strength from -1 to 1: -1 means "
+                "the defense prevails, 0 means neutral, mixed, or unclear, and 1 means "
+                "the prosecution prevails."
             ),
             target=target,
             round_index=round_index,
+            debate_transcript=debate_transcript,
             extra=[
-                "Contention:",
+                "Active contention:",
                 contention,
-                "Running debate summary:",
-                running_summary or "none",
-                "Defense:",
+                "Current defense:",
                 defense,
-                "Prosecution rebuttal:",
-                rebuttal,
-                "Return the score first, then a short rationale.",
-            ],
-        )
-
-    def reporter(
-        self,
-        *,
-        target: FeedbackTargetNode,
-        running_summary: str,
-        defense: str,
-        rebuttal: str,
-        judge_score: JudgeScore,
-        round_index: int,
-    ) -> str:
-        return self._base(
-            role=(
-                "You are the court reporter. Compress the debate state into a "
-                "bounded running summary while preserving the key defense, "
-                "prosecution, and judge signals."
-            ),
-            target=target,
-            round_index=round_index,
-            extra=[
-                "Prior running summary:",
-                running_summary or "none",
-                "Defense:",
-                defense,
-                "Prosecution rebuttal:",
-                rebuttal,
-                "Judge score:",
-                str(judge_score.prosecution_strength),
-                "Judge rationale:",
-                judge_score.rationale,
-                "Return only the compressed running summary.",
+                "Current prosecution:",
+                prosecution,
+                "Return the score first, followed by a concise rationale.",
             ],
         )
 
@@ -151,41 +102,29 @@ class CourtroomPromptBuilder:
         self,
         *,
         target: FeedbackTargetNode,
-        contention: str,
-        courtroom_summary: str,
-        judge_evaluations: list[tuple[int, JudgeScore]],
+        debate_transcript: str,
+        debate_record_sha256: str,
         round_index: int,
     ) -> str:
-        evaluation_lines = [
-            (
-                f"Round {evaluation_round}: score="
-                f"{evaluation.prosecution_strength}; rationale={evaluation.rationale}"
-            )
-            for evaluation_round, evaluation in judge_evaluations
-        ]
         return self._base(
             role=(
-                "You are the final feedback judge. Decide whether the completed record "
-                "establishes a specific correction to apply to the expert model. Choose "
-                "apply_correction only when the evidence supports changing the response; "
-                "choose no_correction when the defense prevails or the evidence is mixed "
-                "or insufficient. For apply_correction, write one concise, actionable, "
-                "evidence-grounded instruction. For no_correction, write one concise audit "
-                "reason. Do not mention courtroom roles, procedure, or numeric scores."
+                "You are the final feedback judge. Read the exact debate transcript and "
+                "decide whether it establishes a correction. If so, produce one concise, "
+                "instructive, declarative prompt that tells the evaluated model what to do. "
+                "Do not mention courtroom roles, procedure, scores, steering, activations, "
+                "or future model modification. If no correction is warranted, return a "
+                "concise declarative audit reason."
             ),
             target=target,
             round_index=round_index,
+            debate_transcript=debate_transcript,
             extra=[
-                "Contention:",
-                contention,
-                "Final courtroom summary:",
-                courtroom_summary,
-                "Judge evaluations:",
-                *(evaluation_lines or ["none"]),
+                "Canonical debate record SHA-256:",
+                debate_record_sha256,
                 (
                     "Return only a JSON object with exactly these keys: "
-                    '{"disposition":"apply_correction","feedback_text":"..."}. '
-                    "The disposition value must be exactly apply_correction or no_correction."
+                    '{"disposition":"apply_correction","feedback_prompt":"..."}. '
+                    "The disposition must be apply_correction or no_correction."
                 ),
             ],
         )
@@ -196,6 +135,7 @@ class CourtroomPromptBuilder:
         role: str,
         target: FeedbackTargetNode,
         round_index: int,
+        debate_transcript: str,
         extra: list[str],
     ) -> str:
         lines = [
@@ -214,6 +154,9 @@ class CourtroomPromptBuilder:
             "",
             "Original response:",
             target.response_text or "No response was attached.",
+            "",
+            "Complete debate transcript:",
+            debate_transcript,
             "",
         ]
         lines.extend(extra)

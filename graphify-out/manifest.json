@@ -1,207 +1,92 @@
 {
-  ".codex/hooks.json": {
-    "mtime": 1783732112.7269378,
-    "ast_hash": "4c131539d3d2030ce3aa64005c024518",
-    "semantic_hash": "4c131539d3d2030ce3aa64005c024518"
-  },
-  ".vscode/settings.json": {
-    "mtime": 1784098359.9051635,
-    "ast_hash": "8a6928525b2f9d4eaa9f63caece94c3e",
-    "semantic_hash": "8a6928525b2f9d4eaa9f63caece94c3e"
-  },
   "pyproject.toml": {
-    "mtime": 1784088685.722977,
-    "ast_hash": "feddc3d1636d14d6d9e3f17423076888",
-    "semantic_hash": "feddc3d1636d14d6d9e3f17423076888"
-  },
-  "scripts/install_graphify_auto_publish.py": {
-    "mtime": 1783739055.1250765,
-    "ast_hash": "ddc763342199582ba2c667479831f2cc",
-    "semantic_hash": "ddc763342199582ba2c667479831f2cc"
-  },
-  "scripts/publish_graphify_snapshot.py": {
-    "mtime": 1784141829.6224196,
-    "ast_hash": "dd196aad6c4f7cf1fb80b7a392c0138a",
-    "semantic_hash": "dd196aad6c4f7cf1fb80b7a392c0138a"
+    "mtime": 1784161108.6587496,
+    "ast_hash": "31f592b9e9efd6878c708baed27038b9",
+    "semantic_hash": "31f592b9e9efd6878c708baed27038b9"
   },
   "src/specter/__init__.py": {
-    "mtime": 1783732112.7425604,
-    "ast_hash": "9c5141b0d099e6ad68fb7baf02137ccc",
-    "semantic_hash": "9c5141b0d099e6ad68fb7baf02137ccc"
-  },
-  "src/specter/activation/__init__.py": {
-    "mtime": 1783732112.7428095,
-    "ast_hash": "09efeb5acc07dc17b727c9f576012cf8",
-    "semantic_hash": "09efeb5acc07dc17b727c9f576012cf8"
-  },
-  "src/specter/activation/activation_locator.py": {
-    "mtime": 1783998533.7965314,
-    "ast_hash": "e0a10cb13279d79987b5fefab5a5d918",
-    "semantic_hash": "e0a10cb13279d79987b5fefab5a5d918"
-  },
-  "src/specter/activation/contrast_set_builder.py": {
-    "mtime": 1784080153.5581229,
-    "ast_hash": "d4b17d3f3ca32a9b91f88e26dfe89620",
-    "semantic_hash": "d4b17d3f3ca32a9b91f88e26dfe89620"
-  },
-  "src/specter/activation/hook_runner.py": {
-    "mtime": 1783732112.7436821,
-    "ast_hash": "d75a4b5f0304d0e677a03897b2f49583",
-    "semantic_hash": "d75a4b5f0304d0e677a03897b2f49583"
-  },
-  "src/specter/activation/models.py": {
-    "mtime": 1784152269.3469586,
-    "ast_hash": "0c3b44286836f49b6e554959990e3a50",
-    "semantic_hash": ""
-  },
-  "src/specter/activation/transformerlens_adapter.py": {
-    "mtime": 1784091039.1156182,
-    "ast_hash": "7cef73b03b1db44f7d54a4da2308a897",
-    "semantic_hash": "7cef73b03b1db44f7d54a4da2308a897"
-  },
-  "src/specter/activation/transformerlens_locator.py": {
-    "mtime": 1784152269.3480122,
-    "ast_hash": "3471360ba96fda8fe066b4c2d1754e68",
-    "semantic_hash": ""
+    "mtime": 1784161108.658991,
+    "ast_hash": "c83ab890bf11c399e820903306c88c61",
+    "semantic_hash": "c83ab890bf11c399e820903306c88c61"
   },
   "src/specter/artifacts.py": {
-    "mtime": 1784152252.7812479,
-    "ast_hash": "64cc94b9e951221a96fa14f4d702bab5",
-    "semantic_hash": ""
+    "mtime": 1784161346.564905,
+    "ast_hash": "2d6581d2e421d4e3242bce0c7e945ab7",
+    "semantic_hash": "2d6581d2e421d4e3242bce0c7e945ab7"
   },
   "src/specter/cli.py": {
-    "mtime": 1784080153.555097,
-    "ast_hash": "631ef52183a96fb444e27094ecc71267",
-    "semantic_hash": "631ef52183a96fb444e27094ecc71267"
+    "mtime": 1784161346.565383,
+    "ast_hash": "b3bda4e98fb1bf969dfc5953bd156bb3",
+    "semantic_hash": "b3bda4e98fb1bf969dfc5953bd156bb3"
   },
   "src/specter/config.py": {
-    "mtime": 1784080153.5534759,
-    "ast_hash": "a24805e9bc22e14c63a9c6f29c89c90e",
-    "semantic_hash": "a24805e9bc22e14c63a9c6f29c89c90e"
+    "mtime": 1784161108.6592965,
+    "ast_hash": "35275cd3f91ce4b0d8ccfe784c61d0a7",
+    "semantic_hash": "35275cd3f91ce4b0d8ccfe784c61d0a7"
   },
   "src/specter/courtroom/__init__.py": {
-    "mtime": 1783732112.7450604,
-    "ast_hash": "616ff10fd9fe0c66f685af9d876ff047",
-    "semantic_hash": "616ff10fd9fe0c66f685af9d876ff047"
+    "mtime": 1784161108.6591775,
+    "ast_hash": "dbfd715292fd8380f0c65ac60d009a86",
+    "semantic_hash": "dbfd715292fd8380f0c65ac60d009a86"
   },
   "src/specter/courtroom/contention_generator.py": {
-    "mtime": 1783998891.9349544,
-    "ast_hash": "dd8331629290e9573f6a583cb51b4786",
-    "semantic_hash": "dd8331629290e9573f6a583cb51b4786"
+    "mtime": 1784161108.6604788,
+    "ast_hash": "410786192c55d99c533843b70a81fde7",
+    "semantic_hash": "410786192c55d99c533843b70a81fde7"
   },
   "src/specter/courtroom/debate_runner.py": {
-    "mtime": 1784152241.570403,
-    "ast_hash": "000910dbdcbb8f24aaa9a049720da667",
-    "semantic_hash": ""
+    "mtime": 1784161108.6599102,
+    "ast_hash": "9f293ff98cf4135249e5c9c2a4ceb7a0",
+    "semantic_hash": "9f293ff98cf4135249e5c9c2a4ceb7a0"
   },
   "src/specter/courtroom/models.py": {
-    "mtime": 1784152498.631986,
-    "ast_hash": "f658c73d46a358647a3d069446c4c3fc",
-    "semantic_hash": ""
+    "mtime": 1784161206.9372413,
+    "ast_hash": "c0e4283b16ca19a35b86fb15edf2a8ec",
+    "semantic_hash": "c0e4283b16ca19a35b86fb15edf2a8ec"
   },
   "src/specter/courtroom/role_prompts.py": {
-    "mtime": 1784152498.6323688,
-    "ast_hash": "c33fd0abf78934bc26642ac40ad5e486",
-    "semantic_hash": ""
+    "mtime": 1784161108.659675,
+    "ast_hash": "0cc489be427bd02a5d806e4a7b1048a2",
+    "semantic_hash": "0cc489be427bd02a5d806e4a7b1048a2"
   },
   "src/specter/dullahan_inference.py": {
-    "mtime": 1783999021.677542,
+    "mtime": 1784160891.9261081,
     "ast_hash": "78499d798b266f9fc6563e864037e7d8",
     "semantic_hash": "78499d798b266f9fc6563e864037e7d8"
   },
-  "src/specter/feedback/__init__.py": {
-    "mtime": 1783732112.7459018,
-    "ast_hash": "3ba9167d2e6ffa55a90e7a3c1e8b67be",
-    "semantic_hash": "3ba9167d2e6ffa55a90e7a3c1e8b67be"
-  },
-  "src/specter/feedback/apply_cli.py": {
-    "mtime": 1783732112.7461648,
-    "ast_hash": "694e48ca0ff1225987a7295db9d13b90",
-    "semantic_hash": "694e48ca0ff1225987a7295db9d13b90"
-  },
-  "src/specter/feedback/apply_models.py": {
-    "mtime": 1784152282.5561109,
-    "ast_hash": "9c5ffe77814d17209b78f089b3300f2d",
-    "semantic_hash": ""
-  },
-  "src/specter/feedback/apply_runtime.py": {
-    "mtime": 1784152389.2076735,
-    "ast_hash": "0841516368c77d332260824f6eb31b0f",
-    "semantic_hash": ""
-  },
-  "src/specter/feedback/feedback_loader.py": {
-    "mtime": 1784152252.781812,
-    "ast_hash": "41fa974edf53ffc804c6759111f892ce",
-    "semantic_hash": ""
-  },
-  "src/specter/feedback/localize_cli.py": {
-    "mtime": 1784152269.3491583,
-    "ast_hash": "9af3e4416a873c9479e700a035c3e06d",
-    "semantic_hash": ""
-  },
-  "src/specter/feedback/models.py": {
-    "mtime": 1784152282.555465,
-    "ast_hash": "05273f1803863b87d72f4d2e807e799a",
-    "semantic_hash": ""
-  },
-  "src/specter/feedback/plan_builder.py": {
-    "mtime": 1784152282.556791,
-    "ast_hash": "918604eb109b342370b95d1f50df4a74",
-    "semantic_hash": ""
-  },
-  "src/specter/feedback/run_hooks_cli.py": {
-    "mtime": 1783732112.7472293,
-    "ast_hash": "9d7eed30ad4a4d4115d7671176c87de6",
-    "semantic_hash": "9d7eed30ad4a4d4115d7671176c87de6"
-  },
   "src/specter/graph_loader.py": {
-    "mtime": 1783732112.747375,
-    "ast_hash": "e191d5cd5b6b7561a75da109868a58bd",
-    "semantic_hash": "e191d5cd5b6b7561a75da109868a58bd"
+    "mtime": 1784161346.5647824,
+    "ast_hash": "27eaf303683d3a6d1a705e8c3bc8f3e3",
+    "semantic_hash": "27eaf303683d3a6d1a705e8c3bc8f3e3"
   },
   "src/specter/ids.py": {
-    "mtime": 1783732112.7476342,
-    "ast_hash": "248d583767571c4c9f1f4df906501312",
-    "semantic_hash": "248d583767571c4c9f1f4df906501312"
+    "mtime": 1784161346.5647435,
+    "ast_hash": "eef6d75c4e2b0b9048eee29289f3d673",
+    "semantic_hash": "eef6d75c4e2b0b9048eee29289f3d673"
   },
   "src/specter/model_provider.py": {
-    "mtime": 1783999088.618576,
+    "mtime": 1784160891.925394,
     "ast_hash": "be9c9e02bccabc3e00b0642f8c48465c",
     "semantic_hash": "be9c9e02bccabc3e00b0642f8c48465c"
   },
   "src/specter/text.py": {
-    "mtime": 1783999021.6768491,
+    "mtime": 1784160891.92698,
     "ast_hash": "59102e2592992591f610c28c465c110e",
     "semantic_hash": "59102e2592992591f610c28c465c110e"
   },
-  "tests/test_benchmark_notebook.py": {
-    "mtime": 1784139756.2894554,
-    "ast_hash": "0a93961983e8fde6e65be4a561eeb412",
-    "semantic_hash": "0a93961983e8fde6e65be4a561eeb412"
-  },
-  "tests/test_graphify_auto_publish.py": {
-    "mtime": 1784141812.9140997,
-    "ast_hash": "24d0a41f119c639fb8a278ef5e125fa9",
-    "semantic_hash": "24d0a41f119c639fb8a278ef5e125fa9"
-  },
   "tests/test_model_provider.py": {
-    "mtime": 1783998958.8967824,
+    "mtime": 1784160891.9308965,
     "ast_hash": "53bee0eed4e6f90cfc8ee5bfd02016ae",
     "semantic_hash": "53bee0eed4e6f90cfc8ee5bfd02016ae"
   },
-  "tests/test_real_inference.py": {
-    "mtime": 1784152475.7005177,
-    "ast_hash": "7d5495256567c489957f630d36243f47",
-    "semantic_hash": ""
-  },
   "tests/test_specter.py": {
-    "mtime": 1784152498.6329837,
-    "ast_hash": "1501c3d8baa43b0a78f89c68d30cc719",
-    "semantic_hash": ""
+    "mtime": 1784161346.5651417,
+    "ast_hash": "be0e47a1ba9e3c034360d494ec452998",
+    "semantic_hash": "be0e47a1ba9e3c034360d494ec452998"
   },
-  "tests/test_transformerlens_adapter.py": {
-    "mtime": 1784091039.116396,
-    "ast_hash": "e3251d73c1fadea714f9272e21c89d76",
-    "semantic_hash": "e3251d73c1fadea714f9272e21c89d76"
+  ".github/workflows/ci.yml": {
+    "mtime": 1784161580.8742838,
+    "ast_hash": "22e9215de77213eac90602c75984d434",
+    "semantic_hash": ""
   }
 }
